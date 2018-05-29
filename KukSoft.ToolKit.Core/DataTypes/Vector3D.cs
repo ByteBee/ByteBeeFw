@@ -25,6 +25,7 @@ namespace KukSoft.ToolKit.DataTypes
 
         public Vector3D(double[] a) : this(a[0], a[1], a[2]) { }
         public Vector3D(Vector3D v) : this(v.X, v.Y, v.Z) { }
+        public Vector3D(Tuple<double, double, double> t) : this(t.Item1, t.Item2, t.Item3) { }
 
         public bool Equals(Vector3D v) => IsEqual(v);
 
@@ -33,6 +34,8 @@ namespace KukSoft.ToolKit.DataTypes
         public static implicit operator Vector3D(Vector2D v) => new Vector3D(v.X, v.Y, 0);
         public static implicit operator Vector3D(Vector4D v) => new Vector3D(v.X, v.Y, v.Z);
         public static implicit operator double[] (Vector3D v) => new[] { v.X, v.Y, v.Z };
+        public static implicit operator Tuple<double, double, double>(Vector3D v)
+            => new Tuple<double, double, double>(v.X, v.Y, v.Z);
 
         public double this[int index]
         {
@@ -72,7 +75,7 @@ namespace KukSoft.ToolKit.DataTypes
         public Vector3D Round(int precision)
             => new Vector3D(Math.Round(X, precision), Math.Round(Y, precision), Math.Round(Z, precision));
 
-        public double Length => Math.Sqrt(X * X + Y * Y+ Z * Z);
+        public double Length => Math.Sqrt(X * X + Y * Y + Z * Z);
 
         public bool IsEqual(Vector3D v) => IsEqual(v, Epsilon);
         public bool IsZero => IsEqual(this, Epsilon);

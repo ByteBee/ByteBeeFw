@@ -28,6 +28,7 @@ namespace KukSoft.ToolKit.DataTypes
 
         public Vector4D(double[] a) : this(a[0], a[1], a[2], a[3]) { }
         public Vector4D(Vector4D v) : this(v.W, v.X, v.Y, v.Z) { }
+        public Vector4D(Tuple<double, double, double, double> t) : this(t.Item1, t.Item2, t.Item3, t.Item4) { }
 
         public bool Equals(Vector4D v) => IsEqual(v);
 
@@ -36,6 +37,9 @@ namespace KukSoft.ToolKit.DataTypes
         public static implicit operator Vector4D(Vector2D v) => new Vector4D(0, v.X, v.Y, 0);
         public static implicit operator Vector4D(Vector3D v) => new Vector4D(0, v.X, v.Y, v.Z);
         public static implicit operator double[] (Vector4D v) => new[] { v.W, v.X, v.Y, v.Z };
+
+        public static implicit operator Tuple<double, double, double, double>(Vector4D v)
+            => new Tuple<double, double, double, double>(v.W, v.X, v.Y, v.Z);
 
         public double this[int index]
         {

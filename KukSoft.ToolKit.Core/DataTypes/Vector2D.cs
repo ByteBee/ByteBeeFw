@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace KukSoft.ToolKit.DataTypes
 {
@@ -22,6 +23,8 @@ namespace KukSoft.ToolKit.DataTypes
 
         public Vector2D(double[] a) : this(a[0], a[1]) { }
         public Vector2D(Vector2D v) : this(v.X, v.Y) { }
+        public Vector2D(Tuple<double, double> t) : this(t.Item1, t.Item2) { }
+        public Vector2D(KeyValuePair<double, double> t) : this(t.Key, t.Value) { }
 
         public bool Equals(Vector2D v) => IsEqual(v);
 
@@ -30,6 +33,8 @@ namespace KukSoft.ToolKit.DataTypes
         public static implicit operator Vector2D(Vector3D v) => new Vector2D(v.X, v.Y);
         public static implicit operator Vector2D(Vector4D v) => new Vector2D(v.X, v.Y);
         public static implicit operator double[] (Vector2D v) => new[] { v.X, v.Y };
+        public static implicit operator Tuple<double, double>(Vector2D v) => new Tuple<double, double>(v.X, v.Y);
+        public static implicit operator KeyValuePair<double, double>(Vector2D v) => new KeyValuePair<double, double>(v.X, v.Y);
 
         public double this[int index]
         {
