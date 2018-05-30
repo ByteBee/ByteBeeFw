@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audit\AuditorTest.cs" />
+    <Compile Include="Audit\FakeAudit.cs" />
     <Compile Include="DataTypes\Vector2Test.cs" />
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />

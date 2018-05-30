@@ -1,4 +1,5 @@
-﻿using KukSoft.ToolKit.DataTypes;
+﻿using KukSoft.ToolKit.Audit;
+using KukSoft.ToolKit.DataTypes;
 using KukSoft.ToolKit.Logger;
 using KukSoft.ToolKit.MessageBus;
 using System.Runtime.CompilerServices;
@@ -23,5 +24,9 @@ namespace KukSoft.ToolKit
 
         public static ILogStrategyFactory LogStrategies
             => LogStrategyFactory.Instance;
+
+        public static IAuditor<TObject> Auditor<TObject>()
+            => new Auditor<TObject>();
+
     }
 }
