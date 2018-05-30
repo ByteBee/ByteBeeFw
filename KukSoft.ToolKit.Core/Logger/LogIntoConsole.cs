@@ -2,7 +2,7 @@
 
 namespace KukSoft.ToolKit.Logger
 {
-    public class LogIntoConsole : LogIntoStream
+    class LogIntoConsole : LogIntoStream
     {
         public LogIntoConsole(ILogFormatter formatter) : base(Console.Out, formatter)
         {

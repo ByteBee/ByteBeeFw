@@ -1,9 +1,9 @@
 ﻿using KukSoft.ToolKit.Logger;
-using KukSoft.ToolKit.Logger.Handler;
+using KukSoft.ToolKit.Logger.Public;
 using Ninject;
 using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Tests.Logger
+namespace KukSoft.ToolKit.Logger.Tests
 {
     public class MyLogFormatter : ILogFormatter
     {

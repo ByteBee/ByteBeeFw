@@ -2,7 +2,7 @@
 
 namespace KukSoft.ToolKit.MessageBus
 {
-    public class MessageBusAsync : MessageBusBase
+    class MessageBusAsync : MessageBusBase
     {
         protected override void Invoke<TMessage>(TMessage message, IHandle<TMessage> subscriber)
         {

@@ -1,6 +1,6 @@
 ﻿namespace KukSoft.ToolKit.Logger
 {
-    public class LogIntoMemory : ILogStrategy
+    class LogIntoMemory : ILogStrategy
     {
         private readonly ILogFormatter _loggerFormatter;
         public string LogMessageStore { get; set; } = string.Empty;

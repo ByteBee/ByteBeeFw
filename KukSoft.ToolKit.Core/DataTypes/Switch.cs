@@ -2,7 +2,7 @@
 
 namespace KukSoft.ToolKit.DataTypes
 {
-    public class Switch<TObject> : ISwitch<TObject>
+    class Switch<TObject> : ISwitch<TObject>
     {
         private TObject _object;
         private bool _anyTrueCase;

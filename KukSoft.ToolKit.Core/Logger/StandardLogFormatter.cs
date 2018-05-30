@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KukSoft.ToolKit.Logger
 {
-    public class StandardLogFormatter : ILogFormatter
+    class StandardLogFormatter : ILogFormatter
     {
         public string Format(LogMessage message)
         {

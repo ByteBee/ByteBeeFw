@@ -1,6 +1,9 @@
 ﻿using KukSoft.ToolKit.DataTypes;
 using KukSoft.ToolKit.Logger;
 using KukSoft.ToolKit.MessageBus;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("KukSoft.ToolKit.Public")]
 
 namespace KukSoft.ToolKit
 {
@@ -17,5 +20,8 @@ namespace KukSoft.ToolKit
 
         public static ILogger Logger(ILogStrategy[] handler)
             => new StandardLogger(handler);
+
+        public static ILogStrategyFactory LogStrategies
+            => LogStrategyFactory.Instance;
     }
 }

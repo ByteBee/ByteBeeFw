@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KukSoft.ToolKit.Tests.Logger
+namespace KukSoft.ToolKit.Logger.Tests
 {
     class FakeManager
     {
