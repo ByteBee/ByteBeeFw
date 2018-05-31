@@ -3,23 +3,9 @@ using System.IO;
 
 namespace KukSoft.ToolKit.Logger
 {
-    public class LogStrategyFactory : ILogStrategyFactory
+    class LogStrategyFactory : ILogStrategyFactory
     {
-        private static ILogStrategyFactory _instance;
-
-        public static ILogStrategyFactory Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new LogStrategyFactory();
-                }
-                return _instance;
-            }
-        }
-
-        private LogStrategyFactory() { }
+        public LogStrategyFactory() { }
 
         public ILogStrategy Callback(Action<string> callback)
             => new LogIntoCallback(callback);

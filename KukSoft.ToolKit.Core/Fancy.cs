@@ -22,9 +22,8 @@ namespace KukSoft.ToolKit
         public static ILogger Logger(ILogStrategy[] handler)
             => new StandardLogger(handler);
 
-        public static ILogStrategyFactory LogStrategies
-            => LogStrategyFactory.Instance;
-
+        public static ILogStrategyFactory LogStrategies { get; } = new LogStrategyFactory();
+            
         public static IAuditor<TObject> Auditor<TObject>()
             => new AuditorImpl<TObject>();
 

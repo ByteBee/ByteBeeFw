@@ -32,7 +32,7 @@ namespace KukSoft.ToolKit.Audit.Tests
             {
                 try
                 {
-                    var a = new FakeAudit();
+                    var a = new VectorAuditorStub();
                     a.Audit(new Vector2D(-2, -4));
                 }
                 catch (AuditException ex)
@@ -52,9 +52,9 @@ namespace KukSoft.ToolKit.Audit.Tests
                 {
                     Fancy.Auditor<Vector2D>()
                        .MustPass(v => v.X > 2, "X muss größer als 2 sein")
-                       .SubSequence(new FakeAudit(), new Vector2D(-2, -4), "Werte sollen positiv sein")
+                       .SubSequence(new VectorAuditorStub(), new Vector2D(-2, -4), "Werte sollen positiv sein")
                        .MustFail(v => v.Y == 4, "Y ist 4")
-                       .SubSequence(new FakeAudit(), new Vector2D(-2, 4), "Werte sollen positiv sein")
+                       .SubSequence(new VectorAuditorStub(), new Vector2D(-2, 4), "Werte sollen positiv sein")
                        .Audit(new Vector2D(2, 4));
                 }
                 catch (AuditException ex)
@@ -63,6 +63,24 @@ namespace KukSoft.ToolKit.Audit.Tests
                     throw;
                 }
             });
+        }
+
+        class VectorAuditorStub : Auditor<Vector2D>
+        {
+            protected override void Checklist(Vector2D obj)
+            {
+                MustPass(v => v.Y > 0, "Y muss positiv sein");
+                MustPass(v => v.X > 0, "X muss positiv sein");
+
+                SubSequence(new VectorAuditorNotNegativeStub(), 42, "hallo");
+            }
+        }
+        class VectorAuditorNotNegativeStub : Auditor<int>
+        {
+            protected override void Checklist(int zahl)
+            {
+                MustPass(i => i < 0, "zahl muss negativ sein.");
+            }
         }
     }
 }
