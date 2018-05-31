@@ -57,7 +57,7 @@ namespace KukSoft.ToolKit.Audit
         {
             other.Audit(obj, false);
 
-            var fails = other.GetFailures();
+            IReadOnlyList<IAuditFailure> fails = other.GetFailures();
             if (fails.Any())
             {
                 var failure = new AuditFailure(message, fails);

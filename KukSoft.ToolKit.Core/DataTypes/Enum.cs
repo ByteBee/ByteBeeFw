@@ -22,13 +22,13 @@ namespace KukSoft.ToolKit.DataTypes
         private static readonly Lazy<TEnum[]> _allLazyMembers = new Lazy<TEnum[]>(() =>
         {
             Type t = typeof(TEnum);
-            var publicStatic = BindingFlags.Public | BindingFlags.Static;
+            BindingFlags publicStatic = BindingFlags.Public | BindingFlags.Static;
 
-            var ofProp = t.GetProperties(publicStatic)
+            IEnumerable<TEnum> ofProp = t.GetProperties(publicStatic)
                 .Where(p => t.IsAssignableFrom(p.PropertyType))
                 .Select(i => (TEnum)i.GetValue(null));
 
-            var ofField = t.GetFields(publicStatic)
+            IEnumerable<TEnum> ofField = t.GetFields(publicStatic)
                 .Where(f => t.IsAssignableFrom(f.FieldType))
                 .Select(i => (TEnum)i.GetValue(null));
 
@@ -52,7 +52,7 @@ namespace KukSoft.ToolKit.DataTypes
         {
             Fancy.Guard.AgainstNullOrWhiteSpace(name, nameof(name));
 
-            var result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
+            TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)
             {
                 throw new EnumNotFoundException($"No {typeof(TEnum).Name} with Name \"{name}\" found.");
@@ -62,7 +62,7 @@ namespace KukSoft.ToolKit.DataTypes
 
         public static TEnum ByValue(TValue value)
         {
-            var result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
+            TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
             if (result == null)
             {
                 throw new EnumNotFoundException($"No {typeof(TEnum).Name} with Value {value} found.");
@@ -72,7 +72,7 @@ namespace KukSoft.ToolKit.DataTypes
 
         public static TEnum ByValue(TValue value, TEnum defaultValue)
         {
-            var result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
+            TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
             if (result == null)
             {
                 result = defaultValue;

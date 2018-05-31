@@ -145,7 +145,7 @@ namespace KukSoft.ToolKit.DataTypes.Tests
         [Test]
         public void ReturnsDefaultEnumGivenNonMatchingValue()
         {
-            var defaultEnum = FooEnum.One;
+            FooEnum defaultEnum = FooEnum.One;
 
             Assert.AreEqual(defaultEnum, FooEnum.ByValue(-1, defaultEnum));
         }
