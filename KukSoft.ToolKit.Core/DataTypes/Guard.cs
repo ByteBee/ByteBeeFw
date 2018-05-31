@@ -12,26 +12,20 @@ namespace KukSoft.ToolKit.DataTypes
     {
     }
 
-    public static class guardExtensions
+    public static class GuardExtensions
     {
         /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
         public static void AgainstNull(this IGuard guard, object input, string parameterName)
-        {
-            if (null == input)
-            {
-                throw new ArgumentNullException(parameterName);
-            }
-        }
+            => Throws<ArgumentNullException>(guard, input == null, parameterName);
 
         /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
         /// <exception cref="ArgumentException">Throws if <see cref="input" /> is an empty string.</exception>
         public static void AgainstNullOrEmpty(this IGuard guard, string input, string parameterName)
         {
-            AgainstNull(guard,input, parameterName);
-            if (input == String.Empty)
-            {
-                throw new ArgumentException($"Required input {parameterName} was empty.", parameterName);
-            }
+            AgainstNull(guard, input, parameterName);
+            Throws<ArgumentException>(guard,
+                () => input == string.Empty,
+                $"Required input {parameterName} was empty.");
         }
 
         /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
@@ -39,25 +33,20 @@ namespace KukSoft.ToolKit.DataTypes
         public static void AgainstNullOrWhiteSpace(this IGuard guard, string input, string parameterName)
         {
             AgainstNullOrEmpty(guard, input, parameterName);
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                throw new ArgumentException($"Required input {parameterName} was empty.", parameterName);
-            }
+            Throws<ArgumentException>(guard,
+                () => string.IsNullOrWhiteSpace(input),
+                $"Required input {parameterName} was empty.");
         }
 
         /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
         public static void AgainstOutOfRange(this IGuard guard, int input, string parameterName, int rangeFrom, int rangeTo)
-        {
-            AgainstOutOfRange<int>(guard, input, parameterName, rangeFrom, rangeTo);
-        }
+            => AgainstOutOfRange<int>(guard, input, parameterName, rangeFrom, rangeTo);
 
         /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
         public static void AgainstOutOfRange(this IGuard guard, DateTime input, string parameterName, DateTime rangeFrom, DateTime rangeTo)
-        {
-            AgainstOutOfRange<DateTime>(guard, input, parameterName, rangeFrom, rangeTo);
-        }
+            => AgainstOutOfRange<DateTime>(guard, input, parameterName, rangeFrom, rangeTo);
 
         /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
@@ -74,14 +63,25 @@ namespace KukSoft.ToolKit.DataTypes
         {
             Comparer<T> comparer = Comparer<T>.Default;
 
-            if (comparer.Compare(rangeFrom, rangeTo) > 0)
-            {
-                throw new ArgumentException($"{nameof(rangeFrom)} should be less or equal than {nameof(rangeTo)}");
-            }
+            Throws<ArgumentException>(guard,
+                () => comparer.Compare(rangeFrom, rangeTo) > 0,
+                $"{nameof(rangeFrom)} should be less or equal than {nameof(rangeTo)}");
 
-            if (comparer.Compare(input, rangeFrom) < 0 || comparer.Compare(input, rangeTo) > 0)
+            Throws<ArgumentOutOfRangeException>(guard,
+                () => comparer.Compare(input, rangeFrom) < 0 || comparer.Compare(input, rangeTo) > 0,
+                $"Input {parameterName} was out of range");
+        }
+
+        /// <exception cref="TException"></exception>
+        public static void Throws<TException>(this IGuard guard, Func<bool> condition, string message) where TException : Exception
+            => Throws<TException>(guard, condition(), message);
+
+        /// <exception cref="TException"></exception>
+        public static void Throws<TException>(this IGuard guard, bool condition, string message) where TException : Exception
+        {
+            if (condition)
             {
-                throw new ArgumentOutOfRangeException($"Input {parameterName} was out of range", parameterName);
+                throw (TException)Activator.CreateInstance(typeof(TException), message);
             }
         }
     }
