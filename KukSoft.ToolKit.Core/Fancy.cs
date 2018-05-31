@@ -26,7 +26,7 @@ namespace KukSoft.ToolKit
             => LogStrategyFactory.Instance;
 
         public static IAuditor<TObject> Auditor<TObject>()
-            => new Auditor<TObject>();
+            => new AuditorImpl<TObject>();
 
     }
 }

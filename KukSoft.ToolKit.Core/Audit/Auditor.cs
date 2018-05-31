@@ -1,11 +1,15 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace KukSoft.ToolKit.Audit
 {
-    class Auditor<TObject> : IAuditor<TObject>
+    class AuditorImpl<TObject> : Auditor<TObject>
+    {
+        protected override void Checklist(TObject obj) { }
+    }
+
+    public abstract class Auditor<TObject> : IAuditor<TObject>
     {
         private IList<AuditSchema<TObject>> _checkList = new List<AuditSchema<TObject>>();
         private IList<IAuditFailure> _failures = new List<IAuditFailure>();
@@ -15,16 +19,21 @@ namespace KukSoft.ToolKit.Audit
             _checkList.Add(new AuditSchema<TObject>(check, new AuditFailure(message), true));
             return this;
         }
+
         public IAuditor<TObject> MustFail(Func<TObject, bool> check, string message)
         {
             _checkList.Add(new AuditSchema<TObject>(check, new AuditFailure(message), false));
             return this;
         }
 
+        protected abstract void Checklist(TObject obj);
+
         public void Audit(TObject obj) => Audit(obj, true);
 
         public void Audit(TObject obj, bool crashOnError)
         {
+            Checklist(obj);
+
             foreach (AuditSchema<TObject> schema in _checkList)
             {
                 if (schema.IsPositive && !schema.Assert(obj))
@@ -51,7 +60,9 @@ namespace KukSoft.ToolKit.Audit
             var fails = other.GetFailures();
             if (fails.Any())
             {
-                _failures.Add(new AuditFailure(message, fails));
+                var failure = new AuditFailure(message, fails);
+
+                _checkList.Add(new AuditSchema<TObject>(o => true, failure, false));
             }
 
             return this;

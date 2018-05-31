@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KukSoft.ToolKit.Audit.Tests
 {
-    class FakeAudit : Audit.Public.Auditor<Vector2D>
+    class FakeAudit : Auditor<Vector2D>
     {
         protected override void Checklist(Vector2D obj)
         {
@@ -17,7 +17,7 @@ namespace KukSoft.ToolKit.Audit.Tests
             SubSequence(new FakeAudit2(), 42, "hallo");
         }
     }
-    class FakeAudit2 : Audit.Public.Auditor<int>
+    class FakeAudit2 :Auditor<int>
     {
         protected override void Checklist(int zahl)
         {
