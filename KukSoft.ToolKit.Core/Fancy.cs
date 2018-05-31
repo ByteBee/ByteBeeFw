@@ -13,17 +13,13 @@ namespace KukSoft.ToolKit
         public static ISwitch<TObject> Switch<TObject>(TObject obj)
             => new Switch<TObject>(obj);
 
-        public static IMessageBus MessageBus(bool useAsynchron = false) 
+        public static IMessageBus MessageBus(bool useAsynchron = false)
             => useAsynchron ? new MessageBusAsync() : new MessageBusSeq() as IMessageBus;
 
-        public static ILogger Logger(ILogStrategy handler)
-            => Logger(new[] { handler });
-
-        public static ILogger Logger(ILogStrategy[] handler)
-            => new StandardLogger(handler);
+        public static ILogger Logger { get; } = new StandardLogger();
 
         public static ILogStrategyFactory LogStrategies { get; } = new LogStrategyFactory();
-            
+
         public static IAuditor<TObject> Auditor<TObject>()
             => new AuditorImpl<TObject>();
 

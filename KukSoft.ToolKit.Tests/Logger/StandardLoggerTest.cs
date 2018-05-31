@@ -11,7 +11,7 @@ namespace KukSoft.ToolKit.Logger.Tests
         {
             var m = new FakeManager();
 
-            ILogger logger = Fancy.Logger(Fancy.LogStrategies.Console());
+            Fancy.Logger.Register(Fancy.LogStrategies.Console());
 
             try
             {
@@ -19,7 +19,7 @@ namespace KukSoft.ToolKit.Logger.Tests
             }
             catch (Exception ex)
             {
-                logger.Error("Big Bang!", ex);
+                Fancy.Logger.Error("Big Bang!", ex);
             }
         }
     }

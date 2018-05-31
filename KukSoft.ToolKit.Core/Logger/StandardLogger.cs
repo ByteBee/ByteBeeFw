@@ -11,10 +11,11 @@ namespace KukSoft.ToolKit.Logger
 
         public LogLevel DefaultLogLevel { get; set; } = LogLevel.Info;
 
+        public StandardLogger()
+            => _logStrategies = new ConcurrentBag<ILogStrategy>();
+
         public StandardLogger(ILogStrategy[] strategies)
-        {
-            _logStrategies = new ConcurrentBag<ILogStrategy>(strategies);
-        }
+            => _logStrategies = new ConcurrentBag<ILogStrategy>(strategies);
 
         public void Register(ILogStrategy strategy)
             => _logStrategies.Add(strategy);
@@ -44,7 +45,7 @@ namespace KukSoft.ToolKit.Logger
 
         public void Log(LogLevel level, string message, Exception ex)
             => Log(new LogMessage(level, message, ex));
-               
+
         public void TurnOff()
             => _isTurnedOff = true;
 
