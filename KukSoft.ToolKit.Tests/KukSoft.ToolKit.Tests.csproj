@@ -54,6 +54,7 @@
     <Compile Include="DataTypes\EnumTest.cs" />
     <Compile Include="DataTypes\GuardTest.cs" />
     <Compile Include="DataTypes\Vector2Test.cs" />
+    <Compile Include="Extensions\StringExtTests.cs" />
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />

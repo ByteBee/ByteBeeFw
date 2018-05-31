@@ -3,7 +3,7 @@ using System.Text;
 
 namespace KukSoft.ToolKit.Extension
 {
-    public static class StringEx
+    public static class StringExt
     {
         public static bool IsNullOrEmpty(this string text)
             => string.IsNullOrWhiteSpace(text);
