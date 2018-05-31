@@ -27,5 +27,6 @@ namespace KukSoft.ToolKit
         public static IAuditor<TObject> Auditor<TObject>()
             => new AuditorImpl<TObject>();
 
+        public static IGuard Guard { get; } = new Guard();
     }
 }
