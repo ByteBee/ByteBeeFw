@@ -32,7 +32,7 @@ namespace KukSoft.ToolKit.DataTypes
                 .Where(f => t.IsAssignableFrom(f.FieldType))
                 .Select(i => (TEnum)i.GetValue(null));
 
-            return ofProp.Union(ofField).OrderBy(e => e.Name).ToArray();
+            return ofProp.Union(ofField).OrderBy(e => e.Value).ToArray();
         });
 
         public static TEnum[] GetAll() => _allLazyMembers.Value;
@@ -45,6 +45,7 @@ namespace KukSoft.ToolKit.DataTypes
             Name = name;
             Value = value;
         }
+
         protected Enum() { }
 
         public static TEnum ByName(string name)
