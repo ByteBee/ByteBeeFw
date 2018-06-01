@@ -59,6 +59,7 @@
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\CryptographyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KukSoft.ToolKit.Core\KukSoft.ToolKit.Core.csproj">
@@ -72,6 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

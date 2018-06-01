@@ -2,6 +2,7 @@
 using KukSoft.ToolKit.DataTypes;
 using KukSoft.ToolKit.Logger;
 using KukSoft.ToolKit.MessageBus;
+using KukSoft.ToolKit.Security;
 using KukSoft.ToolKit.Utilities;
 using System.Runtime.CompilerServices;
 
@@ -27,5 +28,7 @@ namespace KukSoft.ToolKit
         public static IGuard Guard { get; } = new Guard();
 
         public static IInflector Inflector { get; } = new Inflector();
+
+        public static ICipherFactory Cipher => new CipherFactory();
     }
 }
