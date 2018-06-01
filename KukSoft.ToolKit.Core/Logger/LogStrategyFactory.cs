@@ -22,6 +22,12 @@ namespace KukSoft.ToolKit.Logger
         public ILogStrategy Console(ILogFormatter formatter)
             => new LogIntoConsole(formatter);
 
+        public ILogStrategy IfDebug()
+            => new LogOnlyForDebug();
+
+        public ILogStrategy IfDebug(ILogFormatter formatter)
+            => new LogOnlyForDebug(formatter);
+
         public ILogStrategy Filter(LogLevel level, ILogStrategy other)
             => new LogLevelFilter(level, other);
 

@@ -11,6 +11,9 @@ namespace KukSoft.ToolKit.Logger
         ILogStrategy Console();
         ILogStrategy Console(ILogFormatter formatter);
 
+        ILogStrategy IfDebug();
+        ILogStrategy IfDebug(ILogFormatter formatter);
+
         ILogStrategy Memory();
         ILogStrategy Memory(ILogFormatter formatter);
 
