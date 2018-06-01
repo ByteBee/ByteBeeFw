@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace KukSoft.ToolKit.DataTypes
+namespace KukSoft.ToolKit.Utilities
 {
     public interface IGuard
     {

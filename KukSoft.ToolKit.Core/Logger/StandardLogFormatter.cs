@@ -8,7 +8,7 @@ namespace KukSoft.ToolKit.Logger
     {
         public string Format(LogMessage message)
         {
-            string preamble = $"[{message.TimeOfDay} $ {message.LogLevel.ToString().ToLowerInvariant()}] ";
+            string preamble = $"[{message.TimeOfDay} $ {message.LogLevel.Value}] ";
             string content = preamble;
             content += message.Message;
 

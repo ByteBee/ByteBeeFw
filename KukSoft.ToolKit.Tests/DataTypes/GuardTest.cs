@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using KukSoft.ToolKit.Utilities;
+using NUnit.Framework;
 using System;
 
 namespace KukSoft.ToolKit.DataTypes.Tests

@@ -2,6 +2,7 @@
 using KukSoft.ToolKit.DataTypes;
 using KukSoft.ToolKit.Logger;
 using KukSoft.ToolKit.MessageBus;
+using KukSoft.ToolKit.Utilities;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("KukSoft.ToolKit.Public")]
