@@ -1,68 +1,67 @@
 ﻿using System;
-using System.Text;
 
 namespace KukSoft.ToolKit.Extension
 {
     public static class StringExt
     {
-        public static bool IsNullOrEmpty(this string text)
-            => string.IsNullOrWhiteSpace(text);
+        public static bool IsNullOrEmpty(this string self)
+            => string.IsNullOrWhiteSpace(self);
 
-        public static string IsNullThenEmpty(this string text)
-            => text ?? string.Empty;
+        public static string IsNullThenEmpty(this string self)
+            => self ?? string.Empty;
 
-        public static string IsNullThen(this string text, string defaultString)
-            => text ?? defaultString;
+        public static string IsNullThen(this string self, string defaultString)
+            => self ?? defaultString;
 
-        public static string IsNullOrEmptyThen(this string text, string defaultString)
-            => text.IsNullOrEmpty() ? defaultString : text;
+        public static string IsNullOrEmptyThen(this string self, string defaultString)
+            => self.IsNullOrEmpty() ? defaultString : self;
 
-        public static string Right(this string text, int length)
+        public static string Right(this string self, int length)
         {
             length = Math.Max(length, 0);
 
-            if (text.Length > length)
+            if (self.Length > length)
             {
-                return text.Substring(text.Length - length, length);
+                return self.Substring(self.Length - length, length);
             }
             else
             {
-                return text;
+                return self;
             }
         }
 
-        public static string Left(this string text, int length)
+        public static string Left(this string self, int length)
         {
             length = Math.Max(length, 0);
 
-            if (text.Length > length)
+            if (self.Length > length)
             {
-                return text.Substring(0, length);
+                return self.Substring(0, length);
             }
             else
             {
-                return text;
+                return self;
             }
         }
 
-        public static string Strip(this string text, char character)
-            => text.Replace(character.ToString(), "");
+        public static string Strip(this string self, char character)
+            => self.Replace(character.ToString(), "");
 
-        public static string Strip(this string text, params char[] chars)
+        public static string Strip(this string self, params char[] chars)
         {
             foreach (char c in chars)
             {
-                text = text.Replace(c.ToString(), "");
+                self = self.Replace(c.ToString(), "");
             }
 
-            return text;
+            return self;
         }
 
-        public static string Strip(this string text, string subString)
+        public static string Strip(this string self, string subString)
         {
-            text = text.Replace(subString, "");
+            self = self.Replace(subString, "");
 
-            return text;
+            return self;
         }
 
         public static string Formated(this string format, params object[] args)
