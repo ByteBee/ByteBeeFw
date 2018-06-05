@@ -1,7 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <RootNamespace>KukSoft.ToolKit</RootNamespace>
+        <Authors>Sergej Kukshaus</Authors>
+        <Company />
+        <Product />
+        <Description>Combine some fancy tools in a single ToolKit</Description>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/serkuk/ToolKit/master/LICENSE.md</PackageLicenseUrl>
+        <PackageProjectUrl>https://kukshaus.com/toolkit</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/serkuk/ToolKit</RepositoryUrl>
+        <Copyright>Copyright 2018</Copyright>
+        <PackageReleaseNotes>kukshaus toolbox switch eventaggregator messagebus logger extensions enum</PackageReleaseNotes>
     </PropertyGroup>
 </Project>
