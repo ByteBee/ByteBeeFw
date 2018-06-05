@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace KukSoft.ToolKit
+namespace KukSoft.ToolKit.Utilities
 {
     public interface IInflector
     {
@@ -142,7 +142,8 @@ namespace KukSoft.ToolKit
             return result;
         }
 
-        public string Pluralize(string word) => ApplyRules(_plurals, word);
+        public string Pluralize(string word) => 
+            ApplyRules(_plurals, word);
 
         public string Singularize(string word) => ApplyRules(_singulars, word);
 
