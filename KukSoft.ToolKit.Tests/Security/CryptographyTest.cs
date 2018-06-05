@@ -5,12 +5,24 @@ namespace KukSoft.ToolKit.Security.Tests
     [TestFixture]
     public class CryptographyTest
     {
-        [TestCase("foobar", "f1ba81c458a534adefd60ef0a08363ee")]
-        [TestCase("the quick brown fox", "c2c475dedcdbd1439377541ed6628550")]
-        [TestCase("my lazy dog", "6b53aa2e51055da429653b43565b187d")]
+        [TestCase("", "c3be2d061fd88332148786aa4c27a7ef")]
+        [TestCase("foobar", "17dbfa2f130a7c44e615b0eba5fb6f27")]
+        [TestCase("my lazy dog", "b39a4224c86a441ec3b1c86fb1624043")]
+        [TestCase("the quick brown fox", "750e40ddd834af47ad091eca94509c4e")]
         public void TestForMd5(string plain, string crypted)
         {
-            string encrypted = Fancy.Cipher.MD5.Encode(plain, "pepper");
+            string encrypted = Fancy.Encryption.MD5.Encode(plain);
+
+            Assert.AreEqual(crypted, encrypted);
+        }
+
+        [TestCase("", "c3be2d061fd88332148786aa4c27a7ef")]
+        [TestCase("foobar", "17dbfa2f130a7c44e615b0eba5fb6f27")]
+        [TestCase("my lazy dog", "b39a4224c86a441ec3b1c86fb1624043")]
+        [TestCase("the quick brown fox", "750e40ddd834af47ad091eca94509c4e")]
+        public void TestForMyOwnCryptoThing(string plain, string crypted)
+        {
+            string encrypted = Fancy.Encryption.Surprise.Encode(plain, crypted);
 
             Assert.AreEqual(crypted, encrypted);
         }
