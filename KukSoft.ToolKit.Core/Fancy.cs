@@ -3,6 +3,7 @@ using KukSoft.ToolKit.DataTypes;
 using KukSoft.ToolKit.Logger;
 using KukSoft.ToolKit.MessageBus;
 using KukSoft.ToolKit.Security;
+using KukSoft.ToolKit.Specs;
 using KukSoft.ToolKit.Utilities;
 using System.Runtime.CompilerServices;
 
@@ -18,17 +19,20 @@ namespace KukSoft.ToolKit
         public static IMessageBus MessageBus(bool useAsynchron = false)
             => useAsynchron ? new MessageBusAsync() : new MessageBusSeq() as IMessageBus;
 
-        public static ILogger Logger { get; } = new StandardLogger();
+        public static ILogger Logger 
+            => new StandardLogger();
 
-        public static ILogStrategyFactory LogStrategies { get; } = new LogStrategyFactory();
+        public static ILogStrategyFactory LogStrategies 
+            => new LogStrategyFactory();
 
         public static IAuditor<TObject> Auditor<TObject>()
             => new AuditorImpl<TObject>();
 
-        public static IGuard Guard { get; } = new Guard();
+        public static IGuard Guard => new Guard();
 
-        public static IInflector Inflector { get; } = new Inflector();
+        public static IInflector Inflector => new Inflector();
 
-        public static ICipherFactory Cipher => new CipherFactory();
+        public static ICipherFactory Cipher 
+            => new CipherFactory();
     }
 }

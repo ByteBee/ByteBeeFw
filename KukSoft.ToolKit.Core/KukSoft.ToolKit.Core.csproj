@@ -14,4 +14,7 @@
         <Copyright>Copyright 2018</Copyright>
         <PackageReleaseNotes>kukshaus toolbox switch eventaggregator messagebus logger extensions enum</PackageReleaseNotes>
     </PropertyGroup>
+    <ItemGroup>
+      <Folder Include="Arch\" />
+    </ItemGroup>
 </Project>

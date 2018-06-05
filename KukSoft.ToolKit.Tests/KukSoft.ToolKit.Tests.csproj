@@ -60,6 +60,7 @@
     <Compile Include="Logger\TestWithNinject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CryptographyTest.cs" />
+    <Compile Include="Specs\SpecificationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KukSoft.ToolKit.Core\KukSoft.ToolKit.Core.csproj">

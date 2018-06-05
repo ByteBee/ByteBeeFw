@@ -1,8 +1,10 @@
 ﻿// https://github.com/ardalis/guards
 using System;
 using System.Collections.Generic;
+using KukSoft.ToolKit.Audit;
+using KukSoft.ToolKit.Specs;
 
-namespace KukSoft.ToolKit.Utilities
+namespace KukSoft.ToolKit
 {
     public interface IGuard
     {
@@ -14,6 +16,19 @@ namespace KukSoft.ToolKit.Utilities
 
     public static class GuardExtensions
     {
+        /// <exception cref="AuditException">Whenever the auditorium is false</exception>
+        public static void AgainstAnAudit<TObj>(this IGuard guard, Auditor<TObj> auditor, TObj obj) 
+            => auditor.Audit(obj);
+        
+        /// <exception cref="ArgumentException">Whenever the object does not fit the requirements</exception>
+        public static void AgainstAnSpecification<TObj>(this IGuard guard, Specification<TObj> spec, TObj obj)
+        {
+            if (spec.IsNotSatisfiedBy(obj))
+            {
+                Throws<ArgumentException>(guard, true, "The object does not fit the requirements.");
+            }
+        }
+
         /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
         public static void AgainstNull(this IGuard guard, object input, string parameterName)
             => Throws<ArgumentNullException>(guard, input == null, parameterName);
