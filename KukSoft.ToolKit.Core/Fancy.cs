@@ -32,7 +32,7 @@ namespace KukSoft.ToolKit
 
         public static IInflector Inflector => new Inflector();
 
-        public static ICipherFactory Cipher 
-            => new CipherFactory();
+        public static IEncryptionFactory Encryption 
+            => new EncryptionFactory();
     }
 }

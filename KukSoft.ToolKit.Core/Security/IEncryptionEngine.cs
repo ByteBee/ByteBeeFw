@@ -2,7 +2,7 @@
 
 namespace KukSoft.ToolKit.Security
 {
-    public interface ICipher
+    public interface IEncryptionEngine
     {
         string Encode(string plain, string privateKey);
         string Encode(byte[] plain, string privateKey);
