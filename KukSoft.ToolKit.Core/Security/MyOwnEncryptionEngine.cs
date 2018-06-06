@@ -7,7 +7,7 @@ namespace KukSoft.ToolKit.Security
 {
     class MyOwnEncryptionEngine : IEncryptionEngine
     {
-        private ASCIIEncoding _enconding = new ASCIIEncoding();
+        private UnicodeEncoding _enconding = new UnicodeEncoding();
 
         public string Decode(string crypted) => Decode(crypted, Condiment.Salt);
         public string Decode(string crypted, string privateKey) => throw new NotSupportedException();
@@ -22,56 +22,73 @@ namespace KukSoft.ToolKit.Security
             using (SHA256 sha = new SHA256CryptoServiceProvider())
             {
                 byte[] hash = sha.ComputeHash(plain);
-                byte[] pepper = sha.ComputeHash(_enconding.GetBytes(Condiment.Pepper));
+                byte[] pepr = sha.ComputeHash(_enconding.GetBytes(Condiment.Pepper));
                 byte[] salt = sha.ComputeHash(_enconding.GetBytes(privateKey));
 
-                var buffer = new string[8];
-
-                var prepared = new int[32];
-
-                for (int i = 0; i < 32; i++)
-                {
-                    int tmp = ((hash[i] + pepper[31 - i]) ^ salt[i]);
-                    prepared[i] = tmp;
-
-                }
-
-                for (int i = 0; i < 8; i++)
-                {
-                    int j = 0;
-                    int tmp = prepared[j + i];
-                    tmp += hash[i + j] | salt[i + j];
-                    tmp += pepper[i + j] | hash[i + j];
-                    tmp += salt[i + j] | pepper[i + j];
-                    j = 8;
-                    tmp += prepared[j + i];
-                    tmp += hash[i + j] | salt[i + j];
-                    tmp += pepper[i + j] | hash[i + j];
-                    tmp += salt[i + j] | pepper[i + j];
-                    j = 16;
-                    tmp += prepared[j + i];
-                    tmp += hash[i + j] | salt[i + j];
-                    tmp += pepper[i + j] | hash[i + j];
-                    tmp += salt[i + j] | pepper[i + j];
-                    j = 24;
-                    tmp += prepared[j + i];
-                    tmp += hash[i + j] | salt[i + j];
-                    tmp += pepper[i + j] | hash[i + j];
-                    tmp += salt[i + j] | pepper[i + j];
-
-                    Console.WriteLine(tmp);
-                    buffer[i] = NumToFun(tmp);
-                }
-
-
-                return string.Join("-", buffer);
+                
+                var m = Cipher(hash, salt, pepr);
+                return ArrayToString(m);
             }
         }
 
-        private string NumToFun(int number)
+        private byte[] Cipher(byte[]a,byte[]b,byte[]c)
         {
-            //const string chars = "0123456789abcdefABCDEF!\"§$%&/()=";
-            const string chars = "!\"#$%&'( )*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghjiklmnopqrstuvwxyz{|}~´^°²³";
+            var m = new byte[32];
+
+            for (int i = 0; i < 32; i++)
+            {
+                int f = 0, g = 0;
+
+                if (0 <= i && i <= 7)
+                {
+                    g = i;
+                    f = (b[g] & c[g]) | ((~b[g]) & a[g]);
+                }
+                else if (8 <= i && i <= 15)
+                {
+                    g = (5 * i + 1) % 32;
+                    f = (a[g] & b[g]) | ((~a[g]) & a[g]);
+                }
+                else if (16 <= i && i <= 23)
+                {
+                    g = (3 * i + 5) % 32;
+                    f = b[g] ^ c[g] ^ a[g];
+                }
+                else if (24 <= i && i <= 31)
+                {
+                    g = (7 * i) % 32;
+                    f = c[g] ^ (b[g] | (~a[g]));
+                }
+
+                Console.WriteLine(f);
+
+                m[i] = (byte)Math.Abs(f);
+            }
+
+            return m;
+        }
+
+        private string ArrayToString(byte[] m)
+        {
+            var buffer = new string[16];
+
+            for (int i = 0; i < 16; i++)
+            {
+                int j = i + 16;
+
+                int x = m[i] + m[j] * 256;
+
+                buffer[i] = NumberToString(x);
+            }
+
+            return string.Join(string.Empty, buffer);
+        }
+
+        private string NumberToString(int number)
+        {
+            Console.WriteLine(number);
+
+            const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyzÀÁḀẤẦẬẰẶḂḄḆĆĈĊČÇḈÐḊḌḎḐḒḔḖḘḚḜẸẼẾỀỆḞḠḢḤḦḨḪḬỊḰḲḴḶḺḼḾṀṂṄṆṈṊØṐṒỌỎỘỠṔṖṘṚṜṞṠṢṪṬṮṰṲṴṶṺỤỨỪỰṼṾẀẂẄẆẈẊẌẎỲỴỸẐẔàáḁấầậằặḃḅḇćĉċčçḉðḋḍḏḑḓḕḗḙḛḝẹẽếềệḟḡḣḥḧḩḫḭịḱḳḵḷḻḽḿṁṃṅṇṉṋøṑṓọỏộỡṕṗṙṛṝṟṡṣṫṭṯṱṳṵṷṻụứừựṽṿẁẃẅẇẉẋẍẏỳỵỹẑẕ";
             string result = string.Empty;
 
             do
