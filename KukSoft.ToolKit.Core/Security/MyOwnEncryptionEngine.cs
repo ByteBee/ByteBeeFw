@@ -5,27 +5,18 @@ using System.Text;
 
 namespace KukSoft.ToolKit.Security
 {
-    class MyOwnEncryptionEngine : IEncryptionEngine
+    class MyOwnEncryptionEngine : HashEncryptionEngine
     {
-        private UnicodeEncoding _enconding = new UnicodeEncoding();
+        protected override Encoding _enconding => new UnicodeEncoding();
 
-        public string Decode(string crypted) => Decode(crypted, Condiment.Salt);
-        public string Decode(string crypted, string privateKey) => throw new NotSupportedException();
-        public string Encode(string plain) => Encode(plain, Condiment.Salt);
-        public string Encode(byte[] plain) => Encode(plain, Condiment.Salt);
-        public string Encode(Stream stream) => Encode(stream, Condiment.Salt);
-        public string Encode(FileInfo file) => Encode(file, Condiment.Salt);
-
-        public string Encode(string plain, string privateKey) => Encode(_enconding.GetBytes(plain), privateKey);
-        public string Encode(byte[] plain, string privateKey)
+        public override string Encode(Stream stream, string privateKey)
         {
             using (SHA256 sha = new SHA256CryptoServiceProvider())
             {
-                byte[] hash = sha.ComputeHash(plain);
+                byte[] hash = sha.ComputeHash(stream);
                 byte[] pepr = sha.ComputeHash(_enconding.GetBytes(Condiment.Pepper));
                 byte[] salt = sha.ComputeHash(_enconding.GetBytes(privateKey));
 
-                
                 var m = Cipher(hash, salt, pepr);
                 return ArrayToString(m);
             }
@@ -60,8 +51,6 @@ namespace KukSoft.ToolKit.Security
                     f = c[g] ^ (b[g] | (~a[g]));
                 }
 
-                Console.WriteLine(f);
-
                 m[i] = (byte)Math.Abs(f);
             }
 
@@ -86,8 +75,6 @@ namespace KukSoft.ToolKit.Security
 
         private string NumberToString(int number)
         {
-            Console.WriteLine(number);
-
             const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyzÀÁḀẤẦẬẰẶḂḄḆĆĈĊČÇḈÐḊḌḎḐḒḔḖḘḚḜẸẼẾỀỆḞḠḢḤḦḨḪḬỊḰḲḴḶḺḼḾṀṂṄṆṈṊØṐṒỌỎỘỠṔṖṘṚṜṞṠṢṪṬṮṰṲṴṶṺỤỨỪỰṼṾẀẂẄẆẈẊẌẎỲỴỸẐẔàáḁấầậằặḃḅḇćĉċčçḉðḋḍḏḑḓḕḗḙḛḝẹẽếềệḟḡḣḥḧḩḫḭịḱḳḵḷḻḽḿṁṃṅṇṉṋøṑṓọỏộỡṕṗṙṛṝṟṡṣṫṭṯṱṳṵṷṻụứừựṽṿẁẃẅẇẉẋẍẏỳỵỹẑẕ";
             string result = string.Empty;
 
@@ -97,14 +84,9 @@ namespace KukSoft.ToolKit.Security
                 number /= chars.Length;
 
                 result = chars[remainder] + result;
-
-
             } while (number > 0);
 
             return result.PadLeft(2, '0');
         }
-
-        public string Encode(Stream stream, string privateKey) => throw new NotImplementedException();
-        public string Encode(FileInfo file, string privateKey) => throw new NotImplementedException();
     }
 }

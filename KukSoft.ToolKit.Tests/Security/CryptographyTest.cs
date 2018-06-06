@@ -6,9 +6,9 @@ namespace KukSoft.ToolKit.Security.Tests
     public class CryptographyTest
     {
         [TestCase("", "c3be2d061fd88332148786aa4c27a7ef")]
-        [TestCase("foobar", "17dbfa2f130a7c44e615b0eba5fb6f27")]
-        [TestCase("my lazy dog", "b39a4224c86a441ec3b1c86fb1624043")]
-        [TestCase("the quick brown fox", "750e40ddd834af47ad091eca94509c4e")]
+        [TestCase("foobar", "95e913b20a38e3757173a50413b1d325")]
+        [TestCase("my lazy dog", "3a8f2f4a052835eca52d37c47adf20af")]
+        [TestCase("the quick brown fox", "d6d08792c028226211282bc48302f24b")]
         public void TestForMd5(string plain, string crypted)
         {
             string encrypted = Fancy.Encryption.MD5.Encode(plain);
