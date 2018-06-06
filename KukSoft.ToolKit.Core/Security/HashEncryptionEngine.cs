@@ -10,7 +10,7 @@ namespace KukSoft.ToolKit.Security
 
         public string Decode(string crypted, string privateKey)
         {
-            throw new CryptographicException("Cannot decode an MD5 hash back.");
+            throw new CryptographicException("Cannot decode a hash back to the original value.");
         }
 
         public string Encode(string plain) => Encode(plain, Condiment.Salt);
