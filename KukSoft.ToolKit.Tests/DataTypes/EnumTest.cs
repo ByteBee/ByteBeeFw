@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace KukSoft.ToolKit.DataTypes.Tests
         public FooEnum Foo { get; set; }
     }
 
+    enum BarEnum { One = 1, Two = 2, Three = 3 }
+
     [TestFixture]
     public class EnumTest
     {
@@ -34,7 +37,6 @@ namespace KukSoft.ToolKit.DataTypes.Tests
             Assert.That(result, Does.Contain(FooEnum.One));
             Assert.That(result, Does.Contain(FooEnum.Two));
             Assert.That(result, Does.Contain(FooEnum.Three));
-
         }
 
         [Test]
@@ -166,6 +168,12 @@ namespace KukSoft.ToolKit.DataTypes.Tests
             Assert.AreEqual("Three (3)", FooEnum.Three.ToString());
         }
 
+        [Test]
+        public void CompareEnumWithPimped()
+        {
+            FooEnum one = (FooEnum)(int)BarEnum.One;
 
+            Assert.AreEqual("One (1)", one.ToString());
+        }
     }
 }
