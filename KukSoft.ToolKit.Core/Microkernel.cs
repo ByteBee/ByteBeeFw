@@ -35,6 +35,7 @@ namespace KukSoft.ToolKit
             Register<IGuard, GuardImpl>();
             Register<IPath, PathImpl>();
             Register<IFile, FileImpl>();
+            Register<IGuid, GuidImpl>();
 
             Register<ILogger, StandardLogger>();
             Register<IEncryptionFactory, EncryptionFactory>();
