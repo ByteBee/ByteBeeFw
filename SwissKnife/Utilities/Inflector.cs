@@ -181,10 +181,10 @@ namespace SwissKnife.Utilities
             int.TryParse(number, out int n);
 
             new Switch<int>(n % 10)
-                .Case(i => i % 10 >= 11 && i % 10 <= 13, _ => number += "th")
-                .Case(1, _ => number += "st")
-                .Case(2, _ => number += "nd")
-                .Case(3, _ => number += "rd");
+                .When(i => i % 10 >= 11 && i % 10 <= 13, _ => number += "th")
+                .When(1, _ => number += "st")
+                .When(2, _ => number += "nd")
+                .When(3, _ => number += "rd");
 
             return number;
         }

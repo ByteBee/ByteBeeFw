@@ -12,15 +12,15 @@ namespace SwissKnife.Utilities
         bool TryParse(string input, string format, out Guid result);
     }
 
-    public abstract class StandardGuid : IGuid
+    public abstract class GuidAdapter : IGuid
     {
-        public Guid Empty => Guid.Empty;
-        public Guid NewGuid => Guid.NewGuid();
-        public Guid Parse(string input) => Guid.Parse(input);
-        public Guid Parse(string input, string format) => Guid.ParseExact(input, format);
-        public bool TryParse(string input, out Guid result) => Guid.TryParse(input, out result);
-        public bool TryParse(string input, string format, out Guid result) => Guid.TryParseExact(input, format, out result);
+        public virtual Guid Empty => Guid.Empty;
+        public virtual Guid NewGuid => Guid.NewGuid();
+        public virtual Guid Parse(string input) => Guid.Parse(input);
+        public virtual Guid Parse(string input, string format) => Guid.ParseExact(input, format);
+        public virtual bool TryParse(string input, out Guid result) => Guid.TryParse(input, out result);
+        public virtual bool TryParse(string input, string format, out Guid result) => Guid.TryParseExact(input, format, out result);
     }
 
-    internal class GuidImpl : StandardGuid { }
+    internal class GuidImpl : GuidAdapter { }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Security.Cryptography;
 using System.Threading;
 using NUnit.Framework;
 
@@ -8,7 +9,7 @@ namespace SwissKnife.Tests.Utilities
     [TestFixture]
     public class ClockTests
     {
-        internal class FreezedClock : SwissKnife.Utilities.StandardDateTime
+        internal class FreezedClock : SwissKnife.Utilities.DateTimeAdapter
         {
             public FreezedClock(DateTime value)
             {

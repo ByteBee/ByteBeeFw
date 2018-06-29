@@ -24,27 +24,27 @@ namespace SwissKnife.Utilities
         bool IsPathRooted(string path);
     }
 
-    public abstract class StandardPath : IPath
+    public abstract class PathAdapter : IPath
     {
-        public string ChangeExtension(string path, string extension) => Path.ChangeExtension(path, extension);
-        public string Combine(string path1, string path2) => Path.Combine(path1, path2);
-        public string Combine(string path1, string path2, string path3) => Path.Combine(path1, path2, path3);
-        public string Combine(string path1, string path2, string path3, string path4) => Path.Combine(path1, path2, path3, path4);
-        public string Combine(params string[] paths) => Path.Combine(paths);
-        public string GetDirectoryName(string path) => Path.GetDirectoryName(path);
-        public string GetExtension(string path) => Path.GetExtension(path);
-        public string GetFileName(string path) => Path.GetFileName(path);
-        public string GetFileNameWithoutExtension(string path) => Path.GetFileNameWithoutExtension(path);
-        public string GetFullPath(string path) => Path.GetFullPath(path);
-        public char[] GetInvalidFileNameChars() => Path.GetInvalidFileNameChars();
-        public char[] GetInvalidPathChars() => Path.GetInvalidPathChars();
-        public string GetPathRoot(string path) => Path.GetPathRoot(path);
-        public string GetRandomFileName() => Path.GetRandomFileName();
-        public string GetTempFileName() => Path.GetTempFileName();
-        public string GetTempPath() => Path.GetTempPath();
-        public bool HasExtension(string path) => Path.HasExtension(path);
-        public bool IsPathRooted(string path) => Path.IsPathRooted(path);
+        public virtual string ChangeExtension(string path, string extension) => Path.ChangeExtension(path, extension);
+        public virtual string Combine(string path1, string path2) => Path.Combine(path1, path2);
+        public virtual string Combine(string path1, string path2, string path3) => Path.Combine(path1, path2, path3);
+        public virtual string Combine(string path1, string path2, string path3, string path4) => Path.Combine(path1, path2, path3, path4);
+        public virtual string Combine(params string[] paths) => Path.Combine(paths);
+        public virtual string GetDirectoryName(string path) => Path.GetDirectoryName(path);
+        public virtual string GetExtension(string path) => Path.GetExtension(path);
+        public virtual string GetFileName(string path) => Path.GetFileName(path);
+        public virtual string GetFileNameWithoutExtension(string path) => Path.GetFileNameWithoutExtension(path);
+        public virtual string GetFullPath(string path) => Path.GetFullPath(path);
+        public virtual char[] GetInvalidFileNameChars() => Path.GetInvalidFileNameChars();
+        public virtual char[] GetInvalidPathChars() => Path.GetInvalidPathChars();
+        public virtual string GetPathRoot(string path) => Path.GetPathRoot(path);
+        public virtual string GetRandomFileName() => Path.GetRandomFileName();
+        public virtual string GetTempFileName() => Path.GetTempFileName();
+        public virtual string GetTempPath() => Path.GetTempPath();
+        public virtual bool HasExtension(string path) => Path.HasExtension(path);
+        public virtual bool IsPathRooted(string path) => Path.IsPathRooted(path);
     }
 
-    internal class PathImpl : StandardPath { }
+    internal class PathImpl : PathAdapter { }
 }

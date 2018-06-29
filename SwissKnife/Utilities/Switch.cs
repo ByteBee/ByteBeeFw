@@ -4,8 +4,8 @@ namespace SwissKnife.DataTypes
 {
     public interface ISwitch<TObject>
     {
-        ISwitch<TObject> Case(Func<TObject, bool> condition, Action<TObject> callback);
-        ISwitch<TObject> Case(TObject candidate, Action<TObject> callback);
+        ISwitch<TObject> When(Func<TObject, bool> condition, Action<TObject> callback);
+        ISwitch<TObject> When(TObject candidate, Action<TObject> callback);
         void Otherwise(Action<TObject> callback);
     }
 
@@ -19,7 +19,7 @@ namespace SwissKnife.DataTypes
             _object = obj;
         }
 
-        public ISwitch<TObject> Case(Func<TObject, bool> condition, Action<TObject> callback)
+        public ISwitch<TObject> When(Func<TObject, bool> condition, Action<TObject> callback)
         {
             if (!_anyTrueCase && condition(_object))
             {
@@ -29,8 +29,8 @@ namespace SwissKnife.DataTypes
             return this;
         }
 
-        public ISwitch<TObject> Case(TObject candidate, Action<TObject> callback)
-            => Case(obj => Equals(obj, candidate), callback);
+        public ISwitch<TObject> When(TObject candidate, Action<TObject> callback)
+            => When(obj => Equals(obj, candidate), callback);
 
         public void Otherwise(Action<TObject> callback)
         {

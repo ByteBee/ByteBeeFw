@@ -24,5 +24,6 @@ namespace SwissKnife
         public static IFile file => Microkernel.Instance.Resolve<IFile>();
         public static IGuid guid => Microkernel.Instance.Resolve<IGuid>();
         public static IDateTime dateTime => Microkernel.Instance.Resolve<IDateTime>();
+        public static IDirectory directory => Microkernel.Instance.Resolve<IDirectory>();
     }
 }

@@ -63,7 +63,7 @@ namespace SwissKnife.Utilities
         void WriteAllLines(string path, string[] contents, Encoding encoding);
         void WriteAllText(string path, string contents);
         void WriteAllText(string path, string contents, Encoding encoding);
-
+        FileInfo Info(string filename);
 #if !NETSTANDARD2_0
         void SetAccessControl(string path, FileSecurity fileSecurity);
         FileStream Create(string path, int bufferSize, FileOptions options, FileSecurity fileSecurity);
@@ -72,69 +72,71 @@ namespace SwissKnife.Utilities
 #endif
     }
 
-    public abstract class StandardFile : IFile
+    public abstract class FileAdapter : IFile
     {
-        public void AppendAllLines(string path, IEnumerable<string> contents) => File.AppendAllLines(path, contents);
-        public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.AppendAllLines(path, contents, encoding);
-        public void AppendAllText(string path, string contents) => File.AppendAllText(path, contents);
-        public void AppendAllText(string path, string contents, Encoding encoding) => File.AppendAllText(path, contents, encoding);
-        public StreamWriter AppendText(string path) => File.AppendText(path);
-        public void Copy(string sourceFileName, string destFileName) => File.Copy(sourceFileName, destFileName);
-        public void Copy(string sourceFileName, string destFileName, bool overwrite) => File.Copy(sourceFileName, destFileName, overwrite);
-        public FileStream Create(string path) => File.Create(path);
-        public FileStream Create(string path, int bufferSize) => File.Create(path, bufferSize);
-        public FileStream Create(string path, int bufferSize, FileOptions options) => File.Create(path, bufferSize, options);
-        public StreamWriter CreateText(string path) => File.CreateText(path);
-        public void Decrypt(string path) => File.Decrypt(path);
-        public void Delete(string path) => File.Delete(path);
-        public void Encrypt(string path) => File.Encrypt(path);
-        public bool Exists(string path) => File.Exists(path);
-        public FileAttributes GetAttributes(string path) => File.GetAttributes(path);
-        public DateTime GetCreationTime(string path) => File.GetCreationTime(path);
-        public DateTime GetCreationTimeUtc(string path) => File.GetCreationTimeUtc(path);
-        public DateTime GetLastAccessTime(string path) => File.GetLastAccessTime(path);
-        public DateTime GetLastAccessTimeUtc(string path) => File.GetLastAccessTimeUtc(path);
-        public DateTime GetLastWriteTime(string path) => File.GetLastWriteTime(path);
-        public DateTime GetLastWriteTimeUtc(string path) => File.GetLastWriteTimeUtc(path);
-        public void Move(string sourceFileName, string destFileName) => File.Move(sourceFileName, destFileName);
-        public FileStream Open(string path, FileMode mode) => File.Open(path, mode);
-        public FileStream Open(string path, FileMode mode, FileAccess access) => File.Open(path, mode, access);
-        public FileStream Open(string path, FileMode mode, FileAccess access, FileShare share) => File.Open(path, mode, access, share);
-        public FileStream OpenRead(string path) => File.OpenRead(path);
-        public StreamReader OpenText(string path) => File.OpenText(path);
-        public FileStream OpenWrite(string path) => File.OpenWrite(path);
-        public byte[] ReadAllBytes(string path) => File.ReadAllBytes(path);
-        public string[] ReadAllLines(string path) => File.ReadAllLines(path);
-        public string[] ReadAllLines(string path, Encoding encoding) => File.ReadAllLines(path, encoding);
-        public string ReadAllText(string path) => File.ReadAllText(path);
-        public string ReadAllText(string path, Encoding encoding) => File.ReadAllText(path, encoding);
-        public IEnumerable<string> ReadLines(string path) => File.ReadLines(path);
-        public IEnumerable<string> ReadLines(string path, Encoding encoding) => File.ReadLines(path, encoding);
-        public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName) => File.Replace(sourceFileName, destinationFileName, destinationBackupFileName);
-        public void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors) => File.Replace(sourceFileName, destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
-        public void SetAttributes(string path, FileAttributes fileAttributes) => File.SetAttributes(path, fileAttributes);
-        public void SetCreationTime(string path, DateTime creationTime) => File.SetCreationTime(path, creationTime);
-        public void SetCreationTimeUtc(string path, DateTime creationTimeUtc) => File.SetCreationTimeUtc(path, creationTimeUtc);
-        public void SetLastAccessTime(string path, DateTime lastAccessTime) => File.SetLastAccessTime(path, lastAccessTime);
-        public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc) => File.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
-        public void SetLastWriteTime(string path, DateTime lastWriteTime) => File.SetLastWriteTime(path, lastWriteTime);
-        public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc) => File.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
-        public void WriteAllBytes(string path, byte[] bytes) => File.WriteAllBytes(path, bytes);
-        public void WriteAllLines(string path, IEnumerable<string> contents) => File.WriteAllLines(path, contents);
-        public void WriteAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.WriteAllLines(path, contents, encoding);
-        public void WriteAllLines(string path, string[] contents) => File.WriteAllLines(path, contents);
-        public void WriteAllLines(string path, string[] contents, Encoding encoding) => File.WriteAllLines(path, contents, encoding);
-        public void WriteAllText(string path, string contents) => File.WriteAllText(path, contents);
-        public void WriteAllText(string path, string contents, Encoding encoding) => File.WriteAllText(path, contents, encoding);
+        public virtual void AppendAllLines(string path, IEnumerable<string> contents) => File.AppendAllLines(path, contents);
+        public virtual void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.AppendAllLines(path, contents, encoding);
+        public virtual void AppendAllText(string path, string contents) => File.AppendAllText(path, contents);
+        public virtual void AppendAllText(string path, string contents, Encoding encoding) => File.AppendAllText(path, contents, encoding);
+        public virtual StreamWriter AppendText(string path) => File.AppendText(path);
+        public virtual void Copy(string sourceFileName, string destFileName) => File.Copy(sourceFileName, destFileName);
+        public virtual void Copy(string sourceFileName, string destFileName, bool overwrite) => File.Copy(sourceFileName, destFileName, overwrite);
+        public virtual FileStream Create(string path) => File.Create(path);
+        public virtual FileStream Create(string path, int bufferSize) => File.Create(path, bufferSize);
+        public virtual FileStream Create(string path, int bufferSize, FileOptions options) => File.Create(path, bufferSize, options);
+        public virtual StreamWriter CreateText(string path) => File.CreateText(path);
+        public virtual void Decrypt(string path) => File.Decrypt(path);
+        public virtual void Delete(string path) => File.Delete(path);
+        public virtual void Encrypt(string path) => File.Encrypt(path);
+        public virtual bool Exists(string path) => File.Exists(path);
+        public virtual FileAttributes GetAttributes(string path) => File.GetAttributes(path);
+        public virtual DateTime GetCreationTime(string path) => File.GetCreationTime(path);
+        public virtual DateTime GetCreationTimeUtc(string path) => File.GetCreationTimeUtc(path);
+        public virtual DateTime GetLastAccessTime(string path) => File.GetLastAccessTime(path);
+        public virtual DateTime GetLastAccessTimeUtc(string path) => File.GetLastAccessTimeUtc(path);
+        public virtual DateTime GetLastWriteTime(string path) => File.GetLastWriteTime(path);
+        public virtual DateTime GetLastWriteTimeUtc(string path) => File.GetLastWriteTimeUtc(path);
+        public virtual void Move(string sourceFileName, string destFileName) => File.Move(sourceFileName, destFileName);
+        public virtual FileStream Open(string path, FileMode mode) => File.Open(path, mode);
+        public virtual FileStream Open(string path, FileMode mode, FileAccess access) => File.Open(path, mode, access);
+        public virtual FileStream Open(string path, FileMode mode, FileAccess access, FileShare share) => File.Open(path, mode, access, share);
+        public virtual FileStream OpenRead(string path) => File.OpenRead(path);
+        public virtual StreamReader OpenText(string path) => File.OpenText(path);
+        public virtual FileStream OpenWrite(string path) => File.OpenWrite(path);
+        public virtual byte[] ReadAllBytes(string path) => File.ReadAllBytes(path);
+        public virtual string[] ReadAllLines(string path) => File.ReadAllLines(path);
+        public virtual string[] ReadAllLines(string path, Encoding encoding) => File.ReadAllLines(path, encoding);
+        public virtual string ReadAllText(string path) => File.ReadAllText(path);
+        public virtual string ReadAllText(string path, Encoding encoding) => File.ReadAllText(path, encoding);
+        public virtual IEnumerable<string> ReadLines(string path) => File.ReadLines(path);
+        public virtual IEnumerable<string> ReadLines(string path, Encoding encoding) => File.ReadLines(path, encoding);
+        public virtual void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName) => File.Replace(sourceFileName, destinationFileName, destinationBackupFileName);
+        public virtual void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors) => File.Replace(sourceFileName, destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
+        public virtual void SetAttributes(string path, FileAttributes fileAttributes) => File.SetAttributes(path, fileAttributes);
+        public virtual void SetCreationTime(string path, DateTime creationTime) => File.SetCreationTime(path, creationTime);
+        public virtual void SetCreationTimeUtc(string path, DateTime creationTimeUtc) => File.SetCreationTimeUtc(path, creationTimeUtc);
+        public virtual void SetLastAccessTime(string path, DateTime lastAccessTime) => File.SetLastAccessTime(path, lastAccessTime);
+        public virtual void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc) => File.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
+        public virtual void SetLastWriteTime(string path, DateTime lastWriteTime) => File.SetLastWriteTime(path, lastWriteTime);
+        public virtual void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc) => File.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
+        public virtual void WriteAllBytes(string path, byte[] bytes) => File.WriteAllBytes(path, bytes);
+        public virtual void WriteAllLines(string path, IEnumerable<string> contents) => File.WriteAllLines(path, contents);
+        public virtual void WriteAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.WriteAllLines(path, contents, encoding);
+        public virtual void WriteAllLines(string path, string[] contents) => File.WriteAllLines(path, contents);
+        public virtual void WriteAllLines(string path, string[] contents, Encoding encoding) => File.WriteAllLines(path, contents, encoding);
+        public virtual void WriteAllText(string path, string contents) => File.WriteAllText(path, contents);
+        public virtual void WriteAllText(string path, string contents, Encoding encoding) => File.WriteAllText(path, contents, encoding);
+        public virtual FileInfo Info(string filename) => new FileInfo(filename);
+        
 
 #if !NETSTANDARD2_0
-        public FileStream Create(string path, int bufferSize, FileOptions options, FileSecurity fileSecurity) => File.Create(path, bufferSize, options, fileSecurity);
-        public FileSecurity GetAccessControl(string path) => File.GetAccessControl(path);
-        public FileSecurity GetAccessControl(string path, AccessControlSections includeSections) => File.GetAccessControl(path, includeSections);
-        public void SetAccessControl(string path, FileSecurity fileSecurity) => File.SetAccessControl(path, fileSecurity);
+        public virtual FileStream Create(string path, int bufferSize, FileOptions options, FileSecurity fileSecurity) => File.Create(path, bufferSize, options, fileSecurity);
+        public virtual FileSecurity GetAccessControl(string path) => File.GetAccessControl(path);
+        public virtual FileSecurity GetAccessControl(string path, AccessControlSections includeSections) => File.GetAccessControl(path, includeSections);
+        public virtual void SetAccessControl(string path, FileSecurity fileSecurity) => File.SetAccessControl(path, fileSecurity);
 #endif
 
     }
 
-    internal class FileImpl : StandardFile { }
+    internal class FileImpl : FileAdapter { }
 }
