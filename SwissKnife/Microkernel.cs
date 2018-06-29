@@ -36,6 +36,7 @@ namespace SwissKnife
             Register<IPath, PathImpl>();
             Register<IFile, FileImpl>();
             Register<IGuid, GuidImpl>();
+            Register<IDateTime, DateTimeImpl>();
 
             Register<ILogger, StandardLogger>();
             Register<IEncryptionFactory, EncryptionFactory>();

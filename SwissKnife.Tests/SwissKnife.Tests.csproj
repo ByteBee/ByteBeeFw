@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CryptographyTest.cs" />
     <Compile Include="Specs\SpecificationTest.cs" />
+    <Compile Include="Utilities\ClockTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SwissKnife\SwissKnife.csproj">
@@ -71,9 +72,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
