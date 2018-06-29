@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 
 namespace SwissKnife.Logging
 {
-    internal class StandardLogger : ILogger
+    public class StandardLogger : ILogger
     {
         private readonly ConcurrentBag<ILogStrategy> _logStrategies;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using SwissKnife.Logging;
 using static SwissKnife.Fancy;
 
 namespace SwissKnife.Tests.Logger

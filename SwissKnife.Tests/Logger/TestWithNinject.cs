@@ -1,5 +1,6 @@
 ﻿using Ninject;
 using NUnit.Framework;
+using SwissKnife.Logging;
 
 namespace SwissKnife.Tests.Logger
 {
@@ -18,7 +19,7 @@ namespace SwissKnife.Tests.Logger
         public void InitInMemoryLogger()
         {
             IKernel kernel = new StandardKernel();
-
+            kernel.Bind<ILogger>().To<SwissKnife.Logging.StandardLogger>();
             kernel.Bind<ILogStrategy>().To<LogIntoConsole>();
             kernel.Bind<ILogStrategy>().To<LogIntoMemory>().InSingletonScope();
             kernel.Bind<ILogFormatter>().To<MyLogFormatter>().InSingletonScope();
