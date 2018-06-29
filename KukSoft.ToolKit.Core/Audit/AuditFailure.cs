@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace KukSoft.ToolKit.Audit
 {
@@ -8,7 +7,7 @@ namespace KukSoft.ToolKit.Audit
         public string Message { get; }
         public IReadOnlyList<IAuditFailure> Failures { get; }
 
-        private AuditFailureFormater _formatter;
+        private readonly AuditFailureFormater _formatter;
 
         public AuditFailure(string message) : this(message, new IAuditFailure[0])
         {

@@ -1,7 +1,8 @@
-﻿using KukSoft.ToolKit.DataTypes;
+﻿using KukSoft.ToolKit.Audit;
+using KukSoft.ToolKit.DataTypes;
 using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Audit.Tests
+namespace KukSoft.ToolKit.Tests.Audit
 {
     [TestFixture]
     public class AuditorTest

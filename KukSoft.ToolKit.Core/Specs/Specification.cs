@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using KukSoft.ToolKit.Extension;
-
-namespace KukSoft.ToolKit.Specs
+﻿namespace KukSoft.ToolKit.Specs
 {
     public abstract class Specification<TObj>
     {
@@ -17,7 +12,6 @@ namespace KukSoft.ToolKit.Specs
 
         public Specification<TObj> Or(Specification<TObj> other)
             => new OrSpecification<TObj>(this, other);
-
 
         /// <summary>
         /// antivalence

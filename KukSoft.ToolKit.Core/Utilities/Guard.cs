@@ -4,100 +4,122 @@ using System.Collections.Generic;
 using KukSoft.ToolKit.Audit;
 using KukSoft.ToolKit.Specs;
 
-namespace KukSoft.ToolKit
+namespace KukSoft.ToolKit.Utilities
 {
     public interface IGuard
     {
+        /// <exception cref="AuditException"></exception>
+        void AgainstAnAudit<TObj>(Auditor<TObj> auditor, TObj obj);
+
+        /// <exception cref="ArgumentException"></exception>
+        void AgainstAnSpecification<TObj>(Specification<TObj> spec, TObj obj);
+
+        /// <exception cref="ArgumentNullException"></exception>
+        void AgainstNull(object input, string parameterName);
+
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        void AgainstNullOrEmpty(string input, string parameterName);
+
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        void AgainstNullOrWhiteSpace(string input, string parameterName);
+
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        void AgainstOutOfRange(int input, string parameterName, int rangeFrom, int rangeTo);
+
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        void AgainstOutOfRange(DateTime input, string parameterName, DateTime rangeFrom, DateTime rangeTo);
+
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        void AgainstOutOfSqlDateRange(DateTime input, string parameterName);
+
+        /// <exception cref="TException"></exception>
+        void Throws<TException>(Func<bool> condition, string message) where TException : Exception;
+
+        /// <exception cref="TException"></exception>
+        void Throws<TException>(bool condition, string message) where TException : Exception;
+
+        /// <exception cref="TException"></exception>
+        void Throws<TException>(string message) where TException : Exception;
     }
 
-    class Guard : IGuard
+    class GuardImpl : IGuard
     {
-    }
-
-    public static class GuardExtensions
-    {
-        /// <exception cref="AuditException">Whenever the auditorium is false</exception>
-        public static void AgainstAnAudit<TObj>(this IGuard guard, Auditor<TObj> auditor, TObj obj) 
+        public void AgainstAnAudit<TObj>(Auditor<TObj> auditor, TObj obj)
             => auditor.Audit(obj);
-        
-        /// <exception cref="ArgumentException">Whenever the object does not fit the requirements</exception>
-        public static void AgainstAnSpecification<TObj>(this IGuard guard, Specification<TObj> spec, TObj obj)
+
+        public void AgainstAnSpecification<TObj>(Specification<TObj> spec, TObj obj)
         {
             if (spec.IsNotSatisfiedBy(obj))
             {
-                Throws<ArgumentException>(guard, true, "The object does not fit the requirements.");
+                Throws<ArgumentException>(true, "The object does not fit the requirements.");
             }
         }
 
-        /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
-        public static void AgainstNull(this IGuard guard, object input, string parameterName)
-            => Throws<ArgumentNullException>(guard, input == null, parameterName);
+        public void AgainstNull(object input, string parameterName)
+            => Throws<ArgumentNullException>(input == null, parameterName);
 
-        /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
-        /// <exception cref="ArgumentException">Throws if <see cref="input" /> is an empty string.</exception>
-        public static void AgainstNullOrEmpty(this IGuard guard, string input, string parameterName)
+        public void AgainstNullOrEmpty(string input, string parameterName)
         {
-            AgainstNull(guard, input, parameterName);
-            Throws<ArgumentException>(guard,
+            AgainstNull(input, parameterName);
+            Throws<ArgumentException>(
                 () => input == string.Empty,
                 $"Required input {parameterName} was empty.");
         }
 
-        /// <exception cref="ArgumentNullException">Throws if <see cref="input" /> is null.</exception>
-        /// <exception cref="ArgumentException">Throws if <see cref="input" /> is an empty or white space string.</exception>
-        public static void AgainstNullOrWhiteSpace(this IGuard guard, string input, string parameterName)
+        public void AgainstNullOrWhiteSpace(string input, string parameterName)
         {
-            AgainstNullOrEmpty(guard, input, parameterName);
-            Throws<ArgumentException>(guard,
+            AgainstNullOrEmpty(input, parameterName);
+            Throws<ArgumentException>(
                 () => string.IsNullOrWhiteSpace(input),
                 $"Required input {parameterName} was empty.");
         }
 
-        /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
-        public static void AgainstOutOfRange(this IGuard guard, int input, string parameterName, int rangeFrom, int rangeTo)
-            => AgainstOutOfRange<int>(guard, input, parameterName, rangeFrom, rangeTo);
+        public void AgainstOutOfRange(int input, string parameterName, int rangeFrom, int rangeTo)
+            => AgainstOutOfRange<int>(input, parameterName, rangeFrom, rangeTo);
 
-        /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
-        public static void AgainstOutOfRange(this IGuard guard, DateTime input, string parameterName, DateTime rangeFrom, DateTime rangeTo)
-            => AgainstOutOfRange<DateTime>(guard, input, parameterName, rangeFrom, rangeTo);
+        public void AgainstOutOfRange(DateTime input, string parameterName, DateTime rangeFrom, DateTime rangeTo)
+            => AgainstOutOfRange<DateTime>(input, parameterName, rangeFrom, rangeTo);
 
-        /// <exception cref="ArgumentException">Throws if <see cref="rangeFrom" /> is less than <see cref="rangeTo" />.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Throws if <see cref="input" /> is less than <see cref="rangeFrom" /> or greater than <see cref="rangeTo" />.</exception>
-        public static void AgainstOutOfSqlDateRange(this IGuard guard, DateTime input, string parameterName)
+        public void AgainstOutOfSqlDateRange(DateTime input, string parameterName)
         {
             // System.Data is unavailable in .NET Standard so we can't use SqlDateTime.
             const long sqlMinDateTicks = 552877920000000000;
             const long sqlMaxDateTicks = 3155378975999970000;
 
-            AgainstOutOfRange<DateTime>(guard, input, parameterName, new DateTime(sqlMinDateTicks), new DateTime(sqlMaxDateTicks));
+            AgainstOutOfRange<DateTime>(input, parameterName, new DateTime(sqlMinDateTicks), new DateTime(sqlMaxDateTicks));
         }
 
-        private static void AgainstOutOfRange<T>(this IGuard guard, T input, string parameterName, T rangeFrom, T rangeTo)
+        private void AgainstOutOfRange<T>(T input, string parameterName, T rangeFrom, T rangeTo)
         {
             Comparer<T> comparer = Comparer<T>.Default;
 
-            Throws<ArgumentException>(guard,
+            Throws<ArgumentException>(
                 () => comparer.Compare(rangeFrom, rangeTo) > 0,
                 $"{nameof(rangeFrom)} should be less or equal than {nameof(rangeTo)}");
 
-            Throws<ArgumentOutOfRangeException>(guard,
+            Throws<ArgumentOutOfRangeException>(
                 () => comparer.Compare(input, rangeFrom) < 0 || comparer.Compare(input, rangeTo) > 0,
                 $"Input {parameterName} was out of range");
         }
 
-        /// <exception cref="TException"></exception>
-        public static void Throws<TException>(this IGuard guard, Func<bool> condition, string message) where TException : Exception
-            => Throws<TException>(guard, condition(), message);
+        public void Throws<TException>(Func<bool> condition, string message) where TException : Exception
+            => Throws<TException>(condition(), message);
 
-        /// <exception cref="TException"></exception>
-        public static void Throws<TException>(this IGuard guard, bool condition, string message) where TException : Exception
+        public void Throws<TException>(bool condition, string message) where TException : Exception
         {
             if (condition)
             {
-                throw (TException)Activator.CreateInstance(typeof(TException), message);
+                Throws<TException>(message);
             }
+        }
+        public void Throws<TException>(string message) where TException : Exception
+        {
+            throw (TException)Activator.CreateInstance(typeof(TException), message);
         }
     }
 }

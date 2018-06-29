@@ -4,15 +4,10 @@ using System.Linq;
 
 namespace KukSoft.ToolKit.Audit
 {
-    class AuditorImpl<TObject> : Auditor<TObject>
-    {
-        protected override void Checklist(TObject obj) { }
-    }
-
     public abstract class Auditor<TObject> : IAuditor<TObject>
     {
-        private IList<AuditSchema<TObject>> _checkList = new List<AuditSchema<TObject>>();
-        private IList<IAuditFailure> _failures = new List<IAuditFailure>();
+        private readonly IList<AuditSchema<TObject>> _checkList = new List<AuditSchema<TObject>>();
+        private readonly IList<IAuditFailure> _failures = new List<IAuditFailure>();
 
         public IAuditor<TObject> MustPass(Func<TObject, bool> check, string message)
         {

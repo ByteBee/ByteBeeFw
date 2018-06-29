@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using KukSoft.ToolKit.Utilities;
 
 namespace KukSoft.ToolKit.DataTypes
 {
-
     [Serializable]
     public class EnumNotFoundException : Exception
     {

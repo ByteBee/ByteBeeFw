@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KukSoft.ToolKit.Extension;
+﻿using KukSoft.ToolKit.Extension;
 using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Extensions.Tests
+namespace KukSoft.ToolKit.Tests.Extensions
 {
     [TestFixture]
     class StringExtTests

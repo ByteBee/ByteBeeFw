@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace KukSoft.ToolKit.MessageBus
 {
-    abstract class MessageBusBase : IMessageBus
+    public abstract class MessageBusBase : IMessageBus
     {
         private readonly ConcurrentDictionary<Type, HashSet<WeakReference>> _subscribers =
             new ConcurrentDictionary<Type, HashSet<WeakReference>>();

@@ -2,10 +2,10 @@
 
 namespace KukSoft.ToolKit.Logger
 {
-    class LogIntoTextfile : ILogStrategy
+    public class LogIntoTextfile : ILogStrategy
     {
         private readonly ILogFormatter _formatter;
-        private string _filename;
+        private readonly string _filename;
 
         public LogIntoTextfile(string filename) : this(filename, new StandardLogFormatter())
         {

@@ -1,9 +1,8 @@
 ﻿using KukSoft.ToolKit.Logger;
-using KukSoft.ToolKit.Logger.Public;
 using Ninject;
 using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Logger.Tests
+namespace KukSoft.ToolKit.Tests.Logger
 {
     public class MyLogFormatter : ILogFormatter
     {
@@ -21,7 +20,6 @@ namespace KukSoft.ToolKit.Logger.Tests
         {
             IKernel kernel = new StandardKernel();
 
-            kernel.Bind<ILogger>().To<StandardLogger>();
             kernel.Bind<ILogStrategy>().To<LogIntoConsole>();
             kernel.Bind<ILogStrategy>().To<LogIntoMemory>().InSingletonScope();
             kernel.Bind<ILogFormatter>().To<MyLogFormatter>().InSingletonScope();

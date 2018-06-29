@@ -67,10 +67,6 @@
       <Project>{a09995fb-1538-4c28-b805-e2a58d9b7872}</Project>
       <Name>KukSoft.ToolKit.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\KukSoft.ToolKit.Public\KukSoft.ToolKit.Public.csproj">
-      <Project>{e5606d30-18de-4a21-a8c2-131ed9fadede}</Project>
-      <Name>KukSoft.ToolKit.Public</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

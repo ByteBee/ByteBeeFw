@@ -9,7 +9,7 @@ namespace KukSoft.ToolKit.DataTypes
         void Otherwise(Action<TObject> callback);
     }
 
-    class Switch<TObject> : ISwitch<TObject>
+    public class Switch<TObject> : ISwitch<TObject>
     {
         private TObject _object;
         private bool _anyTrueCase;

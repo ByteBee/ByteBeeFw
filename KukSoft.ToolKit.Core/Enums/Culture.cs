@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
+using KukSoft.ToolKit.DataTypes;
 
-namespace KukSoft.ToolKit.DataTypes.Enums
+namespace KukSoft.ToolKit.Enums
 {
     public class Culture : Enum<Culture, int>
     {

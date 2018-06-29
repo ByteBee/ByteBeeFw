@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Security.Tests
+namespace KukSoft.ToolKit.Tests.Security
 {
     [TestFixture]
     public class CryptographyTest

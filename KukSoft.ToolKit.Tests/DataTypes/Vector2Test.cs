@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using KukSoft.ToolKit.DataTypes;
+using NUnit.Framework;
 
-namespace KukSoft.ToolKit.DataTypes.Tests
+namespace KukSoft.ToolKit.Tests.DataTypes
 {
     [TestFixture]
     public class Vector2Test

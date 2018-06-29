@@ -1,6 +1,6 @@
 ﻿namespace KukSoft.ToolKit.Logger
 {
-    class LogWithoutLevel : ILogStrategy
+    public class LogWithoutLevel : ILogStrategy
     {
         private readonly LogLevel _logLevel;
         private readonly ILogStrategy _inner;

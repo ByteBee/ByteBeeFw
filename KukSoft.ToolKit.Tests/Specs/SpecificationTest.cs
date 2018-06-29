@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KukSoft.ToolKit.Specs;
 using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Specs.Tests
+namespace KukSoft.ToolKit.Tests.Specs
 {
     [TestFixture]
     public class SpecificationTest
@@ -16,7 +12,6 @@ namespace KukSoft.ToolKit.Specs.Tests
             public StringContainsSpec(string needle) => _needle = needle;
             public override bool IsSatisfiedBy(string haystack) => haystack.Contains(_needle);
         }
-
 
         [Test]
         public void TestingTheAnd()

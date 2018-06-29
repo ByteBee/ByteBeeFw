@@ -1,6 +1,6 @@
 ﻿namespace KukSoft.ToolKit.Logger
 {
-    class LogOnlyForDebug : ILogStrategy
+    public class LogOnlyForDebug : ILogStrategy
     {
         private readonly ILogFormatter _loggerFormatter;
         public string LogMessageStore { get; set; } = string.Empty;

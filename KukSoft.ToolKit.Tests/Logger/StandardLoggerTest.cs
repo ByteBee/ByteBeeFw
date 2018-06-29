@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using KukSoft.ToolKit.Logger;
+using NUnit.Framework;
 
-namespace KukSoft.ToolKit.Logger.Tests
+namespace KukSoft.ToolKit.Tests.Logger
 {
     [TestFixture]
     class StandardLoggerTest
@@ -11,7 +12,7 @@ namespace KukSoft.ToolKit.Logger.Tests
         {
             var m = new FakeManager();
 
-            Fancy.Logger.Register(Fancy.LogStrategies.Console());
+            Fancy.Logger.Register(new LogIntoConsole());
 
             try
             {

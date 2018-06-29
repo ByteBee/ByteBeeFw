@@ -1,6 +1,6 @@
 ﻿namespace KukSoft.ToolKit.Logger
 {
-    class LogLevelFilter : ILogStrategy
+    public class LogLevelFilter : ILogStrategy
     {
         private readonly LogLevel _logLevel;
         private readonly ILogStrategy _inner;

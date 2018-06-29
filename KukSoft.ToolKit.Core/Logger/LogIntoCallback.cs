@@ -2,7 +2,7 @@
 
 namespace KukSoft.ToolKit.Logger
 {
-    class LogIntoCallback : ILogStrategy
+    public class LogIntoCallback : ILogStrategy
     {
         private readonly ILogFormatter _formatter;
         private readonly Action<string> _callback;

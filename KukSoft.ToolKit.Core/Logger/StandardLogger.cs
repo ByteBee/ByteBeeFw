@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 
 namespace KukSoft.ToolKit.Logger
 {
-    class StandardLogger : ILogger
+    internal class StandardLogger : ILogger
     {
         private readonly ConcurrentBag<ILogStrategy> _logStrategies;
 

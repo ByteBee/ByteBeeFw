@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using KukSoft.ToolKit.DataTypes;
 
 namespace KukSoft.ToolKit.Utilities
 {
@@ -20,13 +21,13 @@ namespace KukSoft.ToolKit.Utilities
         string Underscore(string pascalCasedWord);
     }
 
-    class Inflector : IInflector
+    class InflectorImpl : IInflector
     {
         private readonly IList<Rule> _plurals = new List<Rule>();
         private readonly IList<Rule> _singulars = new List<Rule>();
         private readonly IList<string> _uncountables = new List<string>();
 
-        public Inflector()
+        public InflectorImpl()
         {
             AddPlural("$", "s");
             AddPlural("s$", "s");
@@ -179,7 +180,7 @@ namespace KukSoft.ToolKit.Utilities
         {
             int.TryParse(number, out int n);
 
-            Fancy.Switch<int>(n % 10)
+            new Switch<int>(n % 10)
                 .Case(i => i % 10 >= 11 && i % 10 <= 13, _ => number += "th")
                 .Case(1, _ => number += "st")
                 .Case(2, _ => number += "nd")

@@ -1,8 +1,8 @@
-﻿using KukSoft.ToolKit.Utilities;
+﻿using System;
+using KukSoft.ToolKit.Utilities;
 using NUnit.Framework;
-using System;
 
-namespace KukSoft.ToolKit.DataTypes.Tests
+namespace KukSoft.ToolKit.Tests.DataTypes
 {
     [TestFixture]
     public class GuardTest
@@ -25,6 +25,7 @@ namespace KukSoft.ToolKit.DataTypes.Tests
         [Test]
         public void DoesNothingGivenNonNullValue()
         {
+
             Fancy.Guard.AgainstNull("", "string");
             Fancy.Guard.AgainstNull(1, "int");
             Fancy.Guard.AgainstNull(Guid.Empty, "guid");

@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using KukSoft.ToolKit.Utilities;
 
 namespace KukSoft.ToolKit
 {
-    public interface IMicrokernel
+    internal interface IMicrokernel
     {
         void Register<TContract, TImpl>() where TImpl : class;
         void Register<TContract, TImpl>(TImpl instance) where TImpl : class;
@@ -16,10 +17,10 @@ namespace KukSoft.ToolKit
         object Resolve(Type contract);
     }
 
-    public class Microkernel : IMicrokernel
+    internal class Microkernel : IMicrokernel
     {
-        private readonly IDictionary<Type, Type> types = new Dictionary<Type, Type>();
-        private readonly IDictionary<Type, object> typeInstances = new Dictionary<Type, object>();
+        private readonly IDictionary<Type, Type> _types = new Dictionary<Type, Type>();
+        private readonly IDictionary<Type, object> _typeInstances = new Dictionary<Type, object>();
 
         public static IMicrokernel Instance => new Microkernel();
 
@@ -30,20 +31,20 @@ namespace KukSoft.ToolKit
 
         private void InitDefault()
         {
+            Register<IInflector, InflectorImpl>();
             Register<ILogger, StandardLogger>();
-            Register<ILogStrategyFactory, LogStrategyFactory>();
-            Register<IGuard, Guard>();
+            Register<IGuard, GuardImpl>();
             Register<IEncryptionFactory, EncryptionFactory>();
         }
 
         public virtual void Register<TContract, TImplementation>() where TImplementation : class
         {
-            types[typeof(TContract)] = typeof(TImplementation);
+            _types[typeof(TContract)] = typeof(TImplementation);
         }
 
         public virtual void Register<TContract, TImplementation>(TImplementation instance) where TImplementation : class
         {
-            typeInstances[typeof(TContract)] = instance;
+            _typeInstances[typeof(TContract)] = instance;
         }
 
         public virtual TContract Resolve<TContract>()
@@ -53,35 +54,29 @@ namespace KukSoft.ToolKit
 
         public virtual object Resolve(Type contract)
         {
-            if (typeInstances.ContainsKey(contract))
+            if (_typeInstances.ContainsKey(contract))
             {
-                return typeInstances[contract];
+                return _typeInstances[contract];
             }
-            else
+
+            Type implementation = _types[contract];
+            ConstructorInfo[] constructors = implementation.GetConstructors()
+                .Where(c => c.IsPublic)
+                .OrderByDescending(c => c.GetParameters().Length).ToArray();
+
+            ConstructorInfo constructor = constructors[0];
+
+            ParameterInfo[] constructorParameters = constructor.GetParameters();
+            if (constructorParameters.Length == 0)
             {
-                Type implementation = types[contract];
-                ConstructorInfo[] constructors = implementation.GetConstructors()
-                    .Where(c => c.IsPublic)
-                    .OrderByDescending(c => c.GetParameters().Length).ToArray();
-
-                var constructor = constructors[0];
-
-
-
-
-
-                ParameterInfo[] constructorParameters = constructor.GetParameters();
-                if (constructorParameters.Length == 0)
-                {
-                    return Activator.CreateInstance(implementation);
-                }
-                List<object> parameters = new List<object>(constructorParameters.Length);
-                foreach (ParameterInfo parameterInfo in constructorParameters)
-                {
-                    parameters.Add(Resolve(parameterInfo.ParameterType));
-                }
-                return constructor.Invoke(parameters.ToArray());
+                return Activator.CreateInstance(implementation);
             }
+            List<object> parameters = new List<object>(constructorParameters.Length);
+            foreach (ParameterInfo parameterInfo in constructorParameters)
+            {
+                parameters.Add(Resolve(parameterInfo.ParameterType));
+            }
+            return constructor.Invoke(parameters.ToArray());
         }
     }
 }

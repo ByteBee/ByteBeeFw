@@ -2,9 +2,9 @@
 
 namespace KukSoft.ToolKit.Logger
 {
-    class LogIntoMultiple : ILogStrategy
+    public class LogIntoMultiple : ILogStrategy
     {
-        private ConcurrentBag<ILogStrategy> _strategies;
+        private readonly ConcurrentBag<ILogStrategy> _strategies;
 
         public LogIntoMultiple(ILogStrategy[] strategies)
         {

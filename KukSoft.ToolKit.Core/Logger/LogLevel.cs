@@ -13,9 +13,5 @@ namespace KukSoft.ToolKit.Logger
         protected LogLevel(int value, string name) : base(value, name)
         {
         }
-
-        protected LogLevel()
-        {
-        }
     }
 }

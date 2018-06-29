@@ -1,12 +1,9 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using KukSoft.ToolKit.DataTypes;
+using NUnit.Framework;
 
-namespace KukSoft.ToolKit.DataTypes.Tests
+namespace KukSoft.ToolKit.Tests.DataTypes
 {
     class FooEnum : Enum<FooEnum, int>
     {
