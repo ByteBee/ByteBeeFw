@@ -7,13 +7,17 @@
         <Company />
         <Product />
         <Description>Combine some fancy tools in a single ToolKit</Description>
-        <PackageLicenseUrl>https://raw.githubusercontent.com/serkuk/ToolKit/master/LICENSE.md</PackageLicenseUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/serkuk/SwissKnife/master/LICENSE.md</PackageLicenseUrl>
         <PackageProjectUrl>https://kukshaus.com/toolkit</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/serkuk/ToolKit</RepositoryUrl>
-        <Copyright>Copyright 2018</Copyright>
-        <PackageReleaseNotes>kukshaus toolbox switch eventaggregator messagebus logger extensions enum</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/serkuk/SwissKnife</RepositoryUrl>
+        <Copyright>Copyright 2018 by Sergej Kukshaus</Copyright>
+        <PackageReleaseNotes></PackageReleaseNotes>
         <AssemblyName>SwissKnife</AssemblyName>
+        <PackageId>SwissKnife.NET</PackageId>
+        <PackageTags>kukshaus toolbox swissknife switch eventaggregator messagebus logger extensions enum</PackageTags>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
     </PropertyGroup>
     <ItemGroup>
       <Folder Include="Arch\" />
