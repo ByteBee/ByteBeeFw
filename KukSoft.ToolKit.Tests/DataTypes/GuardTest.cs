@@ -14,11 +14,11 @@ namespace KukSoft.ToolKit.Tests.DataTypes
 
             Assert.DoesNotThrow(() =>
             {
-                Fancy.Guard.AgainstNegative(senseOfLife);
+                Fancy.guard.AgainstNegative(senseOfLife);
             });
             Assert.Throws<ArgumentException>(() =>
             {
-                Fancy.Guard.AgainstNegative(-senseOfLife);
+                Fancy.guard.AgainstNegative(-senseOfLife);
             });
         }
 
@@ -26,11 +26,11 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         public void DoesNothingGivenNonNullValue()
         {
 
-            Fancy.Guard.AgainstNull("", "string");
-            Fancy.Guard.AgainstNull(1, "int");
-            Fancy.Guard.AgainstNull(Guid.Empty, "guid");
-            Fancy.Guard.AgainstNull(DateTime.Now, "datetime");
-            Fancy.Guard.AgainstNull(new Object(), "object");
+            Fancy.guard.AgainstNull("", "string");
+            Fancy.guard.AgainstNull(1, "int");
+            Fancy.guard.AgainstNull(Guid.Empty, "guid");
+            Fancy.guard.AgainstNull(DateTime.Now, "datetime");
+            Fancy.guard.AgainstNull(new Object(), "object");
 
             Assert.Pass();
         }
@@ -38,14 +38,14 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValue()
         {
-            Assert.Throws<ArgumentNullException>(() => Fancy.Guard.AgainstNull(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Fancy.guard.AgainstNull(null, "null"));
         }
 
         [Test]
         public void DoesNothingGivenNonEmptyStringValue()
         {
-            Fancy.Guard.AgainstNullOrEmpty("a", "string");
-            Fancy.Guard.AgainstNullOrEmpty("1", "aNumericString");
+            Fancy.guard.AgainstNullOrEmpty("a", "string");
+            Fancy.guard.AgainstNullOrEmpty("1", "aNumericString");
 
             Assert.Pass();
         }
@@ -53,20 +53,20 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueUsing()
         {
-            Assert.Throws<ArgumentNullException>(() => Fancy.Guard.AgainstNullOrEmpty(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Fancy.guard.AgainstNullOrEmpty(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyString()
         {
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstNullOrEmpty("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstNullOrEmpty("", "emptystring"));
         }
 
         [Test]
         public void DoesNothingGivenNonEmptyStringValueForOrEmpty()
         {
-            Fancy.Guard.AgainstNullOrEmpty("a", "string");
-            Fancy.Guard.AgainstNullOrEmpty("1", "aNumericString");
+            Fancy.guard.AgainstNullOrEmpty("a", "string");
+            Fancy.guard.AgainstNullOrEmpty("1", "aNumericString");
 
             Assert.Pass();
         }
@@ -74,13 +74,13 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueForOrEmpty()
         {
-            Assert.Throws<ArgumentNullException>(() => Fancy.Guard.AgainstNullOrEmpty(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Fancy.guard.AgainstNullOrEmpty(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyStringForOrEmpty()
         {
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstNullOrEmpty("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstNullOrEmpty("", "emptystring"));
         }
 
         [TestCase("a")]
@@ -90,8 +90,8 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [TestCase("trailing whitespace ")]
         public void DoesNothingGivenNonEmptyStringValue(string nonEmptyString)
         {
-            Fancy.Guard.AgainstNullOrWhiteSpace(nonEmptyString, "string");
-            Fancy.Guard.AgainstNullOrWhiteSpace(nonEmptyString, "aNumericString");
+            Fancy.guard.AgainstNullOrWhiteSpace(nonEmptyString, "string");
+            Fancy.guard.AgainstNullOrWhiteSpace(nonEmptyString, "aNumericString");
 
             Assert.Pass();
         }
@@ -99,20 +99,20 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueForOrWhiteSpace()
         {
-            Assert.Throws<ArgumentNullException>(() => Fancy.Guard.AgainstNullOrWhiteSpace(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Fancy.guard.AgainstNullOrWhiteSpace(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyStringForOrWhiteSpace()
         {
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstNullOrWhiteSpace("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstNullOrWhiteSpace("", "emptystring"));
         }
 
         [TestCase(" ")]
         [TestCase("   ")]
         public void ThrowsGivenWhiteSpaceString(string whiteSpaceString)
         {
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstNullOrWhiteSpace(whiteSpaceString, "whitespacestring"));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstNullOrWhiteSpace(whiteSpaceString, "whitespacestring"));
         }
 
         [TestCase(0, 0)]
@@ -124,7 +124,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            Fancy.Guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo);
+            Fancy.guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo);
 
             Assert.Pass();
         }
@@ -136,7 +136,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            Assert.Throws<ArgumentOutOfRangeException>(() => Fancy.Guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentOutOfRangeException>(() => Fancy.guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(3, 1)]
@@ -146,7 +146,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstOutOfRange(DateTime.Now, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstOutOfRange(DateTime.Now, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(1, 1, 1)]
@@ -155,7 +155,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [TestCase(3, 1, 3)]
         public void DoesNothingGivenInRangeValue(int input, int rangeFrom, int rangeTo)
         {
-            Fancy.Guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo);
+            Fancy.guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo);
 
             Assert.Pass();
         }
@@ -165,7 +165,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [TestCase(4, 1, 3)]
         public void ThrowsGivenOutOfRangeValue(int input, int rangeFrom, int rangeTo)
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => Fancy.Guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentOutOfRangeException>(() => Fancy.guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(-1, 3, 1)]
@@ -173,7 +173,7 @@ namespace KukSoft.ToolKit.Tests.DataTypes
         [TestCase(4, 3, 1)]
         public void ThrowsGivenInvalidArgumentValue(int input, int rangeFrom, int rangeTo)
         {
-            Assert.Throws<ArgumentException>(() => Fancy.Guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentException>(() => Fancy.guard.AgainstOutOfRange(input, "index", rangeFrom, rangeTo));
         }
     }
 

@@ -14,7 +14,7 @@ namespace KukSoft.ToolKit.Tests.Audit
             {
                 try
                 {
-                    Fancy.Auditor<Vector2D>()
+                    Fancy.auditor<Vector2D>()
                         .MustPass(v => v.X > 2, "X muss größer als 2 sein")
                         .Audit(new Vector2D(2, 4));
                 }
@@ -51,7 +51,7 @@ namespace KukSoft.ToolKit.Tests.Audit
             {
                 try
                 {
-                    Fancy.Auditor<Vector2D>()
+                    Fancy.auditor<Vector2D>()
                        .MustPass(v => v.X > 2, "X muss größer als 2 sein")
                        .SubSequence(new VectorAuditorStub(), new Vector2D(-2, -4), "Werte sollen positiv sein")
                        .MustFail(v => v.Y == 4, "Y ist 4")

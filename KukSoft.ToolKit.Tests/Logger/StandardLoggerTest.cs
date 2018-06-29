@@ -1,6 +1,7 @@
 ﻿using System;
 using KukSoft.ToolKit.Logger;
 using NUnit.Framework;
+using static KukSoft.ToolKit.Fancy;
 
 namespace KukSoft.ToolKit.Tests.Logger
 {
@@ -12,15 +13,15 @@ namespace KukSoft.ToolKit.Tests.Logger
         {
             var m = new FakeManager();
 
-            Fancy.Logger.Register(new LogIntoConsole());
-
+            logger.Register(new LogIntoConsole());
+            
             try
             {
                 m.Do();
             }
             catch (Exception ex)
             {
-                Fancy.Logger.Error("Big Bang!", ex);
+                logger.Error("Big Bang!", ex);
             }
         }
     }

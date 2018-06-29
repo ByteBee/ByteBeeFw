@@ -1,4 +1,5 @@
-﻿using KukSoft.ToolKit.Specs;
+﻿using System;
+using KukSoft.ToolKit.Specs;
 using NUnit.Framework;
 
 namespace KukSoft.ToolKit.Tests.Specs
@@ -24,7 +25,7 @@ namespace KukSoft.ToolKit.Tests.Specs
              *********/
             Specification<string> specs = new StringConstraint(2, 5)
                 .And(new StringContainsSpec("o"));
-
+            
             Assert.IsFalse(specs.IsSatisfiedBy("f"), "0:0");
             Assert.IsFalse(specs.IsSatisfiedBy("o"), "0:1");
             Assert.IsFalse(specs.IsSatisfiedBy("bar"), "1:0");

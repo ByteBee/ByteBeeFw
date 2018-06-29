@@ -8,15 +8,15 @@ namespace KukSoft.ToolKit
 {
     public static partial class Fancy
     {
-        public static IGuard Guard => Microkernel.Instance.Resolve<IGuard>();
-        public static IInflector Inflector => Microkernel.Instance.Resolve<IInflector>();
+        public static IGuard guard => Microkernel.Instance.Resolve<IGuard>();
+        public static IInflector inflector => Microkernel.Instance.Resolve<IInflector>();
 
-        public static ISwitch<TObject> Switch<TObject>(TObject obj) => new Switch<TObject>(obj);
+        public static ISwitch<TObject> choose<TObject>(TObject obj) => new Switch<TObject>(obj);
 
-        public static IAuditor<TObject> Auditor<TObject>() => new StandardAuditor<TObject>();
+        public static IAuditor<TObject> auditor<TObject>() => new StandardAuditor<TObject>();
 
-        public static IEncryptionFactory Encryption => Microkernel.Instance.Resolve<IEncryptionFactory>();
+        public static IEncryptionFactory encryption => Microkernel.Instance.Resolve<IEncryptionFactory>();
 
-        public static ILogger Logger => new StandardLogger();
+        public static ILogger logger => new StandardLogger();
     }
 }

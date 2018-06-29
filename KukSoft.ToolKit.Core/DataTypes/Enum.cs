@@ -48,7 +48,7 @@ namespace KukSoft.ToolKit.DataTypes
 
         public static TEnum ByName(string name)
         {
-            Fancy.Guard.AgainstNullOrWhiteSpace(name, nameof(name));
+            Fancy.guard.AgainstNullOrWhiteSpace(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)
