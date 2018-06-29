@@ -32,8 +32,11 @@ namespace KukSoft.ToolKit
         private void InitDefault()
         {
             Register<IInflector, InflectorImpl>();
-            Register<ILogger, StandardLogger>();
             Register<IGuard, GuardImpl>();
+            Register<IPath, PathImpl>();
+            Register<IFile, FileImpl>();
+
+            Register<ILogger, StandardLogger>();
             Register<IEncryptionFactory, EncryptionFactory>();
         }
 

@@ -18,5 +18,7 @@ namespace KukSoft.ToolKit
         public static IEncryptionFactory encryption => Microkernel.Instance.Resolve<IEncryptionFactory>();
 
         public static ILogger logger => new StandardLogger();
+        public static IPath path => Microkernel.Instance.Resolve<IPath>();
+        public static IFile file => Microkernel.Instance.Resolve<IFile>();
     }
 }
