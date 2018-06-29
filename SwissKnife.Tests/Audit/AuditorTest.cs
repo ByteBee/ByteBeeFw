@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
-using SwissKnife.Audit;
 using SwissKnife.DataTypes;
+using SwissKnife.Validating;
 using static SwissKnife.Fancy;
 
 namespace SwissKnife.Tests.Audit
@@ -11,15 +11,15 @@ namespace SwissKnife.Tests.Audit
         [Test]
         public void TestInitialisation()
         {
-            Assert.Throws<AuditException>(() =>
+            Assert.Throws<ObjectNotValidException>(() =>
             {
                 try
                 {
-                    auditor<Vector2D>()
+                    validation<Vector2D>()
                         .MustPass(v => v.X > 2, "X muss größer als 2 sein")
-                        .Audit(new Vector2D(2, 4));
+                        .Validate(new Vector2D(2, 4));
                 }
-                catch (AuditException ex)
+                catch (ObjectNotValidException ex)
                 {
                     System.Console.WriteLine(ex.Message);
                     throw;
@@ -30,14 +30,14 @@ namespace SwissKnife.Tests.Audit
         [Test]
         public void TestCustomAuditor()
         {
-            Assert.Throws<AuditException>(() =>
+            Assert.Throws<ObjectNotValidException>(() =>
             {
                 try
                 {
-                    var a = new VectorAuditorStub();
-                    a.Audit(new Vector2D(-2, -4));
+                    var a = new VectorValidatorStub();
+                    a.Validate(new Vector2D(-2, -4));
                 }
-                catch (AuditException ex)
+                catch (ObjectNotValidException ex)
                 {
                     System.Console.WriteLine(ex.Message);
                     throw;
@@ -48,18 +48,18 @@ namespace SwissKnife.Tests.Audit
         [Test]
         public void TestNestedAudit()
         {
-            Assert.Throws<AuditException>(() =>
+            Assert.Throws<ObjectNotValidException>(() =>
             {
                 try
                 {
-                    auditor<Vector2D>()
+                    validation<Vector2D>()
                        .MustPass(v => v.X > 2, "X muss größer als 2 sein")
-                       .SubSequence(new VectorAuditorStub(), new Vector2D(-2, -4), "Werte sollen positiv sein")
+                       .SubSequence(new VectorValidatorStub(), new Vector2D(-2, -4), "Werte sollen positiv sein")
                        .MustFail(v => v.Y == 4, "Y ist 4")
-                       .SubSequence(new VectorAuditorStub(), new Vector2D(-2, 4), "Werte sollen positiv sein")
-                       .Audit(new Vector2D(2, 4));
+                       .SubSequence(new VectorValidatorStub(), new Vector2D(-2, 4), "Werte sollen positiv sein")
+                       .Validate(new Vector2D(2, 4));
                 }
-                catch (AuditException ex)
+                catch (ObjectNotValidException ex)
                 {
                     System.Console.WriteLine(ex.Message);
                     throw;
@@ -67,17 +67,17 @@ namespace SwissKnife.Tests.Audit
             });
         }
 
-        class VectorAuditorStub : Auditor<Vector2D>
+        class VectorValidatorStub : StandardValidator<Vector2D>
         {
             protected override void Checklist(Vector2D obj)
             {
                 MustPass(v => v.Y > 0, "Y muss positiv sein");
                 MustPass(v => v.X > 0, "X muss positiv sein");
 
-                SubSequence(new VectorAuditorNotNegativeStub(), 42, "hallo");
+                SubSequence(new VectorNotNegativeValidatorStub(), 42, "hallo");
             }
         }
-        class VectorAuditorNotNegativeStub : Auditor<int>
+        class VectorNotNegativeValidatorStub : StandardValidator<int>
         {
             protected override void Checklist(int zahl)
             {

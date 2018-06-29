@@ -1,16 +1,15 @@
 ﻿// https://github.com/ardalis/guards
-
 using System;
 using System.Collections.Generic;
-using SwissKnife.Audit;
-using SwissKnife.Specs;
+using SwissKnife.Specifications;
+using SwissKnife.Validating;
 
 namespace SwissKnife.Utilities
 {
     public interface IGuard
     {
-        /// <exception cref="AuditException"></exception>
-        void AgainstAnAudit<TObj>(Auditor<TObj> auditor, TObj obj);
+        /// <exception cref="ObjectNotValidException"></exception>
+        void AgainstAnAudit<TObj>(StandardValidator<TObj> auditor, TObj obj);
 
         /// <exception cref="ArgumentException"></exception>
         void AgainstAnSpecification<TObj>(Specification<TObj> spec, TObj obj);
@@ -48,10 +47,10 @@ namespace SwissKnife.Utilities
         void Throws<TException>(string message) where TException : Exception;
     }
 
-    class GuardImpl : IGuard
+    internal class GuardImpl : IGuard
     {
-        public void AgainstAnAudit<TObj>(Auditor<TObj> auditor, TObj obj)
-            => auditor.Audit(obj);
+        public void AgainstAnAudit<TObj>(StandardValidator<TObj> auditor, TObj obj)
+            => auditor.Validate(obj);
 
         public void AgainstAnSpecification<TObj>(Specification<TObj> spec, TObj obj)
         {

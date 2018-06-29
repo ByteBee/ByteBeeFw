@@ -1,7 +1,14 @@
 ﻿namespace SwissKnife.Utilities
 {
-    public class DateTimeImpl
+    public interface IDateTime
     {
-        
+
     }
+
+    public abstract class StandardDateTime
+    {
+
+    }
+
+    internal class DateTimeImpl : StandardDateTime { }
 }

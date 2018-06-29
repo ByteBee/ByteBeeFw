@@ -1,6 +1,5 @@
 ﻿using Ninject;
 using NUnit.Framework;
-using SwissKnife.Logger;
 
 namespace SwissKnife.Tests.Logger
 {

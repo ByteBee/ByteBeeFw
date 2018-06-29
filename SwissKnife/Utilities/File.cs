@@ -63,7 +63,7 @@ namespace SwissKnife.Utilities
         void WriteAllLines(string path, string[] contents, Encoding encoding);
         void WriteAllText(string path, string contents);
         void WriteAllText(string path, string contents, Encoding encoding);
-        
+
 #if !NETSTANDARD2_0
         void SetAccessControl(string path, FileSecurity fileSecurity);
         FileStream Create(string path, int bufferSize, FileOptions options, FileSecurity fileSecurity);
@@ -72,7 +72,7 @@ namespace SwissKnife.Utilities
 #endif
     }
 
-    internal class FileImpl : IFile
+    public abstract class StandardFile : IFile
     {
         public void AppendAllLines(string path, IEnumerable<string> contents) => File.AppendAllLines(path, contents);
         public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.AppendAllLines(path, contents, encoding);
@@ -135,4 +135,6 @@ namespace SwissKnife.Utilities
 #endif
 
     }
+
+    internal class FileImpl : StandardFile { }
 }

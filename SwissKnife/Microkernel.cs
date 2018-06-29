@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SwissKnife.Logger;
+using SwissKnife.Logging;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
 

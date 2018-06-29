@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using SwissKnife.Extension;
+using SwissKnife.Extensions;
 
 namespace SwissKnife.Security
 {

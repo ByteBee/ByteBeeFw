@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using SwissKnife.Specs;
 
 namespace SwissKnife.Tests.Specs
 {

@@ -1,8 +1,10 @@
-﻿using SwissKnife.Audit;
-using SwissKnife.DataTypes;
-using SwissKnife.Logger;
+﻿using SwissKnife.DataTypes;
+using SwissKnife.Logging;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
+using SwissKnife.Validating;
+
+// ReSharper disable InconsistentNaming
 
 namespace SwissKnife
 {
@@ -13,7 +15,7 @@ namespace SwissKnife
 
         public static ISwitch<TObject> choose<TObject>(TObject obj) => new Switch<TObject>(obj);
 
-        public static IAuditor<TObject> auditor<TObject>() => new StandardAuditor<TObject>();
+        public static IValidator<TObject> validation<TObject>() => new ConcrValidator<TObject>();
 
         public static IEncryptionFactory encryption => Microkernel.Instance.Resolve<IEncryptionFactory>();
 

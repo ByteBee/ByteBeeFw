@@ -21,7 +21,7 @@ namespace SwissKnife.Utilities
         string Underscore(string pascalCasedWord);
     }
 
-    class InflectorImpl : IInflector
+    internal class InflectorImpl : IInflector
     {
         private readonly IList<Rule> _plurals = new List<Rule>();
         private readonly IList<Rule> _singulars = new List<Rule>();
