@@ -24,6 +24,14 @@ namespace SwissKnife.Mathematics.Vector
             Z = z;
         }
 
+        private Vector4I(double w, double x, double y, double z)
+        {
+            W = (int)w;
+            X = (int)x;
+            Y = (int)y;
+            Z = (int)z;
+        }
+
         public Vector4I(int[] a) : this(a[0], a[1], a[2], a[3]) { }
         public Vector4I(Vector4I v) : this(v.W, v.X, v.Y, v.Z) { }
         public Vector4I(Tuple<int, int, int, int> t) : this(t.Item1, t.Item2, t.Item3, t.Item4) { }
@@ -34,10 +42,13 @@ namespace SwissKnife.Mathematics.Vector
 
         public static implicit operator Vector4I(Vector2I v) => new Vector4I(0, v.X, v.Y, 0);
         public static implicit operator Vector4I(Vector3I v) => new Vector4I(0, v.X, v.Y, v.Z);
+        public static implicit operator Vector4I(Vector2D v) => new Vector4I(0, v.X, v.Y, 0);
+        public static implicit operator Vector4I(Vector3D v) => new Vector4I(0, v.X, v.Y, v.Z);
+        public static implicit operator Vector4I(Vector4D v) => new Vector4I(0, v.X, v.Y, v.Z);
         public static implicit operator int[] (Vector4I v) => new[] { v.W, v.X, v.Y, v.Z };
-
-        public static implicit operator Tuple<int, int, int, int>(Vector4I v)
-            => new Tuple<int, int, int, int>(v.W, v.X, v.Y, v.Z);
+        public static implicit operator Tuple<int, int, int, int>(Vector4I v) => new Tuple<int, int, int, int>(v.W, v.X, v.Y, v.Z);
+        public static implicit operator Vector4I(int[] arr) => new Vector4I(arr);
+        public static implicit operator Vector4I(Tuple<int, int, int, int> tuple) => new Vector4I(tuple);
 
         public int this[int index]
         {

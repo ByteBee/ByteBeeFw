@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using SwissKnife.Mathematics;
 using SwissKnife.Mathematics.Vector;
 
@@ -120,6 +122,19 @@ namespace SwissKnife.Tests.DataTypes
 
             Assert.That(a.IsGreaterThan(b), Is.False);
             Assert.That(a.IsLessThan(b), Is.False);
+        }
+
+        [Test]
+        public void ImplecitCastingToKvP()
+        {
+            var dict = new Dictionary<int, int>();
+            dict.Add(1, 2);
+
+            foreach (Vector2I v in dict)
+            {
+                Assert.AreEqual(v.X, (1));
+                Assert.AreEqual(v.Y, (2));
+            }
         }
     }
 }

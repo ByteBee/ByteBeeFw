@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static SwissKnife.Fancy;
 
 namespace SwissKnife.Mathematics.Vector
@@ -32,9 +33,17 @@ namespace SwissKnife.Mathematics.Vector
 
         public static implicit operator Vector3D(Vector2D v) => new Vector3D(v.X, v.Y, 0);
         public static implicit operator Vector3D(Vector4D v) => new Vector3D(v.X, v.Y, v.Z);
+        public static implicit operator Vector3D(Vector2I v) => new Vector3D(v.X, v.Y, 0);
+        public static implicit operator Vector3D(Vector3I v) => new Vector3D(v.X, v.Y, 0);
+        public static implicit operator Vector3D(Vector4I v) => new Vector3D(v.X, v.Y, v.Z);
+        public static implicit operator Vector3D(double[] arr) => new Vector3D(arr);
+        public static implicit operator Vector3D(Tuple<double, double, double> tuple) => new Vector3D(tuple);
+
         public static implicit operator double[] (Vector3D v) => new[] { v.X, v.Y, v.Z };
         public static implicit operator Tuple<double, double, double>(Vector3D v)
             => new Tuple<double, double, double>(v.X, v.Y, v.Z);
+
+        
 
         public double this[int index]
         {

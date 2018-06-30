@@ -19,10 +19,16 @@ namespace SwissKnife.Mathematics.Vector
             Y = y;
         }
 
+        private Vector2I(double x, double y)
+        {
+            X = (int)x;
+            Y = (int)y;
+        }
+
         public Vector2I(int[] a) : this(a[0], a[1]) { }
         public Vector2I(Vector2I v) : this(v.X, v.Y) { }
         public Vector2I(Tuple<int, int> t) : this(t.Item1, t.Item2) { }
-        public Vector2I(KeyValuePair<int, int> t) : this(t.Key, t.Value) { }
+        public Vector2I(KeyValuePair<int, int> kvp) : this(kvp.Key, kvp.Value) { }
 
         public bool Equals(Vector2I v) => IsEqual(v);
 
@@ -30,10 +36,16 @@ namespace SwissKnife.Mathematics.Vector
 
         public static implicit operator Vector2I(Vector3I v) => new Vector2I(v.X, v.Y);
         public static implicit operator Vector2I(Vector4I v) => new Vector2I(v.X, v.Y);
+        public static implicit operator Vector2I(Vector2D v) => new Vector2I(v.X, v.Y);
+        public static implicit operator Vector2I(Vector3D v) => new Vector2I(v.X, v.Y);
+        public static implicit operator Vector2I(Vector4D v) => new Vector2I(v.X, v.Y);
+        public static implicit operator Vector2I(int[] arr) => new Vector2I(arr);
+        public static implicit operator Vector2I(Tuple<int, int> tuple) => new Vector2I(tuple);
+        public static implicit operator Vector2I(KeyValuePair<int, int> kvp) => new Vector2I(kvp);
         public static implicit operator int[] (Vector2I v) => new[] { v.X, v.Y };
         public static implicit operator Tuple<int, int>(Vector2I v) => new Tuple<int, int>(v.X, v.Y);
         public static implicit operator KeyValuePair<int, int>(Vector2I v) => new KeyValuePair<int, int>(v.X, v.Y);
-
+        
         public int this[int index]
         {
             get

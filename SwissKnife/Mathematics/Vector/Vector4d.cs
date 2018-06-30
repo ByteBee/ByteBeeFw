@@ -35,10 +35,13 @@ namespace SwissKnife.Mathematics.Vector
 
         public static implicit operator Vector4D(Vector2D v) => new Vector4D(0, v.X, v.Y, 0);
         public static implicit operator Vector4D(Vector3D v) => new Vector4D(0, v.X, v.Y, v.Z);
+        public static implicit operator Vector4D(Vector2I v) => new Vector4D(0, v.X, v.Y, 0);
+        public static implicit operator Vector4D(Vector3I v) => new Vector4D(0, v.X, v.Y, v.Z);
+        public static implicit operator Vector4D(Vector4I v) => new Vector4D(0, v.X, v.Y, v.Z);
         public static implicit operator double[] (Vector4D v) => new[] { v.W, v.X, v.Y, v.Z };
-
-        public static implicit operator Tuple<double, double, double, double>(Vector4D v)
-            => new Tuple<double, double, double, double>(v.W, v.X, v.Y, v.Z);
+        public static implicit operator Tuple<double, double, double, double>(Vector4D v) => new Tuple<double, double, double, double>(v.W, v.X, v.Y, v.Z);
+        public static implicit operator Vector4D(double[] arr) => new Vector4D(arr);
+        public static implicit operator Vector4D(Tuple<double, double, double, double> tuple) => new Vector4D(tuple);
 
         public double this[int index]
         {

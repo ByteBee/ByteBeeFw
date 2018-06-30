@@ -1,4 +1,6 @@
-﻿namespace SwissKnife.Utilities
+﻿using System;
+
+namespace SwissKnife.Utilities
 {
     public interface IMath
     {

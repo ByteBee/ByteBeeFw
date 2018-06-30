@@ -31,9 +31,15 @@ namespace SwissKnife.Mathematics.Vector
 
         public static implicit operator Vector2D(Vector3D v) => new Vector2D(v.X, v.Y);
         public static implicit operator Vector2D(Vector4D v) => new Vector2D(v.X, v.Y);
+        public static implicit operator Vector2D(Vector2I v) => new Vector2D(v.X, v.Y);
+        public static implicit operator Vector2D(Vector3I v) => new Vector2D(v.X, v.Y);
+        public static implicit operator Vector2D(Vector4I v) => new Vector2D(v.X, v.Y);
         public static implicit operator double[] (Vector2D v) => new[] { v.X, v.Y };
         public static implicit operator Tuple<double, double>(Vector2D v) => new Tuple<double, double>(v.X, v.Y);
         public static implicit operator KeyValuePair<double, double>(Vector2D v) => new KeyValuePair<double, double>(v.X, v.Y);
+        public static implicit operator Vector2D(double[] arr) => new Vector2D(arr);
+        public static implicit operator Vector2D(Tuple<double, double> tuple) => new Vector2D(tuple);
+        public static implicit operator Vector2D(KeyValuePair<double, double> kvp) => new Vector2D(kvp);
 
         public double this[int index]
         {
