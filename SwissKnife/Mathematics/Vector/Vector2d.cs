@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using static SwissKnife.Fancy;
 
-namespace SwissKnife.DataTypes
+namespace SwissKnife.Mathematics.Vector
 {
     public struct Vector2D : IEquatable<Vector2D>
     {
-        private const double Epsilon = 10E-9;
-
         public double X { get; }
         public double Y { get; }
 
@@ -73,8 +72,8 @@ namespace SwissKnife.DataTypes
 
         public double Length => Math.Sqrt(X * X + Y * Y);
 
-        public bool IsEqual(Vector2D v) => IsEqual(v, Epsilon);
-        public bool IsZero => IsEqual(this, Epsilon);
+        public bool IsEqual(Vector2D v) => IsEqual(v, math.ZeroTolerance);
+        public bool IsZero => IsEqual(this, math.ZeroTolerance);
 
         public bool IsEqual(Vector2D v, double tolerance) => Math.Abs(X - v.X) <= tolerance && Math.Abs(Y - v.Y) <= tolerance;
 

@@ -1,11 +1,10 @@
 ﻿using System;
+using static SwissKnife.Fancy;
 
-namespace SwissKnife.DataTypes
+namespace SwissKnife.Mathematics.Vector
 {
-    public struct Vector4D
+    public struct Vector4D : IEquatable<Vector4D>
     {
-        private const double Epsilon = 10E-9;
-
         public double W { get; }
         public double X { get; }
         public double Y { get; }
@@ -83,8 +82,8 @@ namespace SwissKnife.DataTypes
 
         public double Length => Math.Sqrt(W * W + X * X + Y * Y + Z * Z);
 
-        public bool IsEqual(Vector4D v) => IsEqual(v, Epsilon);
-        public bool IsZero => IsEqual(this, Epsilon);
+        public bool IsEqual(Vector4D v) => IsEqual(v, math.ZeroTolerance);
+        public bool IsZero => IsEqual(this, math.ZeroTolerance);
 
         public bool IsEqual(Vector4D v, double t)
             => Math.Abs(W - v.W) <= t && Math.Abs(X - v.X) <= t && Math.Abs(Y - v.Y) <= t && Math.Abs(Z - v.Z) <= t;

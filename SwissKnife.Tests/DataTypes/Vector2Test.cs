@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
-using SwissKnife.DataTypes;
+using SwissKnife.Mathematics;
+using SwissKnife.Mathematics.Vector;
 
 namespace SwissKnife.Tests.DataTypes
 {

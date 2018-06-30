@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
-using SwissKnife.DataTypes;
+using SwissKnife.Mathematics;
+using SwissKnife.Mathematics.Vector;
 using SwissKnife.Validating;
 using static SwissKnife.Fancy;
 
@@ -15,9 +16,9 @@ namespace SwissKnife.Tests.Audit
             {
                 try
                 {
-                    validation<Vector2D>()
+                    validation<Vector2I>()
                         .MustPass(v => v.X > 2, "X muss größer als 2 sein")
-                        .Validate(new Vector2D(2, 4));
+                        .Validate(new Vector2I(2, 4));
                 }
                 catch (ObjectNotValidException ex)
                 {
@@ -35,7 +36,7 @@ namespace SwissKnife.Tests.Audit
                 try
                 {
                     var a = new VectorValidatorStub();
-                    a.Validate(new Vector2D(-2, -4));
+                    a.Validate(new Vector2I(-2, -4));
                 }
                 catch (ObjectNotValidException ex)
                 {
@@ -52,12 +53,12 @@ namespace SwissKnife.Tests.Audit
             {
                 try
                 {
-                    validation<Vector2D>()
+                    validation<Vector2I>()
                        .MustPass(v => v.X > 2, "X muss größer als 2 sein")
-                       .SubSequence(new VectorValidatorStub(), new Vector2D(-2, -4), "Werte sollen positiv sein")
+                       .SubSequence(new VectorValidatorStub(), new Vector2I(-2, -4), "Werte sollen positiv sein")
                        .MustFail(v => v.Y == 4, "Y ist 4")
-                       .SubSequence(new VectorValidatorStub(), new Vector2D(-2, 4), "Werte sollen positiv sein")
-                       .Validate(new Vector2D(2, 4));
+                       .SubSequence(new VectorValidatorStub(), new Vector2I(-2, 4), "Werte sollen positiv sein")
+                       .Validate(new Vector2I(2, 4));
                 }
                 catch (ObjectNotValidException ex)
                 {
@@ -67,9 +68,9 @@ namespace SwissKnife.Tests.Audit
             });
         }
 
-        class VectorValidatorStub : StandardValidator<Vector2D>
+        class VectorValidatorStub : StandardValidator<Vector2I>
         {
-            protected override void Checklist(Vector2D obj)
+            protected override void Checklist(Vector2I obj)
             {
                 MustPass(v => v.Y > 0, "Y muss positiv sein");
                 MustPass(v => v.X > 0, "X muss positiv sein");
