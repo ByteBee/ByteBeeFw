@@ -1,97 +1,324 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace SwissKnife.Mathematics.Functions
 {
     public partial interface IMathFunctions
     {
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         sbyte Max(sbyte a, sbyte b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         byte Max(byte a, byte b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         short Max(short a, short b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         ushort Max(ushort a, ushort b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         int Max(int a, int b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         uint Max(uint a, uint b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         long Max(long a, long b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         ulong Max(ulong a, ulong b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         float Max(float a, float b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         double Max(double a, double b);
+        /// <summary>
+        /// Returns the larger of two numbers.
+        /// </summary>
         decimal Max(decimal a, decimal b);
-
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         sbyte Max(sbyte a, sbyte b, sbyte c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         byte Max(byte a, byte b, byte c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         short Max(short a, short b, short c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         ushort Max(ushort a, ushort b, ushort c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         int Max(int a, int b, int c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         uint Max(uint a, uint b, uint c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         long Max(long a, long b, long c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         ulong Max(ulong a, ulong b, ulong c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         float Max(float a, float b, float c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         double Max(double a, double b, double c);
+        /// <summary>
+        /// Returns the larger of three numbers.
+        /// </summary>
         decimal Max(decimal a, decimal b, decimal c);
-
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         sbyte Max(sbyte a, sbyte b, params sbyte[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         byte Max(byte a, byte b, params byte[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         short Max(short a, short b, params short[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         ushort Max(ushort a, ushort b, params ushort[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         int Max(int a, int b, params int[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         uint Max(uint a, uint b, params uint[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         long Max(long a, long b, params long[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         ulong Max(ulong a, ulong b, params ulong[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         float Max(float a, float b, params float[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         double Max(double a, double b, params double[] p);
+        /// <summary>
+        /// Returns the larger of given numbers.
+        /// </summary>
         decimal Max(decimal a, decimal b, params decimal[] p);
-
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         sbyte Min(sbyte a, sbyte b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         byte Min(byte a, byte b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         short Min(short a, short b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         ushort Min(ushort a, ushort b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         int Min(int a, int b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         uint Min(uint a, uint b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         long Min(long a, long b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         ulong Min(ulong a, ulong b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         float Min(float a, float b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         double Min(double a, double b);
+        /// <summary>
+        /// Returns the smaller of two numbers.
+        /// </summary>
         decimal Min(decimal a, decimal b);
-
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         sbyte Min(sbyte a, sbyte b, sbyte c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         byte Min(byte a, byte b, byte c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         short Min(short a, short b, short c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         ushort Min(ushort a, ushort b, ushort c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         int Min(int a, int b, int c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         uint Min(uint a, uint b, uint c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         long Min(long a, long b, long c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         ulong Min(ulong a, ulong b, ulong c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         float Min(float a, float b, float c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         double Min(double a, double b, double c);
+        /// <summary>
+        /// Returns the smaller of three numbers.
+        /// </summary>
         decimal Min(decimal a, decimal b, decimal c);
-
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         sbyte Min(sbyte a, sbyte b, params sbyte[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         byte Min(byte a, byte b, params byte[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         short Min(short a, short b, params short[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         ushort Min(ushort a, ushort b, params ushort[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         int Min(int a, int b, params int[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         uint Min(uint a, uint b, params uint[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         long Min(long a, long b, params long[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         ulong Min(ulong a, ulong b, params ulong[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         float Min(float a, float b, params float[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         double Min(double a, double b, params double[] p);
+        /// <summary>
+        /// Returns the smaller of given numbers.
+        /// </summary>
         decimal Min(decimal a, decimal b, params decimal[] p);
-
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         sbyte Clamp(sbyte val, sbyte min, sbyte max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         byte Clamp(byte val, byte min, byte max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         short Clamp(short val, short min, short max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         ushort Clamp(ushort val, ushort min, ushort max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         int Clamp(int val, int min, int max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         uint Clamp(uint val, uint min, uint max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         long Clamp(long val, long min, long max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         ulong Clamp(ulong val, ulong min, ulong max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         float Clamp(float val, float min, float max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         double Clamp(double val, double min, double max);
+        /// <summary>
+        /// Ensures, that a number is within a range and returns either the min or the max value.
+        /// </summary>
         decimal Clamp(decimal val, decimal min, decimal max);
-
+        /// <summary>
+        /// Transform an angle into a range between -180° and 180°
+        /// </summary>
         double ClampAngleDeg(double theta, double min, double max);
+        /// <summary>
+        /// Transform an angle into a range between -PI and PI
+        /// </summary>
         double ClampAngleRad(double theta, double min, double max);
     }
 
