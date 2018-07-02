@@ -12,6 +12,7 @@ namespace SwissKnife.MessageBus
 
         private readonly object _monitor = new object();
 
+        /// <inheritdoc />
         public void Publish<TMessage>(TMessage message) where TMessage : IMessage
         {
             Type type = typeof(IHandle<>).MakeGenericType(typeof(TMessage));
@@ -64,8 +65,13 @@ namespace SwissKnife.MessageBus
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TMessage"></typeparam>
         protected abstract void Invoke<TMessage>(TMessage message, IHandle<TMessage> subscriber) where TMessage : IMessage;
 
+        /// <inheritdoc />
         public void Register(object subscriber)
         {
             IEnumerable<Type> subscriberTypes = GetSubscriberTypes(subscriber);

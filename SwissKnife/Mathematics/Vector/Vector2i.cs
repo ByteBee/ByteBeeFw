@@ -24,14 +24,19 @@ namespace SwissKnife.Mathematics.Vector
             X = (int)x;
             Y = (int)y;
         }
-
+        /// <inheritdoc />
         public Vector2I(int[] a) : this(a[0], a[1]) { }
+        /// <inheritdoc />
         public Vector2I(Vector2I v) : this(v.X, v.Y) { }
+        /// <inheritdoc />
         public Vector2I(Tuple<int, int> t) : this(t.Item1, t.Item2) { }
+        /// <inheritdoc />
         public Vector2I(KeyValuePair<int, int> kvp) : this(kvp.Key, kvp.Value) { }
 
+        /// <inheritdoc />
         public bool Equals(Vector2I v) => IsEqual(v);
 
+        /// <inheritdoc />
         public override string ToString() => $"X:{X}|Y:{Y}";
 
         public static implicit operator Vector2I(Vector3I v) => new Vector2I(v.X, v.Y);
@@ -45,7 +50,7 @@ namespace SwissKnife.Mathematics.Vector
         public static implicit operator int[] (Vector2I v) => new[] { v.X, v.Y };
         public static implicit operator Tuple<int, int>(Vector2I v) => new Tuple<int, int>(v.X, v.Y);
         public static implicit operator KeyValuePair<int, int>(Vector2I v) => new KeyValuePair<int, int>(v.X, v.Y);
-        
+
         public int this[int index]
         {
             get
@@ -111,6 +116,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector2I a, Vector2I b) => (a.X >= b.X) && (a.Y >= b.Y);
         public static bool operator <=(Vector2I a, Vector2I b) => (a.X <= b.X) && (a.Y <= b.Y);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -120,6 +126,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector2I && IsEqual((Vector2I)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

@@ -21,7 +21,7 @@ namespace SwissKnife.Security
             }
         }
 
-        private byte[] Cipher(byte[]a,byte[]b,byte[]c)
+        private byte[] Cipher(byte[] a, byte[] b, byte[] c)
         {
             var m = new byte[32];
 

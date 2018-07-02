@@ -5,12 +5,14 @@
         private readonly int? _min;
         private readonly int? _max;
 
+        /// <inheritdoc />
         public IntConstraint(int? min, int? max)
         {
             _min = min;
             _max = max;
         }
 
+        /// <inheritdoc />
         public override bool IsSatisfiedBy(int candidate)
         {
             if (_min.HasValue && candidate < _min.Value)

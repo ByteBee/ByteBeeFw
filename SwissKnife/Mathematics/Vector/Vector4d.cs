@@ -25,12 +25,17 @@ namespace SwissKnife.Mathematics.Vector
             Z = z;
         }
 
+        /// <inheritdoc />
         public Vector4D(double[] a) : this(a[0], a[1], a[2], a[3]) { }
+        /// <inheritdoc />
         public Vector4D(Vector4D v) : this(v.W, v.X, v.Y, v.Z) { }
+        /// <inheritdoc />
         public Vector4D(Tuple<double, double, double, double> t) : this(t.Item1, t.Item2, t.Item3, t.Item4) { }
 
+        /// <inheritdoc />
         public bool Equals(Vector4D v) => IsEqual(v);
 
+        /// <inheritdoc />
         public override string ToString() => $"W:{W}|X:{X}|Y:{Y}|Z:{Z}";
 
         public static implicit operator Vector4D(Vector2D v) => new Vector4D(0, v.X, v.Y, 0);
@@ -117,6 +122,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector4D a, Vector4D b) => (a.W >= b.W) && (a.X >= b.X) && (a.Y >= b.Y) && (a.Z >= b.Z);
         public static bool operator <=(Vector4D a, Vector4D b) => (a.W <= b.W) && (a.X <= b.X) && (a.Y <= b.Y) && (a.Z <= b.Z);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -126,6 +132,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector4D && Equals((Vector4D)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked
@@ -137,6 +144,5 @@ namespace SwissKnife.Mathematics.Vector
                 return hashCode;
             }
         }
-
     }
 }

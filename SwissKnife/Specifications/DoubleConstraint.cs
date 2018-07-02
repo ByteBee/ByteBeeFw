@@ -8,9 +8,11 @@ namespace SwissKnife.Specifications
         private readonly double? _max;
         private readonly bool _exact;
 
+        /// <inheritdoc />
         public DoubleConstraint(double? min, double? max)
             : this(min, max, true) { }
 
+        /// <inheritdoc />
         public DoubleConstraint(double? min, double? max, bool exact)
         {
             _min = min;
@@ -18,6 +20,7 @@ namespace SwissKnife.Specifications
             _exact = exact;
         }
 
+        /// <inheritdoc />
         public override bool IsSatisfiedBy(double candidate)
         {
             if (_exact)

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using static SwissKnife.Fancy;
 
-namespace SwissKnife.DataTypes
+namespace SwissKnife.Utilities
 {
     [Serializable]
     public class EnumNotFoundException : Exception

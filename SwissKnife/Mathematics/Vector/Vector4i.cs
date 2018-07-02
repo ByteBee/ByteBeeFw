@@ -2,7 +2,7 @@
 
 namespace SwissKnife.Mathematics.Vector
 {
-    public struct Vector4I
+    public struct Vector4I : IEquatable<Vector4I>
     {
         public int W { get; }
         public int X { get; }
@@ -31,13 +31,15 @@ namespace SwissKnife.Mathematics.Vector
             Y = (int)y;
             Z = (int)z;
         }
-
+        /// <inheritdoc />
         public Vector4I(int[] a) : this(a[0], a[1], a[2], a[3]) { }
+        /// <inheritdoc />
         public Vector4I(Vector4I v) : this(v.W, v.X, v.Y, v.Z) { }
+        /// <inheritdoc />
         public Vector4I(Tuple<int, int, int, int> t) : this(t.Item1, t.Item2, t.Item3, t.Item4) { }
-
+        /// <inheritdoc />
         public bool Equals(Vector4I v) => IsEqual(v);
-
+        /// <inheritdoc />
         public override string ToString() => $"W:{W}|X:{X}|Y:{Y}|Z:{Z}";
 
         public static implicit operator Vector4I(Vector2I v) => new Vector4I(0, v.X, v.Y, 0);
@@ -120,6 +122,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector4I a, Vector4I b) => (a.W >= b.W) && (a.X >= b.X) && (a.Y >= b.Y) && (a.Z >= b.Z);
         public static bool operator <=(Vector4I a, Vector4I b) => (a.W <= b.W) && (a.X <= b.X) && (a.Y <= b.Y) && (a.Z <= b.Z);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -129,6 +132,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector4I && Equals((Vector4I)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

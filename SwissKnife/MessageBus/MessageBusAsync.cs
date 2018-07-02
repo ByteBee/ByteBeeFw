@@ -4,6 +4,7 @@ namespace SwissKnife.MessageBus
 {
     public class MessageBusAsync : MessageBusBase
     {
+        /// <inheritdoc />
         protected override void Invoke<TMessage>(TMessage message, IHandle<TMessage> subscriber)
         {
             SynchronizationContext syncContext = SynchronizationContext.Current;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace SwissKnife.Logging
 {
@@ -6,11 +7,13 @@ namespace SwissKnife.Logging
     {
         private readonly ConcurrentBag<ILogStrategy> _strategies;
 
-        public LogIntoMultiple(ILogStrategy[] strategies)
+        /// <inheritdoc />
+        public LogIntoMultiple(IEnumerable<ILogStrategy> strategies)
         {
             _strategies = new ConcurrentBag<ILogStrategy>(strategies);
         }
 
+        /// <inheritdoc />
         public void Publish(LogMessage message)
         {
             foreach (ILogStrategy log in _strategies)

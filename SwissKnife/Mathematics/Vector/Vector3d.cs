@@ -27,8 +27,9 @@ namespace SwissKnife.Mathematics.Vector
         public Vector3D(Vector3D v) : this(v.X, v.Y, v.Z) { }
         public Vector3D(Tuple<double, double, double> t) : this(t.Item1, t.Item2, t.Item3) { }
 
+        /// <inheritdoc />
         public bool Equals(Vector3D v) => IsEqual(v);
-
+        /// <inheritdoc />
         public override string ToString() => $"X:{X}|Y:{Y}|Z:{Z}";
 
         public static implicit operator Vector3D(Vector2D v) => new Vector3D(v.X, v.Y, 0);
@@ -42,8 +43,6 @@ namespace SwissKnife.Mathematics.Vector
         public static implicit operator double[] (Vector3D v) => new[] { v.X, v.Y, v.Z };
         public static implicit operator Tuple<double, double, double>(Vector3D v)
             => new Tuple<double, double, double>(v.X, v.Y, v.Z);
-
-        
 
         public double this[int index]
         {
@@ -117,6 +116,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector3D a, Vector3D b) => (a.X >= b.X) && (a.Y >= b.Y) && (a.Z >= b.Z);
         public static bool operator <=(Vector3D a, Vector3D b) => (a.X <= b.X) && (a.Y <= b.Y) && (a.Z <= b.Z);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -126,6 +126,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector3D && Equals((Vector3D)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

@@ -31,8 +31,10 @@ namespace SwissKnife.Mathematics.Vector
         public Vector3I(Vector3I v) : this(v.X, v.Y, v.Z) { }
         public Vector3I(Tuple<int, int, int> t) : this(t.Item1, t.Item2, t.Item3) { }
 
+        /// <inheritdoc />
         public bool Equals(Vector3I v) => IsEqual(v);
 
+        /// <inheritdoc />
         public override string ToString() => $"X:{X}|Y:{Y}|Z:{Z}";
 
         public static implicit operator Vector3I(Vector2I v) => new Vector3I(v.X, v.Y, 0);
@@ -44,8 +46,6 @@ namespace SwissKnife.Mathematics.Vector
         public static implicit operator Vector3I(Tuple<int, int, int> tuple) => new Vector3I(tuple);
         public static implicit operator int[] (Vector3I v) => new[] { v.X, v.Y, v.Z };
         public static implicit operator Tuple<int, int, int>(Vector3I v) => new Tuple<int, int, int>(v.X, v.Y, v.Z);
-
-        
 
         public int this[int index]
         {
@@ -114,6 +114,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector3I a, Vector3I b) => (a.X >= b.X) && (a.Y >= b.Y) && (a.Z >= b.Z);
         public static bool operator <=(Vector3I a, Vector3I b) => (a.X <= b.X) && (a.Y <= b.Y) && (a.Z <= b.Z);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -123,6 +124,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector3I && Equals((Vector3I)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

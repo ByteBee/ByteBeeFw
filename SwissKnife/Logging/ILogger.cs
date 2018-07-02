@@ -4,6 +4,8 @@ namespace SwissKnife.Logging
 {
     public interface ILogger
     {
+        LogLevel DefaultLogLevel { get; set; }
+
         void Register(ILogStrategy loggerHandler);
 
         void Log(string message);

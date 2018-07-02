@@ -25,8 +25,10 @@ namespace SwissKnife.Mathematics.Vector
         public Vector2D(Tuple<double, double> t) : this(t.Item1, t.Item2) { }
         public Vector2D(KeyValuePair<double, double> t) : this(t.Key, t.Value) { }
 
+        /// <inheritdoc />
         public bool Equals(Vector2D v) => IsEqual(v);
 
+        /// <inheritdoc />
         public override string ToString() => $"X:{X}|Y:{Y}";
 
         public static implicit operator Vector2D(Vector3D v) => new Vector2D(v.X, v.Y);
@@ -109,6 +111,7 @@ namespace SwissKnife.Mathematics.Vector
         public static bool operator >=(Vector2D a, Vector2D b) => (a.X >= b.X) && (a.Y >= b.Y);
         public static bool operator <=(Vector2D a, Vector2D b) => (a.X <= b.X) && (a.Y <= b.Y);
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -118,6 +121,7 @@ namespace SwissKnife.Mathematics.Vector
             return obj is Vector2D && IsEqual((Vector2D)obj);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             unchecked

@@ -1,6 +1,6 @@
 ﻿namespace SwissKnife.Validating
 {
-    class ConcrValidator<TObject> : StandardValidator<TObject>
+    internal class ConcrValidator<TObject> : StandardValidator<TObject>
     {
         protected override void Checklist(TObject obj) { }
     }

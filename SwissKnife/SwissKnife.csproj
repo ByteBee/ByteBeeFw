@@ -20,6 +20,9 @@
         <FileVersion>1.0.1.0</FileVersion>
         <Version>1.0.1</Version>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+      <DocumentationFile>bin\Debug\netstandard2.0\SwissKnife.xml</DocumentationFile>
+    </PropertyGroup>
     <ItemGroup>
       <Folder Include="Arch\" />
     </ItemGroup>

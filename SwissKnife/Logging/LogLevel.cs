@@ -1,4 +1,4 @@
-﻿using SwissKnife.DataTypes;
+﻿using SwissKnife.Utilities;
 
 namespace SwissKnife.Logging
 {

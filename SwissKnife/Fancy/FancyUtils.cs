@@ -1,5 +1,4 @@
-﻿using SwissKnife.DataTypes;
-using SwissKnife.Logging;
+﻿using SwissKnife.Logging;
 using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;

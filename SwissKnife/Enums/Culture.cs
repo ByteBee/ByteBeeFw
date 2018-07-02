@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using SwissKnife.DataTypes;
+using SwissKnife.Utilities;
 
 namespace SwissKnife.Enums
 {

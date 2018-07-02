@@ -9,9 +9,11 @@ namespace SwissKnife.Specifications
         private readonly bool _nullAllowed;
         private readonly bool _emptyAllowed;
 
+        /// <inheritdoc />
         public StringConstraint(uint? minLength, uint? maxLength)
             : this(minLength, maxLength, false, true) { }
 
+        /// <inheritdoc />
         public StringConstraint(uint? minLength, uint? maxLength, bool nullAllowed, bool emptyAllowed)
         {
             _minLength = minLength;
@@ -20,6 +22,7 @@ namespace SwissKnife.Specifications
             _emptyAllowed = emptyAllowed;
         }
 
+        /// <inheritdoc />
         public override bool IsSatisfiedBy(string candidate)
         {
             if (_nullAllowed && candidate == null)

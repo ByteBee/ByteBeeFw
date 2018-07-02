@@ -6,6 +6,7 @@ namespace SwissKnife.Logging
 {
     public class StandardLogFormatter : ILogFormatter
     {
+        /// <inheritdoc />
         public string Format(LogMessage message)
         {
             string preamble = $"[{message.TimeOfDay} $ {message.LogLevel.Value}] ";

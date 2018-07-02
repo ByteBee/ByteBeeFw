@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SwissKnife.DataTypes
+namespace SwissKnife.Utilities
 {
     public interface ISwitch<TObject>
     {
@@ -13,12 +13,12 @@ namespace SwissKnife.DataTypes
     {
         private TObject _object;
         private bool _anyTrueCase;
-
+        /// <inheritdoc />
         public Switch(TObject obj)
         {
             _object = obj;
         }
-
+        /// <inheritdoc />
         public ISwitch<TObject> When(Func<TObject, bool> condition, Action<TObject> callback)
         {
             if (!_anyTrueCase && condition(_object))
@@ -28,10 +28,10 @@ namespace SwissKnife.DataTypes
             }
             return this;
         }
-
+        /// <inheritdoc />
         public ISwitch<TObject> When(TObject candidate, Action<TObject> callback)
             => When(obj => Equals(obj, candidate), callback);
-
+        /// <inheritdoc />
         public void Otherwise(Action<TObject> callback)
         {
             if (!_anyTrueCase)

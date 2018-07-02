@@ -9,12 +9,13 @@ namespace SwissKnife.Validating
         private readonly IList<ValidationRule<TObject>> _checkList = new List<ValidationRule<TObject>>();
         private readonly IList<IValidationFailure> _failures = new List<IValidationFailure>();
 
+        /// <inheritdoc />
         public IValidator<TObject> MustPass(Func<TObject, bool> check, string message)
         {
             _checkList.Add(new ValidationRule<TObject>(check, new ValidationFailure(message), true));
             return this;
         }
-
+        /// <inheritdoc />
         public IValidator<TObject> MustFail(Func<TObject, bool> check, string message)
         {
             _checkList.Add(new ValidationRule<TObject>(check, new ValidationFailure(message), false));
@@ -23,8 +24,10 @@ namespace SwissKnife.Validating
 
         protected abstract void Checklist(TObject obj);
 
+        /// <inheritdoc />
         public void Validate(TObject obj) => Validate(obj, true);
 
+        /// <inheritdoc />
         public void Validate(TObject obj, bool crashOnError)
         {
             Checklist(obj);
@@ -48,6 +51,7 @@ namespace SwissKnife.Validating
             }
         }
 
+        /// <inheritdoc />
         public IValidator<TObject> SubSequence<TOther>(IValidator<TOther> other, TOther obj, string message)
         {
             other.Validate(obj, false);
