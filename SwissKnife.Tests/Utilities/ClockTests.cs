@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Threading;
 using NUnit.Framework;
+using static SwissKnife.Fancy;
 
 namespace SwissKnife.Tests.Utilities
 {
@@ -15,6 +16,7 @@ namespace SwissKnife.Tests.Utilities
             {
                 Now = value;
             }
+
             public FreezedClock() : this(DateTime.Now) { }
 
             public override DateTime Now { get; }

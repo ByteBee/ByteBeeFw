@@ -58,6 +58,7 @@
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />
+    <Compile Include="Mathematics\BoundaryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CryptographyTest.cs" />
     <Compile Include="Specs\SpecificationTest.cs" />

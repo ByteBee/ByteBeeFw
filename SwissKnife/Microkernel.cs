@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using SwissKnife.Logging;
+using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
 
@@ -38,7 +39,7 @@ namespace SwissKnife
             Register<IGuid, GuidImpl>();
             Register<IDateTime, DateTimeImpl>();
             Register<IDirectory, DirectoryImpl>();
-            Register<IMath, MathImpl>();
+            Register<IMathFunctions, MathFunctions>();
 
             Register<ILogger, StandardLogger>();
             Register<IEncryptionFactory, EncryptionFactory>();

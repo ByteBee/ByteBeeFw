@@ -1,5 +1,6 @@
 ﻿using SwissKnife.DataTypes;
 using SwissKnife.Logging;
+using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
 using SwissKnife.Validating;
@@ -25,6 +26,6 @@ namespace SwissKnife
         public static IGuid guid => Microkernel.Instance.Resolve<IGuid>();
         public static IDateTime dateTime => Microkernel.Instance.Resolve<IDateTime>();
         public static IDirectory directory => Microkernel.Instance.Resolve<IDirectory>();
-        public static IMath math => Microkernel.Instance.Resolve<IMath>();
+        public static IMathFunctions math => Microkernel.Instance.Resolve<IMathFunctions>();
     }
 }
