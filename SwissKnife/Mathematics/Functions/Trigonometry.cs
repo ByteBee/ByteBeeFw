@@ -1,8 +1,9 @@
 ﻿using System;
+using static SwissKnife.Fancy;
 
 namespace SwissKnife.Mathematics.Functions
 {
-    public partial interface IMathFunctions
+    public interface ITrinogometryFunctions
     {
         /// <summary>
         /// Returns the sine of the specified angle.
@@ -108,34 +109,51 @@ namespace SwissKnife.Mathematics.Functions
         double Acsch(double angle);
     }
 
-    internal partial class MathFunctions : IMathFunctions
+    internal class TrinogometryFunctions : ITrinogometryFunctions
     {
-        public double Sin(double tetha) => Math.Sin(tetha);
-        public double Cos(double tetha) => Math.Cos(tetha);
-        public double Tan(double tetha) => Math.Tan(tetha);
+        private double _deg2radFactor;
+
+        public TrinogometryFunctions(double deg2RadFactor)
+        {
+            _deg2radFactor = deg2RadFactor;
+        }
+
+        public double Sin(double tetha) => Math.Sin(tetha * _deg2radFactor);
+        public double Cos(double tetha) => Math.Cos(tetha * _deg2radFactor);
+        public double Tan(double tetha)
+        {
+            if (math.Approx(tetha % 360, 90))
+                return double.PositiveInfinity;
+
+            if (math.Approx(tetha % 360, 270))
+                return double.NegativeInfinity;
+
+            return Math.Tan(tetha * _deg2radFactor);
+        }
+
         public double Csc(double tetha) => 1 / Sin(tetha);
         public double Sec(double tetha) => 1 / Cos(tetha);
         public double Cot(double tetha) => 1 / Tan(tetha);
 
-        public double Asin(double angle) => Math.Asin(angle);
-        public double Acos(double angle) => Math.Acos(angle);
-        public double Atan(double angle) => Math.Atan(angle);
-        public double Acsc(double angle) => 1 / Asin(angle);
-        public double Asec(double angle) => 1 / Cos(angle);
-        public double Acot(double angle) => 1 / Atan(angle);
+        public double Asin(double angle) => Math.Asin(angle) / _deg2radFactor;
+        public double Acos(double angle) => Math.Acos(angle) / _deg2radFactor;
+        public double Atan(double angle) => Math.Atan(angle) / _deg2radFactor;
+        public double Acsc(double angle) => 1 / Asin(angle * _deg2radFactor);
+        public double Asec(double angle) => 1 / Cos(angle * _deg2radFactor);
+        public double Acot(double angle) => 1 / Atan(angle * _deg2radFactor);
 
-        public double Sinh(double tetha) => Math.Sinh(tetha);
-        public double Cosh(double tetha) => Math.Cosh(tetha);
-        public double Tanh(double tetha) => Math.Tanh(tetha);
-        public double Coth(double tetha) => 1 / Tanh(tetha);
-        public double Sech(double tetha) => 1 / Cosh(tetha);
-        public double Csch(double tetha) => 1 / Sinh(tetha);
+        public double Sinh(double tetha) => Math.Sinh(tetha * _deg2radFactor);
+        public double Cosh(double tetha) => Math.Cosh(tetha * _deg2radFactor);
+        public double Tanh(double tetha) => Math.Tanh(tetha * _deg2radFactor);
+        public double Coth(double tetha) => 1 / Tanh(tetha * _deg2radFactor);
+        public double Sech(double tetha) => 1 / Cosh(tetha * math.Rad2Deg);
+        public double Csch(double tetha) => 1 / Sinh(tetha * _deg2radFactor);
 
-        public double Asinh(double angle) => Math.Pow(Sinh(angle), -1);
-        public double Acosh(double angle) => Math.Pow(Cosh(angle), -1);
-        public double Atanh(double angle) => Math.Pow(Tanh(angle), -1);
-        public double Acoth(double angle) => Math.Pow(Coth(angle), -1);
-        public double Asech(double angle) => Math.Pow(Sech(angle), -1);
-        public double Acsch(double angle) => Math.Pow(Csch(angle), -1);
+        public double Asinh(double angle) => Math.Pow(Sinh(angle * _deg2radFactor), -1);
+        public double Acosh(double angle) => Math.Pow(Cosh(angle * _deg2radFactor), -1);
+        public double Atanh(double angle) => Math.Pow(Tanh(angle * _deg2radFactor), -1);
+        public double Acoth(double angle) => Math.Pow(Coth(angle * _deg2radFactor), -1);
+        public double Asech(double angle) => Math.Pow(Sech(angle * _deg2radFactor), -1);
+        public double Acsch(double angle) => Math.Pow(Csch(angle * _deg2radFactor), -1);
     }
 }

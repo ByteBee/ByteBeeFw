@@ -16,6 +16,8 @@ namespace SwissKnife.Mathematics.Functions
         double PiO2 { get; }
 
         MathConstant Const { get; }
+        ITrinogometryFunctions TrigDeg { get; }
+        ITrinogometryFunctions TrigRad { get; }
 
         decimal Truncate(decimal d);
         double Truncate(double d);
@@ -43,7 +45,7 @@ namespace SwissKnife.Mathematics.Functions
     internal partial class MathFunctions : IMathFunctions
     {
         public double E { get; } = Math.E;
-        public double Epsilon { get; } = 2.2204460492503131e-016;
+        public double Epsilon { get; } = 2.2204460492503131E-13;
         public double ZeroTolerance { get; } = 1E-08;
         public double Deg2Rad { get; } = Math.PI / 180;
         public double Rad2Deg { get; } = 180 / Math.PI;
@@ -53,6 +55,8 @@ namespace SwissKnife.Mathematics.Functions
         public double PiO2 { get; } = Math.PI / 2;
 
         public MathConstant Const { get; } = new MathConstant();
+        public ITrinogometryFunctions TrigDeg { get; } = new TrinogometryFunctions(Math.PI / 180);
+        public ITrinogometryFunctions TrigRad { get; } = new TrinogometryFunctions(1);
 
         public decimal Truncate(decimal d) => Math.Truncate(d);
         public double Truncate(double d) => Math.Truncate(d);
@@ -64,7 +68,19 @@ namespace SwissKnife.Mathematics.Functions
         public bool IsFinite(double d) => double.IsInfinity(d) == false && double.IsNaN(d) == false;
         public bool IsFinite(float d) => float.IsInfinity(d) == false && float.IsNaN(d) == false;
         public bool Approx(double a, double b) => Approx(a, b, Epsilon);
-        public bool Approx(double a, double b, double epsilon) => Math.Abs(a - b) <= epsilon;
+        public bool Approx(double a, double b, double epsilon)
+        {
+            if (double.IsPositiveInfinity(a) && double.IsPositiveInfinity(b))
+                return true;
+            if (double.IsNegativeInfinity(a) && double.IsNegativeInfinity(b))
+                return true;
+            if (double.IsNaN(a) && double.IsNaN(b))
+                return true;
+            if (Math.Abs(a - b) <= epsilon)
+                return true;
+
+            return false;
+        }
 
         public bool IsBetween(float value, float low, float high) => value >= low && value <= high;
         public bool IsBetween(double value, double low, double high) => value >= low && value <= high;
