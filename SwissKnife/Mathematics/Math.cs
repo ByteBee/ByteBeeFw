@@ -3,7 +3,7 @@ using SwissKnife.Mathematics.Functions;
 
 namespace SwissKnife.Mathematics.Functions
 {
-    public partial interface IMathFunctions
+    public partial interface IMathFunctions : ITrinogometryFunctions
     {
         double E { get; }
         double Epsilon { get; }
@@ -16,14 +16,11 @@ namespace SwissKnife.Mathematics.Functions
         double PiO2 { get; }
 
         MathConstant Const { get; }
-        ITrinogometryFunctions TrigDeg { get; }
-        ITrinogometryFunctions TrigRad { get; }
 
         decimal Truncate(decimal d);
         double Truncate(double d);
 
         double IeeeRemainder(double x, double y);
-
 
         long BigMul(int a, int b);
         int DivRem(int a, int b, out int result);
@@ -31,7 +28,6 @@ namespace SwissKnife.Mathematics.Functions
         double Sqrt(double d);
         bool IsFinite(double d);
         bool IsFinite(float d);
-
 
         bool IsBetween(float value, float low, float high);
         bool IsBetween(double value, double low, double high);
@@ -55,8 +51,6 @@ namespace SwissKnife.Mathematics.Functions
         public double PiO2 { get; } = Math.PI / 2;
 
         public MathConstant Const { get; } = new MathConstant();
-        public ITrinogometryFunctions TrigDeg { get; } = new TrinogometryFunctions(Math.PI / 180);
-        public ITrinogometryFunctions TrigRad { get; } = new TrinogometryFunctions(1);
 
         public decimal Truncate(decimal d) => Math.Truncate(d);
         public double Truncate(double d) => Math.Truncate(d);
