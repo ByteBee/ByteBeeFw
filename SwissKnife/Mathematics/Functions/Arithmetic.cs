@@ -328,7 +328,7 @@ namespace SwissKnife.Mathematics.Functions
         };
         public long Fact(int n)
         {
-            guard.AgainstOutOfRange(n, "fact(n)", 0, 20);
+            guard.Against.OutOfRange(n, "fact(n)", 0, 20);
             return _factValues[n];
         }
 
@@ -371,7 +371,7 @@ namespace SwissKnife.Mathematics.Functions
         };
         public long FactD(int n)
         {
-            guard.AgainstOutOfRange(n, "factd(n)", 0, 33);
+            guard.Against.OutOfRange(n, "factd(n)", 0, 33);
             return _doubleFactValues[n];
         }
 

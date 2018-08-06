@@ -25,13 +25,12 @@ namespace SwissKnife.Tests.Utilities
         public void TestForStaticClock()
         {
             FreezedClock clock = new FreezedClock();
-
+            
             DateTime time = clock.Now;
 
             Thread.Sleep(500);
-
+            
             Assert.AreEqual(time, clock.Now);
         }
-        
     }
 }

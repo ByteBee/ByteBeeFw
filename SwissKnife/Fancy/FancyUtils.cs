@@ -2,6 +2,7 @@
 using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
+using SwissKnife.Utilities.Guard;
 using SwissKnife.Validating;
 
 // ReSharper disable InconsistentNaming
@@ -10,7 +11,7 @@ namespace SwissKnife
 {
     public static partial class Fancy
     {
-        public static IGuard guard => Microkernel.Instance.Resolve<IGuard>();
+        public static IGuardClause guard => Microkernel.Instance.Resolve<IGuardClause>();
         public static IInflector inflector => Microkernel.Instance.Resolve<IInflector>();
 
         public static ISwitch<TObject> choose<TObject>(TObject obj) => new Switch<TObject>(obj);

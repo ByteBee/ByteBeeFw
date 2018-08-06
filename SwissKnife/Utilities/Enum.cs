@@ -49,7 +49,7 @@ namespace SwissKnife.Utilities
 
         public static TEnum ByName(string name)
         {
-            guard.AgainstNullOrWhiteSpace(name, nameof(name));
+            guard.Against.NullOrWhiteSpace(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)

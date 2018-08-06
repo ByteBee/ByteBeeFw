@@ -6,6 +6,7 @@ using SwissKnife.Logging;
 using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
+using SwissKnife.Utilities.Guard;
 
 namespace SwissKnife
 {
@@ -33,7 +34,7 @@ namespace SwissKnife
         private void InitDefault()
         {
             Register<IInflector, InflectorImpl>();
-            Register<IGuard, GuardImpl>();
+            Register<IGuardClause, GuardImpl>();
             Register<IPath, PathImpl>();
             Register<IFile, FileImpl>();
             Register<IGuid, GuidImpl>();
