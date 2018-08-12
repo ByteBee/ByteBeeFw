@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace SwissKnife.Utilities
+namespace SwissKnife.Adapter
 {
     public interface IPath
     {

@@ -7,7 +7,7 @@ namespace SwissKnife.Utilities.Guard
     public interface IConstraintClause
     {
         /// <exception cref="ObjectNotValidException"></exception>
-        void Validator<TObj>(StandardValidator<TObj> auditor, TObj obj);
+        void Validator<TObj>(Validator<TObj> validator, TObj obj);
 
         /// <exception cref="ArgumentException"></exception>
         void Specification<TObj>(Specification<TObj> spec, TObj obj);

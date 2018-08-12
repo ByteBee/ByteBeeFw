@@ -8,8 +8,8 @@ namespace SwissKnife.Utilities.Guard
 {
     internal class ConstraintClause : IConstraintClause
     {
-        public void Validator<TObj>(StandardValidator<TObj> auditor, TObj obj)
-            => auditor.Validate(obj);
+        public void Validator<TObj>(Validator<TObj> validator, TObj obj)
+            => validator.Validate(obj);
 
         public void Specification<TObj>(Specification<TObj> spec, TObj obj)
         {

@@ -1,16 +1,14 @@
-﻿using System;
-using System.Diagnostics;
-using System.Security.Cryptography;
+﻿using NUnit.Framework;
+using SwissKnife.Adapter;
+using System;
 using System.Threading;
-using NUnit.Framework;
-using static SwissKnife.Fancy;
 
 namespace SwissKnife.Tests.Utilities
 {
     [TestFixture]
     public class ClockTests
     {
-        internal class FreezedClock : SwissKnife.Utilities.DateTimeAdapter
+        internal class FreezedClock : DateTimeAdapter
         {
             public FreezedClock(DateTime value)
             {
@@ -25,11 +23,11 @@ namespace SwissKnife.Tests.Utilities
         public void TestForStaticClock()
         {
             FreezedClock clock = new FreezedClock();
-            
+
             DateTime time = clock.Now;
 
             Thread.Sleep(500);
-            
+
             Assert.AreEqual(time, clock.Now);
         }
     }

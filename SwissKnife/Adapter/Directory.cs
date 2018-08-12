@@ -6,7 +6,7 @@ using System.IO;
 using System.Security.AccessControl;
 #endif
 
-namespace SwissKnife.Utilities
+namespace SwissKnife.Adapter
 {
     public interface IDirectory
     {

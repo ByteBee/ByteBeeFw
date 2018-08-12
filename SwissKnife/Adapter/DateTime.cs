@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace SwissKnife.Utilities
+namespace SwissKnife.Adapter
 {
     public interface IDateTime
     {

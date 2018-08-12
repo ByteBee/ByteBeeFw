@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SwissKnife.Utilities
+namespace SwissKnife.Adapter
 {
     public interface IGuid
     {

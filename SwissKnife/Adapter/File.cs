@@ -7,7 +7,7 @@ using System.Text;
 using System.Security.AccessControl;
 #endif
 
-namespace SwissKnife.Utilities
+namespace SwissKnife.Adapter
 {
     public interface IFile
     {
