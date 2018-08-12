@@ -1,13 +1,13 @@
-﻿using System;
-using SwissKnife.Specifications;
+﻿using SwissKnife.Specifications;
 using SwissKnife.Validating;
+using System;
 
 namespace SwissKnife.Utilities.Guard
 {
     public interface IConstraintClause
     {
         /// <exception cref="ObjectNotValidException"></exception>
-        void Validator<TObj>(Validator<TObj> validator, TObj obj);
+        void Validator<TObj>(AbstrValidator<TObj> validator, TObj obj);
 
         /// <exception cref="ArgumentException"></exception>
         void Specification<TObj>(Specification<TObj> spec, TObj obj);

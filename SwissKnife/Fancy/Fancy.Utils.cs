@@ -3,6 +3,7 @@ using SwissKnife.Mathematics.Functions;
 using SwissKnife.Security;
 using SwissKnife.Utilities;
 using SwissKnife.Utilities.Guard;
+using SwissKnife.Validating;
 
 namespace SwissKnife
 {
@@ -17,5 +18,6 @@ namespace SwissKnife
 
         public static ILogger logger => new StandardLogger();
         public static IMathFunctions math => Microkernel.Instance.Resolve<IMathFunctions>();
+        public static IValidator<TObject> validator<TObject>() => new StandardValidator<TObject>();
     }
 }
