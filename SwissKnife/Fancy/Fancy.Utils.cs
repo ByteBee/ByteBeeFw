@@ -18,6 +18,6 @@ namespace SwissKnife
 
         public static ILogger logger => new StandardLogger();
         public static IMathFunctions math => Microkernel.Instance.Resolve<IMathFunctions>();
-        public static IValidator<TObject> validator<TObject>() => new StandardValidator<TObject>();
+        public static AbstrValidator<TObject> validator<TObject>() => new StandardValidator<TObject>();
     }
 }
