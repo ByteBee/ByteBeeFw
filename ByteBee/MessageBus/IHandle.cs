@@ -1,6 +1,6 @@
 ﻿namespace ByteBee.MessageBus
 {
-    public interface IHandle<TMessage> where TMessage : IMessage
+    public interface IHandle<in TMessage> where TMessage : IMessage
     {
         void Handle(TMessage message);
     }

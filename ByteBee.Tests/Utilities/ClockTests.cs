@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using ByteBee.Adapter;
+using ByteBee.DotNetWrapper.Impl;
 using NUnit.Framework;
 
 namespace ByteBee.Tests.Utilities
@@ -8,7 +8,7 @@ namespace ByteBee.Tests.Utilities
     [TestFixture]
     public class ClockTests
     {
-        internal class FreezedClock : DateTimeAdapter
+        internal class FreezedClock : AbstractDateTimeWrapper
         {
             public FreezedClock(DateTime value)
             {

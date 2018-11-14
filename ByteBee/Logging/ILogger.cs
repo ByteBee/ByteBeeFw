@@ -15,6 +15,7 @@ namespace ByteBee.Logging
         void Log(LogLevel level, string message, Exception ex);
         void Log(LogMessage message);
 
+        void Verbose(string message);
         void Debug(string message);
         void Info(string message);
 

@@ -1,18 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Adapter
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public interface IGuid
-    {
-        Guid Empty { get; }
-        Guid NewGuid { get; }
-        Guid Parse(string input);
-        Guid Parse(string input, string format);
-        bool TryParse(string input, out Guid result);
-        bool TryParse(string input, string format, out Guid result);
-    }
-
-    public abstract class GuidAdapter : IGuid
+    public abstract class AbstractGuidWrapper : IGuidWrapper
     {
         /// <inheritdoc />
         public virtual Guid Empty => Guid.Empty;
@@ -27,6 +17,4 @@ namespace ByteBee.Adapter
         /// <inheritdoc />
         public virtual bool TryParse(string input, string format, out Guid result) => Guid.TryParseExact(input, format, out result);
     }
-
-    internal class GuidImpl : GuidAdapter { }
 }

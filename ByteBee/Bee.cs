@@ -1,4 +1,4 @@
-﻿using ByteBee.Adapter;
+﻿using ByteBee.DotNetWrapper;
 using ByteBee.Logging;
 using ByteBee.Mathematics.Functions;
 using ByteBee.Security;
@@ -22,10 +22,10 @@ namespace ByteBee
         public static IMathFunctions Math => Microkernel.Instance.Resolve<IMathFunctions>();
         public static AbstrValidator<TObject> Validator<TObject>() => new StandardValidator<TObject>();
 
-        public static IPath Path => Microkernel.Instance.Resolve<IPath>();
-        public static IFile File => Microkernel.Instance.Resolve<IFile>();
-        public static IGuid Guid => Microkernel.Instance.Resolve<IGuid>();
-        public static IDateTime DateTime => Microkernel.Instance.Resolve<IDateTime>();
-        public static IDirectory Directory => Microkernel.Instance.Resolve<IDirectory>();
+        public static IPathWrapper Path => Microkernel.Instance.Resolve<IPathWrapper>();
+        public static IFileWrapper File => Microkernel.Instance.Resolve<IFileWrapper>();
+        public static IGuidWrapper Guid => Microkernel.Instance.Resolve<IGuidWrapper>();
+        public static IDateTimeWrapper DateTime => Microkernel.Instance.Resolve<IDateTimeWrapper>();
+        public static IDirectoryWrapper Directory => Microkernel.Instance.Resolve<IDirectoryWrapper>();
     }
 }

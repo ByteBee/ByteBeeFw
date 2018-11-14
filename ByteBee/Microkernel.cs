@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ByteBee.Adapter;
+using ByteBee.DotNetWrapper;
+using ByteBee.DotNetWrapper.Impl;
 using ByteBee.Logging;
 using ByteBee.Mathematics;
 using ByteBee.Mathematics.Functions;
@@ -37,11 +38,11 @@ namespace ByteBee
         {
             Register<IInflector, InflectorImpl>();
             Register<IGuardClause, GuardImpl>();
-            Register<IPath, PathImpl>();
-            Register<IFile, FileImpl>();
-            Register<IGuid, GuidImpl>();
-            Register<IDateTime, DateTimeImpl>();
-            Register<IDirectory, DirectoryImpl>();
+            Register<IPathWrapper, PathWrapperImpl>();
+            Register<IFileWrapper, FileWrapperImpl>();
+            Register<IGuidWrapper, GuidWrapperImpl>();
+            Register<IDateTimeWrapper, DateTimeWrapperImpl>();
+            Register<IDirectoryWrapper, DirectoryWrapperImpl>();
             Register<IMathFunctions, MathFunctions>();
 
             Register<ILogger, StandardLogger>();

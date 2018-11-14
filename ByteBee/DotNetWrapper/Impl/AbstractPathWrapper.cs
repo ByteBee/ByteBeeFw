@@ -1,30 +1,8 @@
 ﻿using System.IO;
 
-namespace ByteBee.Adapter
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public interface IPath
-    {
-        string ChangeExtension(string path, string extension);
-        string Combine(string path1, string path2);
-        string Combine(string path1, string path2, string path3);
-        string Combine(string path1, string path2, string path3, string path4);
-        string Combine(params string[] paths);
-        string GetDirectoryName(string path);
-        string GetExtension(string path);
-        string GetFileName(string path);
-        string GetFileNameWithoutExtension(string path);
-        string GetFullPath(string path);
-        char[] GetInvalidFileNameChars();
-        char[] GetInvalidPathChars();
-        string GetPathRoot(string path);
-        string GetRandomFileName();
-        string GetTempFileName();
-        string GetTempPath();
-        bool HasExtension(string path);
-        bool IsPathRooted(string path);
-    }
-
-    public abstract class PathAdapter : IPath
+    public abstract class AbstractPathWrapper : IPathWrapper
     {
         /// <inheritdoc />
         public virtual string ChangeExtension(string path, string extension) => Path.ChangeExtension(path, extension);
@@ -63,6 +41,4 @@ namespace ByteBee.Adapter
         /// <inheritdoc />
         public virtual bool IsPathRooted(string path) => Path.IsPathRooted(path);
     }
-
-    internal class PathImpl : PathAdapter { }
 }

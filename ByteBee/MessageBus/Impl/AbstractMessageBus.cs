@@ -3,9 +3,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ByteBee.MessageBus
+namespace ByteBee.MessageBus.Impl
 {
-    public abstract class MessageBusBase : IMessageBus
+    public abstract class AbstractMessageBus : IMessageBus
     {
         private readonly ConcurrentDictionary<Type, HashSet<WeakReference>> _subscribers =
             new ConcurrentDictionary<Type, HashSet<WeakReference>>();

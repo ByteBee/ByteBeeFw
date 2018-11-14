@@ -1,6 +1,6 @@
-﻿namespace ByteBee.MessageBus
+﻿namespace ByteBee.MessageBus.Impl
 {
-    public class MessageBusSeq : MessageBusBase
+    public sealed class MessageBusSeq : AbstractMessageBus
     {
         /// <inheritdoc />
         protected override void Invoke<TMessage>(TMessage message, IHandle<TMessage> subscriber)

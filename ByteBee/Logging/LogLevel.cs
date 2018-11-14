@@ -4,6 +4,7 @@ namespace ByteBee.Logging
 {
     public class LogLevel : Enum<LogLevel, int>
     {
+        public static LogLevel Verbose => new LogLevel(0, "verbose");
         public static LogLevel Debug => new LogLevel(1, "debug");
         public static LogLevel Info => new LogLevel(2, "info");
         public static LogLevel Warning => new LogLevel(3, "warn");

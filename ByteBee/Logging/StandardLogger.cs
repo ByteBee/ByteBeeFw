@@ -37,6 +37,9 @@ namespace ByteBee.Logging
         }
 
         /// <inheritdoc />
+        public void Verbose(string message) => Log(LogLevel.Verbose, message);
+
+        /// <inheritdoc />
         public void Log(string message) => Log(DefaultLogLevel, message);
         /// <inheritdoc />
         public void Log(string message, Exception ex) => Error(message, ex);

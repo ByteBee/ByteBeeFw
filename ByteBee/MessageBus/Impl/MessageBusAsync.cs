@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 
-namespace ByteBee.MessageBus
+namespace ByteBee.MessageBus.Impl
 {
-    public class MessageBusAsync : MessageBusBase
+    public sealed class MessageBusAsync : AbstractMessageBus
     {
         /// <inheritdoc />
         protected override void Invoke<TMessage>(TMessage message, IHandle<TMessage> subscriber)
