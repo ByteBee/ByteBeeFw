@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RootNamespace>ByteBee</RootNamespace>
+        <Authors>Sergej Kukshaus</Authors>
+        <Company />
+        <Product />
+        <Description>Combine some fancy tools in a single ToolKit</Description>
+        <PackageLicenseUrl>https://github.com/ByteBee/ByteBeeFw/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageProjectUrl>https://kukshaus.com/toolkit</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/ByteBee/ByteBeeFw</RepositoryUrl>
+        <Copyright>Copyright 2018 by Sergej Kukshaus</Copyright>
+        <PackageReleaseNotes></PackageReleaseNotes>
+        <AssemblyName>ByteBee</AssemblyName>
+        <PackageId>ByteBee</PackageId>
+        <PackageTags>kukshaus switch eventaggregator messagebus logger extensions enum</PackageTags>
+        <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <FileVersion>1.0.1.0</FileVersion>
+        <Version>1.0.1</Version>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+      <DocumentationFile>bin\Debug\netstandard2.0\ByteBee.xml</DocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+      <Folder Include="Arch\" />
+    </ItemGroup>
+</Project>
