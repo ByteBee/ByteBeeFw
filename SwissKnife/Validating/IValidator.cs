@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SwissKnife.Validating
+﻿namespace SwissKnife.Validating
 {
-    public interface IValidator<TObject>
+    public interface IValidator<in TObject>
     {
-        void Validate(TObject obj);
-        void Validate(TObject obj, bool crashOnError);
-        IValidator<TObject> MustPass(Func<TObject, bool> check, string message);
-        IValidator<TObject> MustFail(Func<TObject, bool> check, string message);
+        ValidationResult Validate(TObject obj);
+    }
 
-        IValidator<TObject> SubSequence<TOther>(IValidator<TOther> other, TOther obj, string message);
-        IReadOnlyList<IValidationFailure> GetFailures();
+    public interface IValidatorExceptional<in TObject>
+    {
+        void ValidateAndThrow(TObject obj);
     }
 }

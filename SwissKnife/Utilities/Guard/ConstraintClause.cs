@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using SwissKnife.Specifications;
+﻿using SwissKnife.Specifications;
 using SwissKnife.Validating;
+using System;
+using System.Collections.Generic;
 using static SwissKnife.Fancy;
 
 namespace SwissKnife.Utilities.Guard
 {
     internal class ConstraintClause : IConstraintClause
     {
-        public void Validator<TObj>(Validator<TObj> validator, TObj obj)
+        public void Validator<TObj>(AbstrValidator<TObj> validator, TObj obj)
             => validator.Validate(obj);
 
         public void Specification<TObj>(Specification<TObj> spec, TObj obj)
