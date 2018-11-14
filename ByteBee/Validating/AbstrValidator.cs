@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Validating
 {
@@ -31,7 +30,7 @@ namespace ByteBee.Validating
 
             if (!result.IsValid)
             {
-                guard.Throws<ObjectNotValidException>(result.ToString());
+                Bee.Guard.Throws<ObjectNotValidException>(result.ToString());
             }
         }
 

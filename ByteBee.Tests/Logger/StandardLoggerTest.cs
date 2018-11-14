@@ -1,7 +1,6 @@
 ﻿using System;
 using ByteBee.Logging;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Logger
 {
@@ -13,7 +12,7 @@ namespace ByteBee.Tests.Logger
         {
             var m = new FakeManager();
 
-            logger.Register(new LogIntoConsole());
+            Bee.Logger.Register(new LogIntoConsole());
             
             try
             {
@@ -21,7 +20,7 @@ namespace ByteBee.Tests.Logger
             }
             catch (Exception ex)
             {
-                logger.Error("Big Bang!", ex);
+                Bee.Logger.Error("Big Bang!", ex);
             }
         }
     }

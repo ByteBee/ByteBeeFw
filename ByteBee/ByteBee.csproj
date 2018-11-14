@@ -21,7 +21,9 @@
         <Version>1.0.1</Version>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-      <DocumentationFile>bin\Debug\netstandard2.0\ByteBee.xml</DocumentationFile>
+      <DocumentationFile></DocumentationFile>
+      <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+      <WarningsAsErrors />
     </PropertyGroup>
     <ItemGroup>
       <Folder Include="Arch\" />

@@ -1,5 +1,4 @@
 ﻿using System;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Mathematics.Vector
 {
@@ -83,8 +82,8 @@ namespace ByteBee.Mathematics.Vector
 
         public double Length => Math.Sqrt(X * X + Y * Y + Z * Z);
 
-        public bool IsEqual(Vector3D v) => IsEqual(v, math.ZeroTolerance);
-        public bool IsZero => IsEqual(this, math.ZeroTolerance);
+        public bool IsEqual(Vector3D v) => IsEqual(v, Bee.Math.ZeroTolerance);
+        public bool IsZero => IsEqual(this, Bee.Math.ZeroTolerance);
 
         public bool IsEqual(Vector3D v, double t)
             => Math.Abs(X - v.X) <= t && Math.Abs(Y - v.Y) <= t && Math.Abs(Z - v.Z) <= t;

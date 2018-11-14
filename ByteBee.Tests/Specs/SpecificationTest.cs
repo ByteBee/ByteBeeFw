@@ -1,6 +1,5 @@
 ﻿using ByteBee.Specifications;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Specs
 {

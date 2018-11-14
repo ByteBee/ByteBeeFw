@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
 using System.Reflection;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Validating
 {
@@ -24,7 +23,7 @@ namespace ByteBee.Validating
                 return GetMethodName(methodExpr);
             }
 
-            guard.Throws<InvalidExpressionException>($"Unknown Expression type for '{expression.Body}'");
+            Bee.Guard.Throws<InvalidExpressionException>($"Unknown Expression type for '{expression.Body}'");
             return string.Empty;
         }
 

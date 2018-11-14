@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Security
 {
@@ -12,7 +11,7 @@ namespace ByteBee.Tests.Security
         [TestCase("the quick brown fox",    "d6d08792c028226211282bc48302f24b")]
         public void TestForMd5(string plain, string crypted)
         {
-            string encrypted = Fancy.encryption.MD5.Encode(plain);
+            string encrypted = Bee.Encryption.MD5.Encode(plain);
 
             Assert.AreEqual(crypted, encrypted);
         }
@@ -27,7 +26,7 @@ namespace ByteBee.Tests.Security
         [TestCase("surprise encryption",    "ṓ0K3ẾḻḲṖeØṭEBḆẅḳṯḎṂḫỸFẊÇụ3ṣlẹÁệḛ")]
         public void TestForMyOwnCryptoThing(string plain, string crypted)
         {
-            string encrypted = Fancy.encryption.Surprise.Encode(plain);
+            string encrypted = Bee.Encryption.Surprise.Encode(plain);
 
             Assert.AreEqual(crypted, encrypted);
         }

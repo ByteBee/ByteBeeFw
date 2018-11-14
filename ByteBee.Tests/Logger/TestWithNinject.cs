@@ -1,7 +1,6 @@
 ﻿using ByteBee.Logging;
 using Ninject;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Logger
 {

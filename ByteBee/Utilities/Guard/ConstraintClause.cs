@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ByteBee.Specifications;
 using ByteBee.Validating;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Utilities.Guard
 {
@@ -15,16 +14,17 @@ namespace ByteBee.Utilities.Guard
         {
             if (spec.IsNotSatisfiedBy(obj))
             {
-                guard.Throws<ArgumentException>(true, "The object does not fit the requirements.");
+                Bee.Guard.Throws<ArgumentException>(true, "The object does not fit the requirements.");
             }
         }
 
-        public void Null(object input, string parameterName) => guard.Throws<ArgumentNullException>(input == null, parameterName);
+        public void Null(object input, string parameterName) => 
+            Bee.Guard.Throws<ArgumentNullException>(input == null, parameterName);
 
         public void NullOrEmpty(string input, string parameterName)
         {
             Null(input, parameterName);
-            guard.Throws<ArgumentException>(
+            Bee.Guard.Throws<ArgumentException>(
                 input == string.Empty,
                 $"Required input {parameterName} was empty.");
         }
@@ -32,7 +32,7 @@ namespace ByteBee.Utilities.Guard
         public void NullOrWhiteSpace(string input, string parameterName)
         {
             NullOrEmpty(input, parameterName);
-            guard.Throws<ArgumentException>(
+            Bee.Guard.Throws<ArgumentException>(
                 string.IsNullOrWhiteSpace(input),
                 $"Required input {parameterName} was empty.");
         }
@@ -56,11 +56,11 @@ namespace ByteBee.Utilities.Guard
         {
             Comparer<T> comparer = Comparer<T>.Default;
 
-            guard.Throws<ArgumentException>(
+            Bee.Guard.Throws<ArgumentException>(
                 comparer.Compare(rangeFrom, rangeTo) > 0,
                 $"{nameof(rangeFrom)} should be less or equal than {nameof(rangeTo)}");
 
-            guard.Throws<ArgumentOutOfRangeException>(
+            Bee.Guard.Throws<ArgumentOutOfRangeException>(
                 comparer.Compare(input, rangeFrom) < 0 || comparer.Compare(input, rangeTo) > 0,
                 $"Input {parameterName} was out of range");
         }

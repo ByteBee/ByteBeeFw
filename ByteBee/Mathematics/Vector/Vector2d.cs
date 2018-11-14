@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Mathematics.Vector
 {
@@ -80,8 +79,8 @@ namespace ByteBee.Mathematics.Vector
 
         public double Length => Math.Sqrt(X * X + Y * Y);
 
-        public bool IsEqual(Vector2D v) => IsEqual(v, math.ZeroTolerance);
-        public bool IsZero => IsEqual(this, math.ZeroTolerance);
+        public bool IsEqual(Vector2D v) => IsEqual(v, Bee.Math.ZeroTolerance);
+        public bool IsZero => IsEqual(this, Bee.Math.ZeroTolerance);
 
         public bool IsEqual(Vector2D v, double tolerance) => Math.Abs(X - v.X) <= tolerance && Math.Abs(Y - v.Y) <= tolerance;
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using static ByteBee.Fancy;
+
 
 namespace ByteBee.Mathematics.Functions
 {
@@ -328,7 +328,7 @@ namespace ByteBee.Mathematics.Functions
         };
         public long Fact(int n)
         {
-            guard.Against.OutOfRange(n, "fact(n)", 0, 20);
+            Bee.Guard.Against.OutOfRange(n, "fact(n)", 0, 20);
             return _factValues[n];
         }
 
@@ -371,7 +371,7 @@ namespace ByteBee.Mathematics.Functions
         };
         public long FactD(int n)
         {
-            guard.Against.OutOfRange(n, "factd(n)", 0, 33);
+            Bee.Guard.Against.OutOfRange(n, "factd(n)", 0, 33);
             return _doubleFactValues[n];
         }
 

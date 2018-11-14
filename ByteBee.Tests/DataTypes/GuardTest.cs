@@ -1,7 +1,6 @@
 ﻿using System;
 using ByteBee.Utilities.Guard;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.DataTypes
 {
@@ -15,11 +14,11 @@ namespace ByteBee.Tests.DataTypes
 
             Assert.DoesNotThrow(() =>
             {
-                guard.AgainstNegative(senseOfLife);
+                Bee.Guard.AgainstNegative(senseOfLife);
             });
             Assert.Throws<ArgumentException>(() =>
             {
-                guard.AgainstNegative(-senseOfLife);
+                Bee.Guard.AgainstNegative(-senseOfLife);
             });
         }
 
@@ -27,11 +26,11 @@ namespace ByteBee.Tests.DataTypes
         public void DoesNothingGivenNonNullValue()
         {
 
-            guard.Against.Null("", "string");
-            guard.Against.Null(1, "int");
-            guard.Against.Null(Guid.Empty, "guid");
-            guard.Against.Null(DateTime.Now, "datetime");
-            guard.Against.Null(new Object(), "object");
+            Bee.Guard.Against.Null("", "string");
+            Bee.Guard.Against.Null(1, "int");
+            Bee.Guard.Against.Null(Guid.Empty, "guid");
+            Bee.Guard.Against.Null(DateTime.Now, "datetime");
+            Bee.Guard.Against.Null(new object(), "object");
 
             Assert.Pass();
         }
@@ -39,14 +38,14 @@ namespace ByteBee.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValue()
         {
-            Assert.Throws<ArgumentNullException>(() => guard.Against.Null(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Bee.Guard.Against.Null(null, "null"));
         }
 
         [Test]
         public void DoesNothingGivenNonEmptyStringValue()
         {
-            guard.Against.NullOrEmpty("a", "string");
-            guard.Against.NullOrEmpty("1", "aNumericString");
+            Bee.Guard.Against.NullOrEmpty("a", "string");
+            Bee.Guard.Against.NullOrEmpty("1", "aNumericString");
 
             Assert.Pass();
         }
@@ -54,20 +53,20 @@ namespace ByteBee.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueUsing()
         {
-            Assert.Throws<ArgumentNullException>(() => guard.Against.NullOrEmpty(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Bee.Guard.Against.NullOrEmpty(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyString()
         {
-            Assert.Throws<ArgumentException>(() => guard.Against.NullOrEmpty("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.NullOrEmpty("", "emptystring"));
         }
 
         [Test]
         public void DoesNothingGivenNonEmptyStringValueForOrEmpty()
         {
-            guard.Against.NullOrEmpty("a", "string");
-            guard.Against.NullOrEmpty("1", "aNumericString");
+            Bee.Guard.Against.NullOrEmpty("a", "string");
+            Bee.Guard.Against.NullOrEmpty("1", "aNumericString");
 
             Assert.Pass();
         }
@@ -75,13 +74,13 @@ namespace ByteBee.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueForOrEmpty()
         {
-            Assert.Throws<ArgumentNullException>(() => guard.Against.NullOrEmpty(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Bee.Guard.Against.NullOrEmpty(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyStringForOrEmpty()
         {
-            Assert.Throws<ArgumentException>(() => guard.Against.NullOrEmpty("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.NullOrEmpty("", "emptystring"));
         }
 
         [TestCase("a")]
@@ -91,8 +90,8 @@ namespace ByteBee.Tests.DataTypes
         [TestCase("trailing whitespace ")]
         public void DoesNothingGivenNonEmptyStringValue(string nonEmptyString)
         {
-            guard.Against.NullOrWhiteSpace(nonEmptyString, "string");
-            guard.Against.NullOrWhiteSpace(nonEmptyString, "aNumericString");
+            Bee.Guard.Against.NullOrWhiteSpace(nonEmptyString, "string");
+            Bee.Guard.Against.NullOrWhiteSpace(nonEmptyString, "aNumericString");
 
             Assert.Pass();
         }
@@ -100,20 +99,20 @@ namespace ByteBee.Tests.DataTypes
         [Test]
         public void ThrowsGivenNullValueForOrWhiteSpace()
         {
-            Assert.Throws<ArgumentNullException>(() => guard.Against.NullOrWhiteSpace(null, "null"));
+            Assert.Throws<ArgumentNullException>(() => Bee.Guard.Against.NullOrWhiteSpace(null, "null"));
         }
 
         [Test]
         public void ThrowsGivenEmptyStringForOrWhiteSpace()
         {
-            Assert.Throws<ArgumentException>(() => guard.Against.NullOrWhiteSpace("", "emptystring"));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.NullOrWhiteSpace("", "emptystring"));
         }
 
         [TestCase(" ")]
         [TestCase("   ")]
         public void ThrowsGivenWhiteSpaceString(string whiteSpaceString)
         {
-            Assert.Throws<ArgumentException>(() => guard.Against.NullOrWhiteSpace(whiteSpaceString, "whitespacestring"));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.NullOrWhiteSpace(whiteSpaceString, "whitespacestring"));
         }
 
         [TestCase(0, 0)]
@@ -125,7 +124,7 @@ namespace ByteBee.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo);
+            Bee.Guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo);
 
             Assert.Pass();
         }
@@ -137,7 +136,7 @@ namespace ByteBee.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            Assert.Throws<ArgumentOutOfRangeException>(() => guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentOutOfRangeException>(() => Bee.Guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(3, 1)]
@@ -147,7 +146,7 @@ namespace ByteBee.Tests.DataTypes
             DateTime input = DateTime.Now;
             DateTime rangeFrom = input.AddSeconds(rangeFromOffset);
             DateTime rangeTo = input.AddSeconds(rangeToOffset);
-            Assert.Throws<ArgumentException>(() => guard.Against.OutOfRange(DateTime.Now, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.OutOfRange(DateTime.Now, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(1, 1, 1)]
@@ -156,7 +155,7 @@ namespace ByteBee.Tests.DataTypes
         [TestCase(3, 1, 3)]
         public void DoesNothingGivenInRangeValue(int input, int rangeFrom, int rangeTo)
         {
-            guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo);
+            Bee.Guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo);
 
             Assert.Pass();
         }
@@ -166,7 +165,7 @@ namespace ByteBee.Tests.DataTypes
         [TestCase(4, 1, 3)]
         public void ThrowsGivenOutOfRangeValue(int input, int rangeFrom, int rangeTo)
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentOutOfRangeException>(() => Bee.Guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
         }
 
         [TestCase(-1, 3, 1)]
@@ -174,7 +173,7 @@ namespace ByteBee.Tests.DataTypes
         [TestCase(4, 3, 1)]
         public void ThrowsGivenInvalidArgumentValue(int input, int rangeFrom, int rangeTo)
         {
-            Assert.Throws<ArgumentException>(() => guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
+            Assert.Throws<ArgumentException>(() => Bee.Guard.Against.OutOfRange(input, "index", rangeFrom, rangeTo));
         }
     }
 

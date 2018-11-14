@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Utilities
 {
@@ -49,7 +48,7 @@ namespace ByteBee.Utilities
 
         public static TEnum ByName(string name)
         {
-            guard.Against.NullOrWhiteSpace(name, nameof(name));
+            Bee.Guard.Against.NullOrWhiteSpace(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)

@@ -1,5 +1,4 @@
 ﻿using System;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Mathematics.Functions
 {
@@ -138,7 +137,7 @@ namespace ByteBee.Mathematics.Functions
             if (Approx(x % 360, 90))
                 return double.PositiveInfinity;
 
-            if (math.Approx(x % 360, 270))
+            if (Bee.Math.Approx(x % 360, 270))
                 return double.NegativeInfinity;
 
             return Math.Tan(x * unit.ToRad());

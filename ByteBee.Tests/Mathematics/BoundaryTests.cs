@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Mathematics
 {
@@ -13,7 +12,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(-1, -1, -1)]
         public void GetTheMinOfTwoValues(int a, int b, int e)
         {
-            int actually = math.Min(a, b);
+            int actually = Bee.Math.Min(a, b);
             Assert.AreEqual(actually, e);
         }
 
@@ -25,7 +24,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(2, 2, 3, 2)]
         public void GetTheMinOfThreeValues(int a, int b, int c, int e)
         {
-            int actually = math.Min(a, b, c);
+            int actually = Bee.Math.Min(a, b, c);
             Assert.AreEqual(actually, e);
         }
 
@@ -36,7 +35,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(-1, -1, -1)]
         public void GetTheMaxOfTwoValues(int a, int b, int e)
         {
-            int actually = math.Max(a, b);
+            int actually = Bee.Math.Max(a, b);
             Assert.AreEqual(actually, e);
         }
 
@@ -48,7 +47,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(2, 2, 3, 3)]
         public void GetTheMaxOfThreeValues(int a, int b, int c, int e)
         {
-            int actually = math.Max(a, b, c);
+            int actually = Bee.Math.Max(a, b, c);
             Assert.AreEqual(actually, e);
         }
 

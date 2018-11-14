@@ -1,6 +1,5 @@
 ﻿using ByteBee.Mathematics;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Mathematics
 {
@@ -17,7 +16,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(330, -0.5)]
         [TestCase(360, -0)]
         public void SineTest(double tetha, double sin)
-            => Assert.IsTrue(math.Approx(sin, math.Sin(tetha, AngleUnit.Deg)));
+            => Assert.IsTrue(Bee.Math.Approx(sin, Bee.Math.Sin(tetha, AngleUnit.Deg)));
 
         [TestCase(0, 1)]
         [TestCase(60, 0.5)]
@@ -28,7 +27,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(270, -0)]
         [TestCase(360, 1)]
         public void CosineTest(double tetha, double cos)
-            => Assert.IsTrue(math.Approx(cos, math.Cos(tetha, AngleUnit.Deg)));
+            => Assert.IsTrue(Bee.Math.Approx(cos, Bee.Math.Cos(tetha, AngleUnit.Deg)));
 
         [TestCase(0, 0)]
         [TestCase(45, 1)]
@@ -40,7 +39,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(315, -1)]
         [TestCase(360, 0)]
         public void TangentTest(double tetha, double tan)
-            => Assert.IsTrue(math.Approx(tan, math.Tan(tetha, AngleUnit.Deg)));
+            => Assert.IsTrue(Bee.Math.Approx(tan, Bee.Math.Tan(tetha, AngleUnit.Deg)));
 
         [TestCase(-1, -90)]
         [TestCase(-0.5, -30)]
@@ -48,7 +47,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(0.5, 30)]
         [TestCase(1, 90)]
         public void ArcusSineTest(double tetha, double asin) 
-            => Assert.IsTrue(math.Approx(asin, math.Asin(tetha, AngleUnit.Deg)), math.Asin(tetha, AngleUnit.Deg).ToString("E"));
+            => Assert.IsTrue(Bee.Math.Approx(asin, Bee.Math.Asin(tetha, AngleUnit.Deg)), Bee.Math.Asin(tetha, AngleUnit.Deg).ToString("E"));
 
         [TestCase(-1, 180)]
         [TestCase(-0.5, 120)]
@@ -56,7 +55,7 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(0.5, 60)]
         [TestCase(1, 0)]
         public void ArcusCosineTest(double tetha, double acos) 
-            => Assert.IsTrue(math.Approx(acos, math.Acos(tetha, AngleUnit.Deg)));
+            => Assert.IsTrue(Bee.Math.Approx(acos, Bee.Math.Acos(tetha, AngleUnit.Deg)));
 
         [TestCase(double.PositiveInfinity, 90)]
         [TestCase(-1, -45)]
@@ -64,6 +63,6 @@ namespace ByteBee.Tests.Mathematics
         [TestCase(1, 45)]
         [TestCase(double.NegativeInfinity, -90)]
         public void ArcusTangentTest(double tetha, double atan) 
-            => Assert.IsTrue(math.Approx(atan, math.Atan(tetha, AngleUnit.Deg)));
+            => Assert.IsTrue(Bee.Math.Approx(atan, Bee.Math.Atan(tetha, AngleUnit.Deg)));
     }
 }

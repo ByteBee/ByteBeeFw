@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ByteBee.Mathematics.Vector;
 using ByteBee.Validating;
 using NUnit.Framework;
-using static ByteBee.Fancy;
 
 namespace ByteBee.Tests.Audit
 {
@@ -51,13 +50,13 @@ namespace ByteBee.Tests.Audit
         public void TestNestedAudit()
         {
             var vect = new Vector2I(2, 4);
-            AbstrValidator<Vector2I> a = validator<Vector2I>();
+            AbstrValidator<Vector2I> a = Bee.Validator<Vector2I>();
             a.RuleFor(v => v.X).Must(i => i > 2).WithMessage("X muss größer als 2 sein");
             a.RuleFor(v => v.Y).Must(i => i == 4).WithMessage("Y is 4");
 
             ValidationResult res = a.Validate(vect);
 
-            AbstrValidator<Person> personValidator = validator<Person>();
+            AbstrValidator<Person> personValidator = Bee.Validator<Person>();
 
 
             //.ShouldBeTrue(v => v.X > 2, "")
@@ -86,7 +85,7 @@ namespace ByteBee.Tests.Audit
         public void FluentValidatorTest()
         {
             Vector2I vector = new Vector2I(0, 0);
-            AbstrValidator<Vector2I> v = validator<Vector2I>();
+            AbstrValidator<Vector2I> v = Bee.Validator<Vector2I>();
 
             v.RuleFor(x => x.Y).NotNull().Must(i => i > 0);
             v.RuleFor(x => x.X).Must(i => i > 0).WithMessage("X must be greather than zero");
