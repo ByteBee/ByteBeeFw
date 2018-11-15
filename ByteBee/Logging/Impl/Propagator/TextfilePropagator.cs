@@ -1,26 +1,27 @@
 ﻿using System.IO;
+using ByteBee.Logging.Impl.Formatter;
 
-namespace ByteBee.Logging
+namespace ByteBee.Logging.Impl.Propagator
 {
-    public class LogIntoTextfile : ILogStrategy
+    public class TextfilePropagator : AbstractLogPropagator
     {
         private readonly ILogFormatter _formatter;
         private readonly string _filename;
 
         /// <inheritdoc />
-        public LogIntoTextfile(string filename) : this(filename, new StandardLogFormatter())
+        public TextfilePropagator(string filename) : this(filename, new StandardLogFormatter())
         {
         }
 
         /// <inheritdoc />
-        public LogIntoTextfile(string filename, ILogFormatter formatter)
+        public TextfilePropagator(string filename, ILogFormatter formatter)
         {
             _formatter = formatter;
             _filename = filename;
         }
 
         /// <inheritdoc />
-        public void Publish(LogMessage message)
+        public override void Propagate(LogMessage message)
         {
             File.AppendAllText(_filename, _formatter.Format(message) + "\r\n");
         }

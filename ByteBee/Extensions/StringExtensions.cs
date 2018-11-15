@@ -2,7 +2,7 @@
 
 namespace ByteBee.Extensions
 {
-    public static class StringExt
+    public static class StringExtensions
     {
         public static bool IsNullOrEmpty(this string self)
             => string.IsNullOrWhiteSpace(self);

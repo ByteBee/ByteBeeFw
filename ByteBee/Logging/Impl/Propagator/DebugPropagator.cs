@@ -1,22 +1,24 @@
-﻿namespace ByteBee.Logging
+﻿using ByteBee.Logging.Impl.Formatter;
+
+namespace ByteBee.Logging.Impl.Propagator
 {
-    public class LogOnlyForDebug : ILogStrategy
+    public class DebugPropagator : AbstractLogPropagator
     {
         private readonly ILogFormatter _loggerFormatter;
 
         /// <inheritdoc />
-        public LogOnlyForDebug() : this(new StandardLogFormatter())
+        public DebugPropagator() : this(new StandardLogFormatter())
         {
         }
 
         /// <inheritdoc />
-        public LogOnlyForDebug(ILogFormatter loggerFormatter)
+        public DebugPropagator(ILogFormatter loggerFormatter)
         {
             _loggerFormatter = loggerFormatter;
         }
 
         /// <inheritdoc />
-        public void Publish(LogMessage message)
+        public override void Propagate(LogMessage message)
         {
             System.Diagnostics.Debug.WriteLine(_loggerFormatter.Format(message));
         }

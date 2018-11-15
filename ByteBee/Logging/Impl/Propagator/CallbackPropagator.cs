@@ -1,26 +1,27 @@
 ﻿using System;
+using ByteBee.Logging.Impl.Formatter;
 
-namespace ByteBee.Logging
+namespace ByteBee.Logging.Impl.Propagator
 {
-    public class LogIntoCallback : ILogStrategy
+    public class CallbackPropagator : AbstractLogPropagator
     {
         private readonly ILogFormatter _formatter;
         private readonly Action<string> _callback;
 
         /// <inheritdoc />
-        public LogIntoCallback(Action<string> callback, ILogFormatter formatter)
+        public CallbackPropagator(Action<string> callback, ILogFormatter formatter)
         {
             _callback = callback;
             _formatter = formatter;
         }
 
         /// <inheritdoc />
-        public LogIntoCallback(Action<string> callback) : this (callback, new StandardLogFormatter())
+        public CallbackPropagator(Action<string> callback) : this (callback, new StandardLogFormatter())
         {
         }
 
         /// <inheritdoc />
-        public void Publish(LogMessage message)
+        public override void Propagate(LogMessage message)
         {
             _callback(_formatter.Format(message));
         }

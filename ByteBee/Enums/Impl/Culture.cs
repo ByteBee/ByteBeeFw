@@ -1,9 +1,8 @@
 ﻿using System.Globalization;
-using ByteBee.Utilities;
 
-namespace ByteBee.Enums
+namespace ByteBee.Enums.Impl
 {
-    public class Culture : Enum<Culture, int>
+    public class Culture : TypedEnum<Culture, int>
     {
         private int _lcid;
         protected Culture(int value, string name) : base(value, name)

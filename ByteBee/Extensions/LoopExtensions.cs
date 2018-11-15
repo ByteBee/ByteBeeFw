@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ByteBee.Extensions
 {
-    public static class LoopExt
+    public static class LoopExtensions
     {
         public static void ForEach<T>(this IEnumerable<T> self, Action<T> callback)
         {

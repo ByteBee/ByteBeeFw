@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using ByteBee.Enums.Impl;
 
-namespace ByteBee.Logging
+namespace ByteBee.Logging.Impl
 {
-    public class StandardLogger : ILogger
+    public class LoggerImpl : ILogger
     {
-        private readonly ConcurrentBag<ILogStrategy> _logStrategies;
+        private readonly ConcurrentBag<ILogPropagator> _populator;
 
         private bool _isTurnedOff;
 
@@ -13,25 +14,25 @@ namespace ByteBee.Logging
         public LogLevel DefaultLogLevel { get; set; } = LogLevel.Info;
 
         /// <inheritdoc />
-        public StandardLogger()
-            => _logStrategies = new ConcurrentBag<ILogStrategy>();
+        public LoggerImpl()
+            => _populator = new ConcurrentBag<ILogPropagator>();
+
+        ///// <inheritdoc />
+        //public LoggerImpl(ILogPropagator[] strategies)
+        //    => _populator = new ConcurrentBag<ILogPropagator>(strategies);
 
         /// <inheritdoc />
-        public StandardLogger(ILogStrategy[] strategies)
-            => _logStrategies = new ConcurrentBag<ILogStrategy>(strategies);
-
-        /// <inheritdoc />
-        public void Register(ILogStrategy strategy)
-            => _logStrategies.Add(strategy);
+        public void Register(ILogPropagator strategy)
+            => _populator.Add(strategy);
 
         /// <inheritdoc />
         public void Log(LogMessage message)
         {
             if (!_isTurnedOff)
             {
-                foreach (ILogStrategy log in _logStrategies)
+                foreach (ILogPropagator log in _populator)
                 {
-                    log.Publish(message);
+                    log.Propagate(message);
                 }
             }
         }

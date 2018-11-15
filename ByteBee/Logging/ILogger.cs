@@ -1,4 +1,5 @@
 ﻿using System;
+using ByteBee.Enums.Impl;
 
 namespace ByteBee.Logging
 {
@@ -6,7 +7,7 @@ namespace ByteBee.Logging
     {
         LogLevel DefaultLogLevel { get; set; }
 
-        void Register(ILogStrategy loggerHandler);
+        void Register(ILogPropagator loggerHandler);
 
         void Log(string message);
         void Log(string message, Exception ex);

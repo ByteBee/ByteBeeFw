@@ -1,4 +1,5 @@
 ﻿using System;
+using ByteBee.Enums.Impl;
 
 namespace ByteBee.Logging
 {

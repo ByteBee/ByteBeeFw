@@ -1,14 +1,13 @@
 ﻿using System;
-using ByteBee.Utilities;
 
-namespace ByteBee.Mathematics
+namespace ByteBee.Enums.Impl
 {
-    public abstract class AngleUnit : Enum<AngleUnit, int>
+    public abstract class AngleUnit : TypedEnum<AngleUnit, int>
     {
         public static AngleUnit Rad = new RadiantUnit(1, "radiant");
         public static AngleUnit Deg = new DegreeUnit(2, "degree");
 
-        protected AngleUnit(int value, string name) { }
+        protected AngleUnit(int value, string name) : base(value, name) { }
 
         public abstract double ToRad();
         public abstract double ToDeg();
@@ -25,5 +24,7 @@ namespace ByteBee.Mathematics
             public override double ToRad() => Math.PI / 180;
             public override double ToDeg() => 1;
         }
+
+
     }
 }

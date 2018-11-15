@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using ByteBee.Enums;
+using ByteBee.Exceptions;
 using ByteBee.Utilities;
 using NUnit.Framework;
 
 namespace ByteBee.Tests.DataTypes
 {
-    class FooEnum : Enum<FooEnum, int>
+    class FooEnum : TypedEnum<FooEnum, int>
     {
         protected FooEnum(int value, string name) : base(value, name)
         {

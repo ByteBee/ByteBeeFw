@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBee.Core", "ByteBee\ByteBee.csproj", "{A09995FB-1538-4C28-B805-E2A58D9B7872}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBee", "ByteBee\ByteBee.csproj", "{A09995FB-1538-4C28-B805-E2A58D9B7872}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBee.Tests", "ByteBee.Tests\ByteBee.Tests.csproj", "{590E59D0-AD39-4817-8957-D83053C22906}"
 EndProject

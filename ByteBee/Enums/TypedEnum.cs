@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
+using ByteBee.Exceptions;
 
-namespace ByteBee.Utilities
+namespace ByteBee.Enums
 {
-    [Serializable]
-    public class EnumNotFoundException : Exception
+    public abstract class TypedEnum<TEnum, TValue> where TEnum : TypedEnum<TEnum, TValue>
     {
-        public EnumNotFoundException() { }
-        public EnumNotFoundException(string message) : base(message) { }
-        public EnumNotFoundException(string message, Exception inner) : base(message, inner) { }
-        protected EnumNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context) { }
-    }
-
-    public abstract class Enum<TEnum, TValue> where TEnum : Enum<TEnum, TValue>
-    {
-        private static readonly Lazy<TEnum[]> _allLazyMembers = new Lazy<TEnum[]>(() =>
+        private static readonly Lazy<TEnum[]> _allMembersLazy = new Lazy<TEnum[]>(() =>
         {
             Type t = typeof(TEnum);
             BindingFlags publicStatic = BindingFlags.Public | BindingFlags.Static;
@@ -33,18 +24,16 @@ namespace ByteBee.Utilities
             return ofProp.Union(ofField).OrderBy(e => e.Value).ToArray();
         });
 
-        public static TEnum[] GetAll() => _allLazyMembers.Value;
+        public static TEnum[] GetAll() => _allMembersLazy.Value;
 
         public string Name { get; set; }
         public TValue Value { get; set; }
 
-        protected Enum(TValue value, string name)
+        protected TypedEnum(TValue value, string name)
         {
             Name = name;
             Value = value;
         }
-
-        protected Enum() { }
 
         public static TEnum ByName(string name)
         {
@@ -53,7 +42,7 @@ namespace ByteBee.Utilities
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)
             {
-                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with Name \"{name}\" found.");
+                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with name \"{name}\" found.");
             }
             return result;
         }
@@ -63,7 +52,7 @@ namespace ByteBee.Utilities
             TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
             if (result == null)
             {
-                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with Value {value} found.");
+                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with nalue {value} found.");
             }
             return result;
         }
@@ -80,7 +69,7 @@ namespace ByteBee.Utilities
 
         public override string ToString() => $"{Name} ({Value})";
 
-        public static implicit operator TValue(Enum<TEnum, TValue> @enum) => @enum.Value;
-        public static explicit operator Enum<TEnum, TValue>(TValue value) => ByValue(value);
+        public static implicit operator TValue(TypedEnum<TEnum, TValue> @enum) => @enum.Value;
+        public static explicit operator TypedEnum<TEnum, TValue>(TValue value) => ByValue(value);
     }
 }

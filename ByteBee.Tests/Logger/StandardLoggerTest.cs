@@ -1,5 +1,6 @@
 ﻿using System;
 using ByteBee.Logging;
+using ByteBee.Logging.Impl.Propagator;
 using NUnit.Framework;
 
 namespace ByteBee.Tests.Logger
@@ -12,7 +13,7 @@ namespace ByteBee.Tests.Logger
         {
             var m = new FakeManager();
 
-            Bee.Logger.Register(new LogIntoConsole());
+            Bee.Logger.Register(new ConsolePropagator());
             
             try
             {

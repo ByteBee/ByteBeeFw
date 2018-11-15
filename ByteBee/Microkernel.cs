@@ -5,6 +5,7 @@ using System.Reflection;
 using ByteBee.DotNetWrapper;
 using ByteBee.DotNetWrapper.Impl;
 using ByteBee.Logging;
+using ByteBee.Logging.Impl;
 using ByteBee.Mathematics;
 using ByteBee.Mathematics.Functions;
 using ByteBee.Security;
@@ -45,7 +46,7 @@ namespace ByteBee
             Register<IDirectoryWrapper, DirectoryWrapperImpl>();
             Register<IMathFunctions, MathFunctions>();
 
-            Register<ILogger, StandardLogger>();
+            Register<ILogger, LoggerImpl>();
             Register<IEncryptionFactory, EncryptionFactory>();
         }
 

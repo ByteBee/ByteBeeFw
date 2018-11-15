@@ -1,4 +1,5 @@
-﻿using ByteBee.Mathematics;
+﻿using ByteBee.Enums.Impl;
+using ByteBee.Mathematics;
 using NUnit.Framework;
 
 namespace ByteBee.Tests.Mathematics

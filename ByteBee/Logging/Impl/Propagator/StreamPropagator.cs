@@ -1,26 +1,27 @@
 ﻿using System.IO;
+using ByteBee.Logging.Impl.Formatter;
 
-namespace ByteBee.Logging
+namespace ByteBee.Logging.Impl.Propagator
 {
-    public class LogIntoStream : ILogStrategy
+    public class StreamPropagator : AbstractLogPropagator
     {
         private readonly TextWriter _stream;
         private readonly ILogFormatter _formatter;
 
         /// <inheritdoc />
-        public LogIntoStream(TextWriter stream) : this(stream, new StandardLogFormatter())
+        public StreamPropagator(TextWriter stream) : this(stream, new StandardLogFormatter())
         {
         }
 
         /// <inheritdoc />
-        public LogIntoStream(TextWriter stream, ILogFormatter formatter)
+        public StreamPropagator(TextWriter stream, ILogFormatter formatter)
         {
             _stream = stream;
             _formatter = formatter;
         }
 
         /// <inheritdoc />
-        public void Publish(LogMessage message)
+        public override void Propagate(LogMessage message)
         {
             _stream.WriteLine(_formatter.Format(message));
         }

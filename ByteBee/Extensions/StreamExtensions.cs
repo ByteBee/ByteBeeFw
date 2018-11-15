@@ -2,11 +2,11 @@
 
 namespace ByteBee.Extensions
 {
-    public static class StreamExt
+    public static class StreamExtensions
     {
         public static byte[] ToByteArray(this Stream self)
         {
-            using (MemoryStream ms = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
                 self.CopyTo(ms);
                 return ms.ToArray();
