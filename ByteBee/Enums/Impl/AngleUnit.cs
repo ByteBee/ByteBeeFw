@@ -4,8 +4,8 @@ namespace ByteBee.Enums.Impl
 {
     public abstract class AngleUnit : TypedEnum<AngleUnit, int>
     {
-        public static AngleUnit Rad = new RadiantUnit(1, "radiant");
-        public static AngleUnit Deg = new DegreeUnit(2, "degree");
+        public static AngleUnit Rad { get; } = new RadiantUnit(1, "radiant");
+        public static AngleUnit Deg { get; } = new DegreeUnit(2, "degree");
 
         protected AngleUnit(int value, string name) : base(value, name) { }
 

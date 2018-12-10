@@ -21,7 +21,7 @@ namespace ByteBee.Tests.Logger
         public void InitInMemoryLogger()
         {
             IKernel kernel = new StandardKernel();
-            kernel.Bind<ILogger>().To<LoggerImpl>();
+            kernel.Bind<ILogger>().To<StandardLogger>();
             kernel.Bind<ILogPropagator>().To<ConsolePropagator>();
             kernel.Bind<ILogPropagator>().To<MemoryPropagator>().InSingletonScope();
             kernel.Bind<ILogFormatter>().To<MyLogFormatter>().InSingletonScope();

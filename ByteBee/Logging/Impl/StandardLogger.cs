@@ -4,9 +4,9 @@ using ByteBee.Enums.Impl;
 
 namespace ByteBee.Logging.Impl
 {
-    public class LoggerImpl : ILogger
+    public class StandardLogger : ILogger
     {
-        private readonly ConcurrentBag<ILogPropagator> _populator;
+        private readonly ConcurrentBag<ILogPropagator> _propagators;
 
         private bool _isTurnedOff;
 
@@ -14,23 +14,23 @@ namespace ByteBee.Logging.Impl
         public LogLevel DefaultLogLevel { get; set; } = LogLevel.Info;
 
         /// <inheritdoc />
-        public LoggerImpl()
-            => _populator = new ConcurrentBag<ILogPropagator>();
+        public StandardLogger()
+            => _propagators = new ConcurrentBag<ILogPropagator>();
 
         ///// <inheritdoc />
-        //public LoggerImpl(ILogPropagator[] strategies)
-        //    => _populator = new ConcurrentBag<ILogPropagator>(strategies);
+        //public StandardLogger(ILogPropagator[] strategies)
+        //    => _propagators = new ConcurrentBag<ILogPropagator>(strategies);
 
         /// <inheritdoc />
-        public void Register(ILogPropagator strategy)
-            => _populator.Add(strategy);
+        public void Register(ILogPropagator propagator)
+            => _propagators.Add(propagator);
 
         /// <inheritdoc />
         public void Log(LogMessage message)
         {
             if (!_isTurnedOff)
             {
-                foreach (ILogPropagator log in _populator)
+                foreach (ILogPropagator log in _propagators)
                 {
                     log.Propagate(message);
                 }

@@ -20,13 +20,8 @@ namespace ByteBee.Logging.Impl.Filter
         /// <inheritdoc />
         public BinaryAnswer Ask(LogMessage message)
         {
-
-
-
-
             if (!_regex.Match(message.Message).Success)
                 return BinaryAnswer.Nope;
-
 
             return Next?.Ask(message);
         }

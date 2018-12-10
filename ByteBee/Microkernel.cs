@@ -46,7 +46,7 @@ namespace ByteBee
             Register<IDirectoryWrapper, DirectoryWrapperImpl>();
             Register<IMathFunctions, MathFunctions>();
 
-            Register<ILogger, LoggerImpl>();
+            Register<ILogger, StandardLogger>();
             Register<IEncryptionFactory, EncryptionFactory>();
         }
 

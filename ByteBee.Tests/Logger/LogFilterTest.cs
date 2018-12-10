@@ -16,7 +16,7 @@ namespace ByteBee.Tests.Logger
             var prop = new MemoryPropagator();
             prop.FilterWith(new AllowAllFilter());
 
-            ILogger logger = new LoggerImpl();
+            ILogger logger = new StandardLogger();
             logger.Register(prop);
             logger.Log("hello world");
 
@@ -29,7 +29,7 @@ namespace ByteBee.Tests.Logger
             var prop = new MemoryPropagator();
             prop.FilterWith(new DenyAllFilter());
 
-            ILogger logger = new LoggerImpl();
+            ILogger logger = new StandardLogger();
             logger.Register(prop);
             logger.Log("hello world");
 
@@ -42,7 +42,7 @@ namespace ByteBee.Tests.Logger
             var prop = new MemoryPropagator();
             prop.FilterWith(new LogLevelMatchFilter(LogLevel.Warning));
 
-            ILogger logger = new LoggerImpl();
+            ILogger logger = new StandardLogger();
             logger.Register(prop);
             logger.Info("hello world");
             logger.Warning("something happens");
