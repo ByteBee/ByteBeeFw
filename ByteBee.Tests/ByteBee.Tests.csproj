@@ -54,7 +54,6 @@
     <Compile Include="DataTypes\EnumTest.cs" />
     <Compile Include="DataTypes\GuardTest.cs" />
     <Compile Include="DataTypes\Vector2Test.cs" />
-    <Compile Include="Extensions\StringExtTests.cs" />
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
@@ -75,7 +74,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

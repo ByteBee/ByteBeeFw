@@ -1,6 +1,6 @@
 ﻿namespace ByteBee.Extensions
 {
-    public static class BoolExtensions
+    public static class BoolEx
     {
         public static string YepNope(this bool self)
             => self ? "Yes" : "No";

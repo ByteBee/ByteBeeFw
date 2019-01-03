@@ -27,7 +27,7 @@ namespace ByteBee.Specifications
         {
             if (_nullAllowed && candidate == null)
                 return true;
-            if (!_emptyAllowed && candidate.IsNullOrEmpty())
+            if (!_emptyAllowed && candidate.IsEmpty())
                 return false;
             if (_minLength.HasValue && candidate.Length < _minLength.Value)
                 return false;

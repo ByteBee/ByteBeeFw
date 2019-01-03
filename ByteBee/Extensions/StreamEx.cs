@@ -2,7 +2,7 @@
 
 namespace ByteBee.Extensions
 {
-    public static class StreamExtensions
+    public static class StreamEx
     {
         public static byte[] ToByteArray(this Stream self)
         {
