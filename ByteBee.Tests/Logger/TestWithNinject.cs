@@ -4,7 +4,7 @@ using ByteBee.Logging.Impl.Propagator;
 using Ninject;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Logger
+namespace ByteBeeTests.Logger
 {
     public class MyLogFormatter : ILogFormatter
     {

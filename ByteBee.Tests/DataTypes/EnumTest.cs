@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using ByteBee.Enums;
 using ByteBee.Exceptions;
-using ByteBee.Utilities;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.DataTypes
+namespace ByteBeeTests.DataTypes
 {
     class FooEnum : TypedEnum<FooEnum, int>
     {
@@ -98,7 +97,7 @@ namespace ByteBee.Tests.DataTypes
         public void ThrowsWithExpectedMessageGivenNonMatchingString()
         {
             string name = "Doesn't Exist";
-            string expected = $"No FooEnum with Name \"{name}\" found.";
+            string expected = $"No FooEnum with name \"{name}\" found.";
             string actual = "";
 
             try
@@ -128,7 +127,7 @@ namespace ByteBee.Tests.DataTypes
         [Test]
         public void ThrowsWithExpectedMessageGivenNonMatchingValue()
         {
-            string expected = $"No FooEnum with Value -1 found.";
+            string expected = $"No FooEnum with value -1 found.";
             string actual = "";
 
             try

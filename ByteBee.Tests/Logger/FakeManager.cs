@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.Tests.Logger
+namespace ByteBeeTests.Logger
 {
     class FakeManager
     {

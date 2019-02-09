@@ -5,7 +5,7 @@ using ByteBee.Logging.Impl.Filter;
 using ByteBee.Logging.Impl.Propagator;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Logger
+namespace ByteBeeTests.Logger
 {
     [TestFixture]
     public class LogFilterTest

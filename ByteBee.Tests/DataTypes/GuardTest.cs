@@ -1,8 +1,9 @@
 ﻿using System;
+using ByteBee;
 using ByteBee.Utilities.Guard;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.DataTypes
+namespace ByteBeeTests.DataTypes
 {
     [TestFixture]
     public class GuardTest

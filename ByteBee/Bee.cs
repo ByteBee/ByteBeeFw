@@ -1,4 +1,5 @@
-﻿using ByteBee.DotNetWrapper;
+﻿using System.Runtime.CompilerServices;
+using ByteBee.DotNetWrapper;
 using ByteBee.Logging;
 using ByteBee.Logging.Impl;
 using ByteBee.Mathematics.Functions;
@@ -6,6 +7,8 @@ using ByteBee.Security;
 using ByteBee.Utilities;
 using ByteBee.Utilities.Guard;
 using ByteBee.Validating;
+
+[assembly:InternalsVisibleTo("ByteBee.Tests")]
 
 namespace ByteBee
 {
@@ -16,8 +19,6 @@ namespace ByteBee
         public static IInflector Inflector => Microkernel.Instance.Resolve<IInflector>();
 
         public static ISwitch<TObject> Choose<TObject>(TObject obj) => new Switch<TObject>(obj);
-
-        public static IEncryptionFactory Encryption => Microkernel.Instance.Resolve<IEncryptionFactory>();
 
         public static ILogger Logger => Microkernel.Instance.Resolve<ILogger>();
         public static IMathFunctions Math => Microkernel.Instance.Resolve<IMathFunctions>();

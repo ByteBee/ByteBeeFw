@@ -1,7 +1,7 @@
 ﻿using ByteBee.Specifications;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Specs
+namespace ByteBeeTests.Specs
 {
     [TestFixture]
     public class SpecificationTest

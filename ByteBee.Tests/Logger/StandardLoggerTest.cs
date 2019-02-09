@@ -1,9 +1,9 @@
 ﻿using System;
-using ByteBee.Logging;
+using ByteBee;
 using ByteBee.Logging.Impl.Propagator;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Logger
+namespace ByteBeeTests.Logger
 {
     [TestFixture]
     class StandardLoggerTest

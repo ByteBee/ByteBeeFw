@@ -1,6 +1,6 @@
 ﻿namespace ByteBee.Security
 {
-    class Condiment
+    internal class Condiment
     {
         public const string Pepper = 
             "B.>aN`}WW_PGg-Y/'(7l7<╔╦╗" +

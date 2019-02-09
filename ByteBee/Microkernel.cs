@@ -47,7 +47,6 @@ namespace ByteBee
             Register<IMathFunctions, MathFunctions>();
 
             Register<ILogger, StandardLogger>();
-            Register<IEncryptionFactory, EncryptionFactory>();
         }
 
         public virtual void Register<TContract, TImplementation>() where TImplementation : class

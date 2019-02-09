@@ -2,7 +2,7 @@
 using ByteBee.Mathematics.Vector;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.DataTypes
+namespace ByteBeeTests.DataTypes
 {
     [TestFixture]
     public class Vector2Test

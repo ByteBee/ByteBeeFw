@@ -3,7 +3,7 @@ using System.Threading;
 using ByteBee.DotNetWrapper.Impl;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Utilities
+namespace ByteBeeTests.Utilities
 {
     [TestFixture]
     public class ClockTests

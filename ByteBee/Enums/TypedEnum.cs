@@ -52,7 +52,7 @@ namespace ByteBee.Enums
             TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
             if (result == null)
             {
-                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with nalue {value} found.");
+                throw new EnumNotFoundException($"No {typeof(TEnum).Name} with value {value} found.");
             }
             return result;
         }

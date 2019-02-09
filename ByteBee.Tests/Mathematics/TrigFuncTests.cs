@@ -1,8 +1,8 @@
-﻿using ByteBee.Enums.Impl;
-using ByteBee.Mathematics;
+﻿using ByteBee;
+using ByteBee.Enums.Impl;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Mathematics
+namespace ByteBeeTests.Mathematics
 {
     [TestFixture]
     public class TrigFuncTests

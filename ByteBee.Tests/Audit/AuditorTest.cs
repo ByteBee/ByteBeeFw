@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using ByteBee;
 using ByteBee.Mathematics.Vector;
 using ByteBee.Validating;
 using NUnit.Framework;
 
-namespace ByteBee.Tests.Audit
+namespace ByteBeeTests.Audit
 {
     [TestFixture]
     public class AuditorTest

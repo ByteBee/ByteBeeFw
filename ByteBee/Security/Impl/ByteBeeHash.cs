@@ -1,27 +1,30 @@
-﻿using System.IO;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Security.Cryptography;
+using ByteBee.Utilities;
 
-namespace ByteBee.Security
+namespace ByteBee.Security.Impl
 {
-    class MyOwnEncryptionEngine : HashEncryptionEngine
+    public class ByteBeeHash : HashAlgorithm
     {
-        protected override Encoding _enconding => new UnicodeEncoding();
+        public ByteBeeHash() : base() { }
+        public ByteBeeHash(string salt) : base(salt) { }
 
-        public override string Encode(Stream stream, string privateKey)
+        public override Binary Encode(Binary plain)
         {
-            using (SHA256 sha = new SHA256CryptoServiceProvider())
+            using (SHA512 sha = new SHA512CryptoServiceProvider())
             {
-                byte[] hash = sha.ComputeHash(stream);
-                byte[] pepr = sha.ComputeHash(_enconding.GetBytes(Condiment.Pepper));
-                byte[] salt = sha.ComputeHash(_enconding.GetBytes(privateKey));
+                byte[] hash = sha.ComputeHash(plain.ToBytes());
+                byte[] salt = sha.ComputeHash(Salt);
+                byte[] peper = sha.ComputeHash(new Binary(Condiment.Pepper).ToBytes());
 
-                var m = Cipher(hash, salt, pepr);
-                return ArrayToString(m);
+                var m = Cipher(hash, salt, peper);
+
+                string result = ArrayToString(m);
+
+                return result;
             }
         }
 
-        private byte[] Cipher(byte[] a, byte[] b, byte[] c)
+        internal byte[] Cipher(byte[] a, byte[] b, byte[] c)
         {
             var m = new byte[32];
 
@@ -49,8 +52,7 @@ namespace ByteBee.Security
                     g = (7 * i) % 31;
                     f = c[g] ^ (b[g] | (~a[g]));
                 }
-
-                m[i] = (byte)(f);
+                m[i] = (byte)f;
             }
 
             return m;
@@ -74,7 +76,8 @@ namespace ByteBee.Security
 
         private string NumberToString(int number)
         {
-            const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyzÀÁḀẤẦẬẰẶḂḄḆĆĈĊČÇḈÐḊḌḎḐḒḔḖḘḚḜẸẼẾỀỆḞḠḢḤḦḨḪḬỊḰḲḴḶḺḼḾṀṂṄṆṈṊØṐṒỌỎỘỠṔṖṘṚṜṞṠṢṪṬṮṰṲṴṶṺỤỨỪỰṼṾẀẂẄẆẈẊẌẎỲỴỸẐẔàáḁấầậằặḃḅḇćĉċčçḉðḋḍḏḑḓḕḗḙḛḝẹẽếềệḟḡḣḥḧḩḫḭịḱḳḵḷḻḽḿṁṃṅṇṉṋøṑṓọỏộỡṕṗṙṛṝṟṡṣṫṭṯṱṳṵṷṻụứừựṽṿẁẃẅẇẉẋẍẏỳỵỹẑẕ";
+            //const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyzÀÁḀẤẦẬẰẶḂḄḆĆĈĊČÇḈÐḊḌḎḐḒḔḖḘḚḜẸẼẾỀỆḞḠḢḤḦḨḪḬỊḰḲḴḶḺḼḾṀṂṄṆṈṊØṐṒỌỎỘỠṔṖṘṚṜṞṠṢṪṬṮṰṲṴṶṺỤỨỪỰṼṾẀẂẄẆẈẊẌẎỲỴỸẐẔàáḁấầậằặḃḅḇćĉċčçḉðḋḍḏḑḓḕḗḙḛḝẹẽếềệḟḡḣḥḧḩḫḭịḱḳḵḷḻḽḿṁṃṅṇṉṋøṑṓọỏộỡṕṗṙṛṝṟṡṣṫṭṯṱṳṵṷṻụứừựṽṿẁẃẅẇẉẋẍẏỳỵỹẑẕ";
+            const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyz";
             string result = string.Empty;
 
             do

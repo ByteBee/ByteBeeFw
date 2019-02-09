@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using ByteBee;
+using NUnit.Framework;
 
-namespace ByteBee.Tests.Mathematics
+namespace ByteBeeTests.Mathematics
 {
     [TestFixture]
     public class BoundaryTests
