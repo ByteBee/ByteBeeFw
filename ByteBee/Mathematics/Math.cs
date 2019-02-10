@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ByteBee.Mathematics.Functions;
 
 namespace ByteBee.Mathematics.Functions

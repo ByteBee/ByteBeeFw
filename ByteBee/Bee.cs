@@ -8,8 +8,6 @@ using ByteBee.Utilities;
 using ByteBee.Utilities.Guard;
 using ByteBee.Validating;
 
-[assembly:InternalsVisibleTo("ByteBee.Tests")]
-
 namespace ByteBee
 {
     public static class Bee

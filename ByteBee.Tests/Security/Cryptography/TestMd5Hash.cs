@@ -1,6 +1,6 @@
-﻿using System.Security.Cryptography;
-using ByteBee.Security;
-using ByteBee.Security.Impl;
+﻿using System;
+using ByteBee.Security.Cryptography;
+using ByteBee.Security.Cryptography.Impl;
 using ByteBee.Utilities;
 using NUnit.Framework;
 
@@ -15,25 +15,28 @@ namespace ByteBeeTests.Security.Cryptography
             // arrange
             string assume = "cf985ee7afa0196e3ebd0e92f75c3844";
             Binary plain = new Binary("ByteBee");
-            ICryptoAlgorithm crypt = new Md5Hash();
+            IHashFactory crypt = new HashFactory(new Md5Hash());
             // act
-            string actual = crypt.Encode(plain);
+            string actual = crypt.Compute(plain);
             // assert
             Assert.AreEqual(assume, actual);
         }
 
+
         [Test]
-        public void trying_to_decode_a_hash_should_not_be_possible()
+        public void salt_cannot_be_null()
         {
             // arrange
-            ICryptoAlgorithm crypt = new Md5Hash();
+            Binary plain = new Binary("ByteBee");
+            IHashFactory crypt = new HashFactory(new Md5Hash());
             // act
-            void ThisShouldNotWork()
+            void Test()
             {
-                crypt.Decode("cf985ee7afa0196e3ebd0e92f75c3844");
+                crypt.ComputeWithSalt(plain, null);
             }
+
             // assert
-            Assert.Throws<CryptographicUnexpectedOperationException>(ThisShouldNotWork);
+            Assert.Throws<ArgumentNullException>(Test);
         }
 
 
@@ -43,9 +46,9 @@ namespace ByteBeeTests.Security.Cryptography
             // arrange
             string assume = "cf985ee7afa0196e3ebd0e92f75c3844";
             Binary plain = new Binary("ByteBee");
-            ICryptoAlgorithm crypt = new Md5SaltHash(null);
+            IHashFactory crypt = new HashFactory(new Md5Hash());
             // act
-            string actual = crypt.Encode(plain);
+            string actual = crypt.ComputeWithSalt(plain, "Bee");
             // assert
             Assert.AreNotEqual(assume, actual);
         }
@@ -56,11 +59,30 @@ namespace ByteBeeTests.Security.Cryptography
             // arrange
             string assume = "e6d55636e956e6e6be970ba0a1ab6727";
             Binary plain = new Binary("ByteBee");
-            ICryptoAlgorithm crypt = new Md5SaltHash();
+            IHashFactory crypt = new HashFactory(new Md5Hash());
             // act
-            string actual = crypt.Encode(plain);
+            string actual = crypt.ComputeWithSalt(plain);
             // assert
             Assert.AreEqual(assume, actual);
+        }
+        [Test]
+        public void salted_and_peppered_hashes_should_not_like_original()
+        {
+            string plain = "ByteBee";
+            IHashFactory crypt = new HashFactory(new Md5Hash());
+
+            string hash = crypt.Compute(plain);
+            string salted = crypt.ComputeWithSalt(plain);
+            string peppered = crypt.ComputeWithSaltAndPepper(plain);
+
+
+            Assert.AreNotEqual(hash, salted);
+            Assert.AreNotEqual(hash, peppered);
+
+            Assert.AreEqual("cf985ee7afa0196e3ebd0e92f75c3844", hash);
+            Assert.AreEqual("e6d55636e956e6e6be970ba0a1ab6727", salted);
+            Assert.AreEqual("6c399b62a9e21d4a8f5f144c575311da", peppered);
+            
         }
     }
 }
