@@ -26,7 +26,4 @@
       <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
       <WarningsAsErrors />
     </PropertyGroup>
-    <ItemGroup>
-      <Folder Include="Arch\" />
-    </ItemGroup>
 </Project>
