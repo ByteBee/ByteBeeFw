@@ -6,11 +6,11 @@ namespace ByteBee.Security.Cryptography.Impl
     {
         public byte[] Compute(byte[] plain)
         {
-            using (SHA512 sha = new SHA512CryptoServiceProvider())
+            using (SHA512 hashAlgorithm = new SHA512CryptoServiceProvider())
             {
-                byte[] a = sha.ComputeHash(plain);
-                byte[] b = sha.ComputeHash(a);
-                byte[] c = sha.ComputeHash(b);
+                byte[] a = hashAlgorithm.ComputeHash(plain);
+                byte[] b = hashAlgorithm.ComputeHash(a);
+                byte[] c = hashAlgorithm.ComputeHash(b);
 
                 return ComputeHash(a, b, c);
             }
@@ -49,40 +49,5 @@ namespace ByteBee.Security.Cryptography.Impl
 
             return m;
         }
-
-        //private string ArrayToString(byte[] m)
-        //{
-        //    var buffer = new string[16];
-
-        //    for (int i = 0; i < 16; i++)
-        //    {
-        //        int j = i + 16;
-
-        //        int x = m[i] + m[j] * 256;
-
-        //        buffer[i] = NumberToString(x);
-        //    }
-
-        //    return string.Join(string.Empty, buffer);
-        //}
-
-        //private string NumberToString(int number)
-        //{
-        //    //const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyzÀÁḀẤẦẬẰẶḂḄḆĆĈĊČÇḈÐḊḌḎḐḒḔḖḘḚḜẸẼẾỀỆḞḠḢḤḦḨḪḬỊḰḲḴḶḺḼḾṀṂṄṆṈṊØṐṒỌỎỘỠṔṖṘṚṜṞṠṢṪṬṮṰṲṴṶṺỤỨỪỰṼṾẀẂẄẆẈẊẌẎỲỴỸẐẔàáḁấầậằặḃḅḇćĉċčçḉðḋḍḏḑḓḕḗḙḛḝẹẽếềệḟḡḣḥḧḩḫḭịḱḳḵḷḻḽḿṁṃṅṇṉṋøṑṓọỏộỡṕṗṙṛṝṟṡṣṫṭṯṱṳṵṷṻụứừựṽṿẁẃẅẇẉẋẍẏỳỵỹẑẕ";
-        //    const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyz";
-        //    string result = string.Empty;
-
-        //    do
-        //    {
-        //        int remainder = number % chars.Length;
-        //        number /= chars.Length;
-
-        //        result = chars[remainder] + result;
-        //    } while (number > 0);
-
-        //    return result.PadLeft(2, '0');
-        //}
-
-        
     }
 }

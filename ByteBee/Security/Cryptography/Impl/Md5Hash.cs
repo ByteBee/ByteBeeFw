@@ -8,9 +8,9 @@ namespace ByteBee.Security.Cryptography.Impl
     {
         public byte[] Compute(byte[] plain)
         {
-            using (var ha = new MD5CryptoServiceProvider())
+            using (var hashAlgorithm = new MD5CryptoServiceProvider())
             {
-                return ha.ComputeHash(plain);
+                return hashAlgorithm.ComputeHash(plain);
             }
         }
     }

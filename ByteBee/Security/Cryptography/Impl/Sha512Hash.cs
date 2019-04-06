@@ -1,14 +1,12 @@
-﻿using System;
-using System.Security.Cryptography;
-using ByteBee.Utilities;
+﻿using System.Security.Cryptography;
 
 namespace ByteBee.Security.Cryptography.Impl
 {
-    public class Sha256Hash : IHashAlgorithm
+    public class Sha512Hash : IHashAlgorithm
     {
         public byte[] Compute(byte[] plain)
         {
-            using (var hashAlgorithm = new SHA256CryptoServiceProvider())
+            using (var hashAlgorithm = new SHA512CryptoServiceProvider())
             {
                 return hashAlgorithm.ComputeHash(plain);
             }

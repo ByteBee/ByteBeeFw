@@ -8,20 +8,9 @@ namespace ByteBee.Security.Cryptography.Impl
     {
         public byte[] Compute(byte[] plain)
         {
-            using (var ha = new SHA384CryptoServiceProvider())
+            using (var hashAlgorithm = new SHA384CryptoServiceProvider())
             {
-                return ha.ComputeHash(plain);
-            }
-        }
-    }
-
-    public class Sha512Hash : IHashAlgorithm
-    {
-        public byte[] Compute(byte[] plain)
-        {
-            using (var ha = new SHA512CryptoServiceProvider())
-            {
-                return ha.ComputeHash(plain);
+                return hashAlgorithm.ComputeHash(plain);
             }
         }
     }
