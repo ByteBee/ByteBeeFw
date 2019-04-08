@@ -60,6 +60,14 @@
     <Compile Include="Logger\TestWithNinject.cs" />
     <Compile Include="Mathematics\BoundaryTests.cs" />
     <Compile Include="Mathematics\TrigFuncTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\AbstractVectorTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\AdditionTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\ComparisonTest.cs" />
+    <Compile Include="Maths\Algebra\Vector\ConversionTestses.cs" />
+    <Compile Include="Maths\Algebra\Vector\DivisionTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\MiscVectorTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\MultiplyTests.cs" />
+    <Compile Include="Maths\Algebra\Vector\SubtractionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Cryptography\TestByteBeeAlgorithm.cs" />
     <Compile Include="Security\Cryptography\TestMd5Hash.cs" />

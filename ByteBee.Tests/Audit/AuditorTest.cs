@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ByteBee;
-using ByteBee.Mathematics.Vector;
+using ByteBee.Maths.Algebra;
 using ByteBee.Validating;
+using ByteBeeTests.DataTypes;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Audit
@@ -37,7 +38,7 @@ namespace ByteBeeTests.Audit
                 try
                 {
                     var a = new VectorValidatorStub();
-                    a.ValidateAndThrow(new Vector2I(-2, -4));
+                    a.ValidateAndThrow(new Vector3R(-2, -4,0));
                 }
                 catch (ObjectNotValidException ex)
                 {
@@ -50,8 +51,8 @@ namespace ByteBeeTests.Audit
         [Test]
         public void TestNestedAudit()
         {
-            var vect = new Vector2I(2, 4);
-            AbstrValidator<Vector2I> a = Bee.Validator<Vector2I>();
+            var vect = new Vector3R(2, 4,1);
+            AbstrValidator<Vector3R> a = Bee.Validator<Vector3R>();
             a.RuleFor(v => v.X).Must(i => i > 2).WithMessage("X muss größer als 2 sein");
             a.RuleFor(v => v.Y).Must(i => i == 4).WithMessage("Y is 4");
 
@@ -85,8 +86,8 @@ namespace ByteBeeTests.Audit
         [Test]
         public void FluentValidatorTest()
         {
-            Vector2I vector = new Vector2I(0, 0);
-            AbstrValidator<Vector2I> v = Bee.Validator<Vector2I>();
+            Vector3R vector = new Vector3R(0, 0,0);
+            AbstrValidator<Vector3R> v = Bee.Validator<Vector3R>();
 
             v.RuleFor(x => x.Y).NotNull().Must(i => i > 0);
             v.RuleFor(x => x.X).Must(i => i > 0).WithMessage("X must be greather than zero");
@@ -97,7 +98,7 @@ namespace ByteBeeTests.Audit
             Assert.False(res.IsValid);
         }
 
-        class VectorValidatorStub : AbstrValidator<Vector2I>
+        class VectorValidatorStub : AbstrValidator<Vector3R>
         {
             public VectorValidatorStub()
             {
@@ -107,7 +108,7 @@ namespace ByteBeeTests.Audit
                 //RuleSet(new VectorNotNegativeValidatorStub(), 42, "hallo");
             }
 
-            private bool BeGreatherThanZero(int i) => i > 0;
+            private bool BeGreatherThanZero(double i) => i > 0;
         }
 
         class VectorNegativeValidatorStub : AbstrValidator<int>

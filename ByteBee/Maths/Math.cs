@@ -40,25 +40,25 @@ namespace ByteBee.Mathematics.Functions
 
     internal partial class MathFunctions : IMathFunctions
     {
-        public double E { get; } = Math.E;
+        public double E { get; } = System.Math.E;
         public double Epsilon { get; } = 2.2204460492503131E-13;
         public double ZeroTolerance { get; } = 1E-08;
-        public double Deg2Rad { get; } = Math.PI / 180;
-        public double Rad2Deg { get; } = 180 / Math.PI;
-        public double Pi { get; } = Math.PI;
-        public double Pi2 { get; } = Math.PI * 2;
-        public double Pi4 { get; } = Math.PI * 4;
-        public double PiO2 { get; } = Math.PI / 2;
+        public double Deg2Rad { get; } = System.Math.PI / 180;
+        public double Rad2Deg { get; } = 180 / System.Math.PI;
+        public double Pi { get; } = System.Math.PI;
+        public double Pi2 { get; } = System.Math.PI * 2;
+        public double Pi4 { get; } = System.Math.PI * 4;
+        public double PiO2 { get; } = System.Math.PI / 2;
 
         public MathConstant Const { get; } = new MathConstant();
 
-        public decimal Truncate(decimal d) => Math.Truncate(d);
-        public double Truncate(double d) => Math.Truncate(d);
+        public decimal Truncate(decimal d) => System.Math.Truncate(d);
+        public double Truncate(double d) => System.Math.Truncate(d);
 
-        public double IeeeRemainder(double x, double y) => Math.IEEERemainder(x, y);
+        public double IeeeRemainder(double x, double y) => System.Math.IEEERemainder(x, y);
 
-        public long DivRem(long a, long b, out long result) => Math.DivRem(a, b, out result);
-        public double Sqrt(double d) => Math.Sqrt(d);
+        public long DivRem(long a, long b, out long result) => System.Math.DivRem(a, b, out result);
+        public double Sqrt(double d) => System.Math.Sqrt(d);
         public bool IsFinite(double d) => double.IsInfinity(d) == false && double.IsNaN(d) == false;
         public bool IsFinite(float d) => float.IsInfinity(d) == false && float.IsNaN(d) == false;
         public bool Approx(double a, double b) => Approx(a, b, Epsilon);
@@ -70,7 +70,7 @@ namespace ByteBee.Mathematics.Functions
                 return true;
             if (double.IsNaN(a) && double.IsNaN(b))
                 return true;
-            if (Math.Abs(a - b) <= epsilon)
+            if (System.Math.Abs(a - b) <= epsilon)
                 return true;
 
             return false;
@@ -80,9 +80,9 @@ namespace ByteBee.Mathematics.Functions
         public bool IsBetween(double value, double low, double high) => value >= low && value <= high;
         public bool IsBetween(int value, int low, int high) => value >= low && value <= high;
 
-        public long BigMul(int a, int b) => Math.BigMul(a, b);
-        public int DivRem(int a, int b, out int result) => Math.DivRem(a, b, out result);
+        public long BigMul(int a, int b) => System.Math.BigMul(a, b);
+        public int DivRem(int a, int b, out int result) => System.Math.DivRem(a, b, out result);
 
-        public double InvSqrt(double f) => f / Math.Sqrt(f);
+        public double InvSqrt(double f) => f / System.Math.Sqrt(f);
     }
 }

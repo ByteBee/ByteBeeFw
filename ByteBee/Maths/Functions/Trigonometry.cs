@@ -127,10 +127,10 @@ namespace ByteBee.Mathematics.Functions
     internal partial class MathFunctions
     {
         public double Sin(double x) => Sin(x, AngleUnit.Rad);
-        public double Sin(double x, AngleUnit unit) => Math.Sin(x * unit.ToRad());
+        public double Sin(double x, AngleUnit unit) => System.Math.Sin(x * unit.ToRad());
 
         public double Cos(double x) => Cos(x, AngleUnit.Rad);
-        public double Cos(double x, AngleUnit unit) => Math.Cos(x * unit.ToRad());
+        public double Cos(double x, AngleUnit unit) => System.Math.Cos(x * unit.ToRad());
 
         public double Tan(double x) => Tan(x, AngleUnit.Rad);
         public double Tan(double x, AngleUnit unit)
@@ -141,7 +141,7 @@ namespace ByteBee.Mathematics.Functions
             if (Bee.Math.Approx(x % 360, 270))
                 return double.NegativeInfinity;
 
-            return Math.Tan(x * unit.ToRad());
+            return System.Math.Tan(x * unit.ToRad());
         }
 
         public double Csc(double x) => Csc(x, AngleUnit.Rad);
@@ -155,13 +155,13 @@ namespace ByteBee.Mathematics.Functions
 
 
         public double Asin(double x) => Asin(x, AngleUnit.Rad);
-        public double Asin(double x, AngleUnit unit) => Math.Asin(x) / unit.ToRad();
+        public double Asin(double x, AngleUnit unit) => System.Math.Asin(x) / unit.ToRad();
 
         public double Acos(double x) => Acos(x, AngleUnit.Rad);
-        public double Acos(double x, AngleUnit unit) => Math.Acos(x) / unit.ToRad();
+        public double Acos(double x, AngleUnit unit) => System.Math.Acos(x) / unit.ToRad();
 
         public double Atan(double x) => Atan(x, AngleUnit.Rad);
-        public double Atan(double x, AngleUnit unit) => Math.Atan(x) / unit.ToRad();
+        public double Atan(double x, AngleUnit unit) => System.Math.Atan(x) / unit.ToRad();
 
         public double Acsc(double x) => Acsc(x, AngleUnit.Rad);
         public double Acsc(double x, AngleUnit unit) => Atan(Sign(x) / Sqrt(x * x - 1)) / unit.ToRad();
