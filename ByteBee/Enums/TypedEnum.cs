@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ByteBee.Exceptions;
+using ByteBee.GuardClause;
 
 namespace ByteBee.Enums
 {
@@ -37,7 +38,7 @@ namespace ByteBee.Enums
 
         public static TEnum ByName(string name)
         {
-            Bee.Guard.Against.NullOrWhiteSpace(name, nameof(name));
+            Guard.Against.NullOrEmpty(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)

@@ -23,8 +23,7 @@ namespace ByteBee.Validating
                 return GetMethodName(methodExpr);
             }
 
-            Bee.Guard.Throws<InvalidExpressionException>($"Unknown Expression type for '{expression.Body}'");
-            return string.Empty;
+            throw new InvalidExpressionException($"Unknown Expression type for '{expression.Body}'");
         }
 
         private string GetPropertyName(MemberExpression memberExpr)

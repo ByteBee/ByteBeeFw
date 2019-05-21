@@ -3,7 +3,7 @@ using System.Text;
 
 namespace ByteBee.Utilities
 {
-    public class Binary
+    public sealed class Binary
     {
         private readonly byte[] _data;
 

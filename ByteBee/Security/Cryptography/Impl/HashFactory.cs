@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using ByteBee.GuardClause;
 using ByteBee.Utilities;
 
 namespace ByteBee.Security.Cryptography.Impl
@@ -23,7 +24,7 @@ namespace ByteBee.Security.Cryptography.Impl
 
         public Binary ComputeWithSalt(Binary plain, string salt)
         {
-            Bee.Guard.Against.NullOrWhiteSpace(salt, "salt");
+            Guard.Against.NullOrEmpty(salt, "salt");
             return Compute(plain + salt);
         }
         public Binary ComputeWithSaltAndPepper(Binary plain)
@@ -34,8 +35,8 @@ namespace ByteBee.Security.Cryptography.Impl
 
         public Binary ComputeWithSaltAndPepper(Binary plain, string salt, string pepper)
         {
-            Bee.Guard.Against.NullOrWhiteSpace(salt, "salt");
-            Bee.Guard.Against.NullOrWhiteSpace(pepper, "pepper");
+            Guard.Against.NullOrEmpty(salt, "salt");
+            Guard.Against.NullOrEmpty(pepper, "pepper");
 
             return Compute(plain + salt + pepper);
         }
