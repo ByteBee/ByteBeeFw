@@ -56,6 +56,7 @@
     <Compile Include="GuardClause\TestAgainstNull.cs" />
     <Compile Include="GuardClause\TestAgainstNullOrEmpty.cs" />
     <Compile Include="GuardClause\TestAgainstOutOfRange.cs" />
+    <Compile Include="GuardClause\TestAgainstZero.cs" />
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
