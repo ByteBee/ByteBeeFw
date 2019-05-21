@@ -11,13 +11,5 @@ namespace ByteBee.GuardClause
                 throw new ArgumentNullException(string.Empty, message);
             }
         }
-
-        public static void Null(this IGuardAgainstClause clause, object input)
-        {
-            if (input == null)
-            {
-                throw new ArgumentNullException();
-            }
-        }
     }
 }

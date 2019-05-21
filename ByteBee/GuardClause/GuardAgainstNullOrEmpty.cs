@@ -11,13 +11,5 @@ namespace ByteBee.GuardClause
                 throw new ArgumentException(message);
             }
         }
-
-        public static void NullOrEmpty(this IGuardAgainstClause guard, string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                throw new ArgumentException();
-            }
-        }
     }
 }

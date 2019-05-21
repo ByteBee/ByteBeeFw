@@ -10,14 +10,14 @@ namespace ByteBeeTests.GuardClause
         [Test]
         public void When_ValueIsInExactlyOnBounds_Then_ShouldPass()
         {
-            void PerformTest() => Guard.Against.OutOfRange(7, 7, 7);
+            void PerformTest() => Guard.Against.OutOfRange(7, 7, 7, "input was out of range");
             Assert.DoesNotThrow(PerformTest);
         }
 
         [Test]
         public void When_ValueIsInExactlyOnUpperBounds_Then_ShouldPass()
         {
-            void PerformTest() => Guard.Against.OutOfRange(7, 0, 7);
+            void PerformTest() => Guard.Against.OutOfRange(7, 0, 7, "input was out of range");
             Assert.DoesNotThrow(PerformTest);
         }
 
@@ -37,14 +37,14 @@ namespace ByteBeeTests.GuardClause
         [Test]
         public void When_ValueIsOutsideUpperBound_Then_ThrowAnException()
         {
-            void PerformTest() => Guard.Against.OutOfRange(10, 0, 7);
+            void PerformTest() => Guard.Against.OutOfRange(10, 0, 7, "input was out of range");
             Assert.Throws<ArgumentOutOfRangeException>(PerformTest);
         }
 
         [Test]
         public void When_LowerAndUpperBoundAreSwitchedButWithinRange_Then_ShouldSwapBoundAndPass()
         {
-            void PerformTest() => Guard.Against.OutOfRange(4, 7, 0);
+            void PerformTest() => Guard.Against.OutOfRange(4, 7, 0, "input was out of range");
             Assert.DoesNotThrow(PerformTest);
         }
     }
