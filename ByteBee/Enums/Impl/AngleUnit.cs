@@ -18,13 +18,12 @@ namespace ByteBee.Enums.Impl
             public override double ToRad() => 1;
             public override double ToDeg() => 180 / Math.PI;
         }
+
         private class DegreeUnit : AngleUnit
         {
             public DegreeUnit(int value, string name) : base(value, name) { }
             public override double ToRad() => Math.PI / 180;
             public override double ToDeg() => 1;
         }
-
-
     }
 }

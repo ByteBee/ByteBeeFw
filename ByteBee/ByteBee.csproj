@@ -26,4 +26,7 @@
       <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
       <WarningsAsErrors />
     </PropertyGroup>
+    <ItemGroup>
+      <Folder Include="MathClause\Functions\" />
+    </ItemGroup>
 </Project>

@@ -24,7 +24,7 @@ namespace ByteBee.GuardClause
             return false;
         }
 
-        public static void OutOfRange<T>(this IGuardAgainstClause clause, T input, T from, T until, string message)
+        public static void OutOfRange<T>(this IGuardClause clause, T input, T from, T until, string message)
         {
             if (ThisIsNotOkay(input, from, until))
             {

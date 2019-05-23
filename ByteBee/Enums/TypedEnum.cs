@@ -38,7 +38,7 @@ namespace ByteBee.Enums
 
         public static TEnum ByName(string name)
         {
-            Guard.Against.NullOrEmpty(name, nameof(name));
+            Bee.Guard.NullOrEmpty(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)

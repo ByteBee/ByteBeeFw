@@ -24,7 +24,7 @@ namespace ByteBee.Security.Cryptography.Impl
 
         public Binary ComputeWithSalt(Binary plain, string salt)
         {
-            Guard.Against.NullOrEmpty(salt, "salt");
+            Bee.Guard.NullOrEmpty(salt, "salt");
             return Compute(plain + salt);
         }
         public Binary ComputeWithSaltAndPepper(Binary plain)
@@ -35,8 +35,8 @@ namespace ByteBee.Security.Cryptography.Impl
 
         public Binary ComputeWithSaltAndPepper(Binary plain, string salt, string pepper)
         {
-            Guard.Against.NullOrEmpty(salt, "salt");
-            Guard.Against.NullOrEmpty(pepper, "pepper");
+            Bee.Guard.NullOrEmpty(salt, "salt");
+            Bee.Guard.NullOrEmpty(pepper, "pepper");
 
             return Compute(plain + salt + pepper);
         }

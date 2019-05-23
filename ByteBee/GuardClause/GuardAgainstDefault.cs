@@ -20,22 +20,11 @@ namespace ByteBee.GuardClause
             return false;
         }
 
-        public static void Default<T>(this IGuardAgainstClause clause, T input, string message)
+        public static void Default<T>(this IGuardClause clause, T input, string message)
         {
             if (ThisIsNotOk(input))
             {
                 throw new ArgumentException(message);
-            }
-        }
-    }
-
-    public static class GuardAgainstWrongType
-    {
-        public static void WrongType<T>(this IGuardAgainstClause clause, object input, string message)
-        {
-            if (!(input is T))
-            {
-                throw new InvalidCastException(message);
             }
         }
     }

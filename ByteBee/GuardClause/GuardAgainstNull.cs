@@ -4,7 +4,7 @@ namespace ByteBee.GuardClause
 {
     public static class GuardAgainstNull
     {
-        public static void Null(this IGuardAgainstClause clause, object input, string message)
+        public static void Null(this IGuardClause clause, object input, string message)
         {
             if (input == null)
             {

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -34,14 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    <Reference Include="FluentAssertions, Version=5.6.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.6.0\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,16 +64,19 @@
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />
+    <Compile Include="MathClause\Func\TestArcusFunc.cs" />
+    <Compile Include="MathClause\Func\TestLogarithmFunc.cs" />
+    <Compile Include="MathClause\Func\TestPowerFunc.cs" />
+    <Compile Include="MathClause\Func\TestTrigonometricFunc.cs" />
     <Compile Include="Mathematics\BoundaryTests.cs" />
-    <Compile Include="Mathematics\TrigFuncTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\AbstractVectorTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\AdditionTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\ComparisonTest.cs" />
-    <Compile Include="Maths\Algebra\Vector\ConversionTestses.cs" />
-    <Compile Include="Maths\Algebra\Vector\DivisionTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\MiscVectorTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\MultiplyTests.cs" />
-    <Compile Include="Maths\Algebra\Vector\SubtractionTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\AbstractVectorTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\AdditionTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\ComparisonTest.cs" />
+    <Compile Include="MathClause\Algebra\Vector\ConversionTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\DivisionTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\MiscVectorTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\MultiplyTests.cs" />
+    <Compile Include="MathClause\Algebra\Vector\SubtractionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Cryptography\TestByteBeeAlgorithm.cs" />
     <Compile Include="Security\Cryptography\TestMd5Hash.cs" />
@@ -88,6 +94,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,8 +103,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
   </Target>
 </Project>
