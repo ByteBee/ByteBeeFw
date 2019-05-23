@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class TimePeriod : TypedEnum<PersistenceMode, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class TimePeriod : BeeEnum<PersistenceMode, int>
     {
         public static TimePeriod CurrentDay { get; } = new TimePeriod(1, "Today");
         public static TimePeriod CurrentMonth { get; } = new TimePeriod(2, "This Month");

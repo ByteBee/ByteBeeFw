@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ByteBee.Enums.Impl
 {
-    public abstract class AngleUnit : TypedEnum<AngleUnit, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public abstract class AngleUnit : BeeEnum<AngleUnit, int>
     {
         public static AngleUnit Rad { get; } = new RadiantUnit(1, "radiant");
         public static AngleUnit Deg { get; } = new DegreeUnit(2, "degree");

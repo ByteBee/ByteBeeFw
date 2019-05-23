@@ -7,7 +7,7 @@ using ByteBee.GuardClause;
 
 namespace ByteBee.Enums
 {
-    public abstract class TypedEnum<TEnum, TValue> where TEnum : TypedEnum<TEnum, TValue>
+    public abstract class BeeEnum<TEnum, TValue> where TEnum : BeeEnum<TEnum, TValue>
     {
         private static readonly Lazy<TEnum[]> _allMembersLazy = new Lazy<TEnum[]>(() =>
         {
@@ -30,7 +30,7 @@ namespace ByteBee.Enums
         public string Name { get; set; }
         public TValue Value { get; set; }
 
-        protected TypedEnum(TValue value, string name)
+        protected BeeEnum(TValue value, string name)
         {
             Name = name;
             Value = value;
@@ -70,7 +70,7 @@ namespace ByteBee.Enums
 
         public override string ToString() => $"{Name} ({Value})";
 
-        public static implicit operator TValue(TypedEnum<TEnum, TValue> @enum) => @enum.Value;
-        public static explicit operator TypedEnum<TEnum, TValue>(TValue value) => ByValue(value);
+        public static implicit operator TValue(BeeEnum<TEnum, TValue> @enum) => @enum.Value;
+        public static explicit operator BeeEnum<TEnum, TValue>(TValue value) => ByValue(value);
     }
 }

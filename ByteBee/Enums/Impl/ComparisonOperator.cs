@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class ComparisonOperator : TypedEnum<ComparisonOperator, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class ComparisonOperator : BeeEnum<ComparisonOperator, int>
     {
         public static ComparisonOperator Equal { get; } = new ComparisonOperator(1, (nameof(Equal)));
 

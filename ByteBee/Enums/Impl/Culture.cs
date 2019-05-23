@@ -1,8 +1,12 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace ByteBee.Enums.Impl
 {
-    public class Culture : TypedEnum<Culture, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class Culture : BeeEnum<Culture, int>
     {
         private int _lcid;
         protected Culture(int value, string name) : base(value, name)

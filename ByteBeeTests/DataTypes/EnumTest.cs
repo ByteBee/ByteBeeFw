@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace ByteBeeTests.DataTypes
 {
-    class FooEnum : TypedEnum<FooEnum, int>
+    class FooEnum : BeeEnum<FooEnum, int>
     {
         protected FooEnum(int value, string name) : base(value, name)
         {

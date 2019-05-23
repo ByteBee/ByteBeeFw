@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class LogLevel : TypedEnum<LogLevel, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class LogLevel : BeeEnum<LogLevel, int>
     {
         public static LogLevel Verbose { get; } = new LogLevel(0, "verbose");
         public static LogLevel Debug { get; } = new LogLevel(1, "debug");

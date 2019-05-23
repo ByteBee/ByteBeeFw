@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class SortOrder : TypedEnum<SortOrder, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class SortOrder : BeeEnum<SortOrder, int>
     {
         public static SortOrder Ascending { get; } = new SortOrder(1, nameof(Ascending));
         public static SortOrder Descending { get; } = new SortOrder(2, nameof(Descending));

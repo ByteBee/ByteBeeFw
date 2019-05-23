@@ -1,6 +1,12 @@
-﻿namespace ByteBee.DotNetWrapper.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public sealed class EmptyPathWrapper : AbstractPathWrapper {
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public sealed class EmptyPathWrapper : AbstractPathWrapper
+    {
         /// <inheritdoc />
         public override string ChangeExtension(string path, string extension)
         {

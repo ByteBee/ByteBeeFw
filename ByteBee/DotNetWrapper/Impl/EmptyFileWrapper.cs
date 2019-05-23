@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 
 namespace ByteBee.DotNetWrapper.Impl
 {
-    public sealed class EmptyFileWrapper : AbstractFileWrapper {
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public sealed class EmptyFileWrapper : AbstractFileWrapper
+    {
         /// <inheritdoc />
         public override void AppendAllLines(string path, IEnumerable<string> contents)
         {

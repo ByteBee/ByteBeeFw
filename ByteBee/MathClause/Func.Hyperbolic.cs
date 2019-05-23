@@ -1,5 +1,8 @@
 ﻿// ReSharper disable IdentifierTypo
 // ReSharper disable CommentTypo
+
+using ByteBee.Enums.Impl;
+
 namespace ByteBee.MathClause
 {
     public static class FuncMathHyperbolic

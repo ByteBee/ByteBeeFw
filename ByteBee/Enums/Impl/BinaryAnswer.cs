@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class BinaryAnswer : TypedEnum<BinaryAnswer, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class BinaryAnswer : BeeEnum<BinaryAnswer, int>
     {
 
         public static BinaryAnswer Nope { get; } = new BinaryAnswer(-1, "no");

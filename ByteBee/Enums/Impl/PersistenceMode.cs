@@ -1,6 +1,11 @@
-﻿namespace ByteBee.Enums.Impl
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Enums.Impl
 {
-    public class PersistenceMode : TypedEnum<PersistenceMode, int>
+    [ExcludeFromCodeCoverage]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
+    public class PersistenceMode : BeeEnum<PersistenceMode, int>
     {
         public static PersistenceMode Live { get; } = new PersistenceMode(1, nameof(Live));
         public static PersistenceMode Archive { get; } = new PersistenceMode(2, nameof(Archive));
