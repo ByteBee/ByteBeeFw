@@ -1,7 +1,10 @@
-﻿namespace ByteBee.Arch.DesignPattern
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ByteBee.Arch.DesignPattern
 {
-    public interface IFactory<out TProduct>
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    public interface IFactory<out TProduct, in TParam>
     {
-        TProduct Create(string what);
+        TProduct Create(TParam what);
     }
 }
