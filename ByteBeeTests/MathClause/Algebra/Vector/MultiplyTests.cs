@@ -9,10 +9,10 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_vector_and_vector()
         {
-            var v1 = new Vector3R(22, 33, 44);
-            var v2 = new Vector3R(2, 3, 4);
+            var v1 = new Vector3(22, 33, 44);
+            var v2 = new Vector3(2, 3, 4);
 
-            Vector3R v3 = v1 * v2;
+            Vector3 v3 = v1 * v2;
 
             AssertVector(v3, 44, 99, 176);
         }
@@ -20,9 +20,9 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_vector_and_scalar()
         {
-            var v1 = new Vector3R(22, 32, 42);
+            var v1 = new Vector3(22, 32, 42);
 
-            Vector3R v2 = v1 * 2;
+            Vector3 v2 = v1 * 2;
 
             AssertVector(v2, 44, 64, 84);
         }
@@ -30,9 +30,9 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_scalar_and_vector()
         {
-            var v1 = new Vector3R(22, 32, 42);
+            var v1 = new Vector3(22, 32, 42);
 
-            Vector3R v2 = 2 * v1;
+            Vector3 v2 = 2 * v1;
 
             AssertVector(v2, 44, 64, 84);
         }
@@ -40,22 +40,20 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void fn_vector_and_scalar()
         {
-            var vector = new Vector3R(23, 43, 63);
+            var v1 = new Vector3(23, 43, 63);
+            var v2 = v1.Multiply(3);
 
-            vector.Multiply(3);
-
-            AssertVector(vector, 69, 129, 189);
+            AssertVector(v2, 69, 129, 189);
         }
 
         [Test]
         public void fn_vector_and_vector()
         {
-            var v1 = new Vector3R(22, 33, 44);
-            var v2 = new Vector3R(2, 3, 4);
+            var v1 = new Vector3(22, 33, 44);
+            var v2 = new Vector3(2, 3, 4);
+            var v3 = v1.Multiply(v2);
 
-            v1.Multiply(v2);
-
-            AssertVector(v1, 44, 99, 176);
+            AssertVector(v3, 44, 99, 176);
         }
     }
 }

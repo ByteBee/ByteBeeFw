@@ -38,7 +38,7 @@
 //                try
 //                {
 //                    var a = new VectorValidatorStub();
-//                    a.ValidateAndThrow(new Vector3R(-2, -4,0));
+//                    a.ValidateAndThrow(new Vector3(-2, -4,0));
 //                }
 //                catch (ObjectNotValidException ex)
 //                {
@@ -51,8 +51,8 @@
 //        [Test]
 //        public void TestNestedAudit()
 //        {
-//            var vect = new Vector3R(2, 4,1);
-//            AbstractValidator<Vector3R> a = Bee.Validator<Vector3R>();
+//            var vect = new Vector3(2, 4,1);
+//            AbstractValidator<Vector3> a = Bee.Validator<Vector3>();
 //            a.RuleFor(v => v.X).Must(i => i > 2).WithMessage("X muss größer als 2 sein");
 //            a.RuleFor(v => v.Y).Must(i => i == 4).WithMessage("Y is 4");
 
@@ -86,8 +86,8 @@
 //        [Test]
 //        public void FluentValidatorTest()
 //        {
-//            Vector3R vector = new Vector3R(0, 0,0);
-//            AbstractValidator<Vector3R> v = Bee.Validator<Vector3R>();
+//            Vector3 vector = new Vector3(0, 0,0);
+//            AbstractValidator<Vector3> v = Bee.Validator<Vector3>();
 
 //            v.RuleFor(x => x.Y).NotNull().Must(i => i > 0);
 //            v.RuleFor(x => x.X).Must(i => i > 0).WithMessage("X must be greather than zero");
@@ -98,7 +98,7 @@
 //            Assert.False(res.IsValid);
 //        }
 
-//        class VectorValidatorStub : AbstractValidator<Vector3R>
+//        class VectorValidatorStub : AbstractValidator<Vector3>
 //        {
 //            public VectorValidatorStub()
 //            {

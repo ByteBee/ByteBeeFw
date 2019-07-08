@@ -9,10 +9,10 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_vector_and_vector()
         {
-            var v1 = new Vector3R(22, 33, 44);
-            var v2 = new Vector3R(2, 3, 4);
+            var v1 = new Vector3(22, 33, 44);
+            var v2 = new Vector3(2, 3, 4);
 
-            Vector3R v3 = v1 / v2;
+            Vector3 v3 = v1 / v2;
 
             AssertVector(v3, 11, 11, 11);
         }
@@ -20,9 +20,9 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_vector_and_scalar()
         {
-            var v1 = new Vector3R(22, 32, 42);
+            var v1 = new Vector3(22, 32, 42);
 
-            Vector3R v2 = v1 / 2;
+            Vector3 v2 = v1 / 2;
 
             AssertVector(v2, 11, 16, 21);
         }
@@ -30,9 +30,9 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void op_scalar_and_vector()
         {
-            var v1 = new Vector3R(23, 32, 42);
+            var v1 = new Vector3(23, 32, 42);
 
-            Vector3R v2 = 2 / v1;
+            Vector3 v2 = 2 / v1;
             v2.Round(3);
 
             AssertVector(v2, 0.087, 0.062, 0.048);
@@ -41,22 +41,23 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void fn_vector_and_scalar()
         {
-            var vector = new Vector3R(24, 42, 63);
+            var v1 = new Vector3(24, 42, 63);
+            var v2 = v1.Divide(3);
 
-            vector.Divide(3);
-
-            AssertVector(vector, 8, 14, 21);
+            AssertVector(v1, 24, 42, 63);
+            AssertVector(v2, 8, 14, 21);
         }
 
         [Test]
         public void fn_vector_and_vector()
         {
-            var v1 = new Vector3R(22, 33, 44);
-            var v2 = new Vector3R(2, 3, 4);
+            var v1 = new Vector3(22, 33, 44);
+            var v2 = new Vector3(2, 3, 4);
+            var v3 =  v1.Divide(v2);
 
-            v1.Divide(v2);
-
-            AssertVector(v1, 11, 11, 11);
+            AssertVector(v1, 22, 33, 44);
+            AssertVector(v2, 2, 3, 4);
+            AssertVector(v3, 11, 11, 11);
         }
     }
 }

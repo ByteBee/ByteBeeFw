@@ -12,7 +12,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         public void can_take_an_array()
         {
             double[] arr = { 1, 3, 3, 7 };
-            var v = new Vector3R(arr);
+            var v = new Vector3(arr);
 
             Assert.AreEqual(arr[0], v.X);
         }
@@ -21,7 +21,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         public void can_take_a_tuple()
         {
             var t = new Tuple<double, double, double>(2, 4, 6);
-            var v = new Vector3R(t);
+            var v = new Vector3(t);
 
             Assert.AreEqual(t.Item1, v.X);
         }
@@ -29,8 +29,8 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void can_be_cloned()
         {
-            var o = new Vector3R(2, 4, 6);
-            var v = new Vector3R(o);
+            var o = new Vector3(2, 4, 6);
+            var v = new Vector3(o);
 
             Assert.AreEqual(o.X, v.X);
         }
@@ -38,7 +38,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void use_vector_as_array()
         {
-            var vector = new Vector3R(2, 4, 6);
+            var vector = new Vector3(2, 4, 6);
 
             Assert.AreEqual(2, vector[0]);
             Assert.AreEqual(4, vector[1]);
@@ -48,7 +48,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void get_invalid_vector_element_should_crash()
         {
-            var vect = new Vector3R(42);
+            var vect = new Vector3(42);
 
             Assert.Throws<InvalidVectorIndexException>(() =>
             {
@@ -60,7 +60,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void can_convert_to_tuple()
         {
-            Tuple<double, double, double> tuple = new Vector3R(2);
+            Tuple<double, double, double> tuple = new Vector3(2);
 
             Assert.AreEqual(2, tuple.Item1);
             Assert.AreEqual(2, tuple.Item2);
@@ -70,7 +70,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void can_convert_from_tuple()
         {
-            Vector3R vector = new Tuple<double, double, double>(2, 2, 2);
+            Vector3 vector = new Tuple<double, double, double>(2, 2, 2);
 
             Assert.AreEqual(2, vector.X);
             Assert.AreEqual(2, vector.Y);
@@ -80,7 +80,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void can_convert_to_array()
         {
-            double[] arr = new Vector3R(2);
+            double[] arr = new Vector3(2);
 
             Assert.AreEqual(2, arr[0]);
             Assert.AreEqual(2, arr[1]);
@@ -90,7 +90,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         [Test]
         public void can_convert_from_array()
         {
-            Vector3R vector = new double[] { 2, 2, 2 };
+            Vector3 vector = new double[] { 2, 2, 2 };
 
             Assert.AreEqual(2, vector.X);
             Assert.AreEqual(2, vector.Y);

@@ -5,7 +5,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
 {
     public abstract class AbstractVectorTests
     {
-        protected void AssertVector(Vector3R v, double x, double y, double z)
+        protected void AssertVector(Vector3 v, double x, double y, double z)
         {
             Assert.AreEqual(x, v.X, 1E-3, "v:X");
             Assert.AreEqual(y, v.Y, 1E-3, "v:Y");
