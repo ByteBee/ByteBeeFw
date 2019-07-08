@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace ByteBeeTests.MathClause.Algebra.Vector
 {
     [TestFixture]
-    public class MultiplyTests : AbstractVectorTests
+    public sealed class MultiplyTests : AbstractVectorTests
     {
         [Test]
         public void op_vector_and_vector()
@@ -41,7 +41,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         public void fn_vector_and_scalar()
         {
             var v1 = new Vector3(23, 43, 63);
-            var v2 = v1.Multiply(3);
+            Vector3 v2 = v1.Multiply(3);
 
             AssertVector(v2, 69, 129, 189);
         }
@@ -51,7 +51,7 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
         {
             var v1 = new Vector3(22, 33, 44);
             var v2 = new Vector3(2, 3, 4);
-            var v3 = v1.Multiply(v2);
+            Vector3 v3 = v1.Multiply(v2);
 
             AssertVector(v3, 44, 99, 176);
         }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography;
 using ByteBee.Enums.Impl;
-using ByteBee.Extensions;
 
 // ReSharper disable IdentifierTypo
 // ReSharper disable CommentTypo

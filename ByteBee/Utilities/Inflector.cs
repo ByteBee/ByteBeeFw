@@ -87,7 +87,7 @@ namespace ByteBee.Utilities
             AddUncountable("sheep");
         }
 
-        private class Rule
+        private sealed class Rule
         {
             private readonly Regex _regex;
             private readonly string _replacement;
@@ -116,13 +116,19 @@ namespace ByteBee.Utilities
         }
 
         private void AddUncountable(string word)
-            => _uncountables.Add(word.ToLower());
+        {
+            _uncountables.Add(word.ToLower());
+        }
 
         private void AddPlural(string rule, string replacement)
-            => _plurals.Add(new Rule(rule, replacement));
+        {
+            _plurals.Add(new Rule(rule, replacement));
+        }
 
         private void AddSingular(string rule, string replacement)
-            => _singulars.Add(new Rule(rule, replacement));
+        {
+            _singulars.Add(new Rule(rule, replacement));
+        }
 
         private string ApplyRules(IList<Rule> rules, string word)
         {
@@ -142,24 +148,37 @@ namespace ByteBee.Utilities
             return result;
         }
 
-        public string Pluralize(string word) => 
-            ApplyRules(_plurals, word);
+        public string Pluralize(string word)
+        {
+            return ApplyRules(_plurals, word);
+        }
 
-        public string Singularize(string word) => ApplyRules(_singulars, word);
+        public string Singularize(string word)
+        {
+            return ApplyRules(_singulars, word);
+        }
 
         public string Titleize(string word)
-            => Regex.Replace(Humanize(Underscore(word)), @"\b([a-z])",
-                             match => match.Captures[0].Value.ToUpper());
+        {
+            return Regex.Replace(Humanize(Underscore(word)), @"\b([a-z])",
+                match => match.Captures[0].Value.ToUpper());
+        }
 
         public string Humanize(string lowercaseAndUnderscoredWord)
-            => Capitalize(Regex.Replace(lowercaseAndUnderscoredWord, @"_", " "));
+        {
+            return Capitalize(Regex.Replace(lowercaseAndUnderscoredWord, @"_", " "));
+        }
 
         public string Pascalize(string lowercaseAndUnderscoredWord)
-            => Regex.Replace(lowercaseAndUnderscoredWord, "(?:^|_)(.)",
-                             match => match.Groups[1].Value.ToUpper());
+        {
+            return Regex.Replace(lowercaseAndUnderscoredWord, "(?:^|_)(.)",
+                match => match.Groups[1].Value.ToUpper());
+        }
 
         public string Camelize(string lowercaseAndUnderscoredWord)
-            => Uncapitalize(Pascalize(lowercaseAndUnderscoredWord));
+        {
+            return Uncapitalize(Pascalize(lowercaseAndUnderscoredWord));
+        }
 
         public string Underscore(string pascalCasedWord)
         {
@@ -170,10 +189,14 @@ namespace ByteBee.Utilities
         }
 
         public string Capitalize(string word)
-            => word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower();
+        {
+            return word.Substring(0, 1).ToUpper() + word.Substring(1).ToLower();
+        }
 
         public string Uncapitalize(string word)
-            => word.Substring(0, 1).ToLower() + word.Substring(1);
+        {
+            return word.Substring(0, 1).ToLower() + word.Substring(1);
+        }
 
         public string Ordinalize(string number)
         {
@@ -188,11 +211,15 @@ namespace ByteBee.Utilities
             return number;
         }
 
-        public string Dasherize(string underscoredWord) 
-            => underscoredWord.Replace('_', '-');
+        public string Dasherize(string underscoredWord)
+        {
+            return underscoredWord.Replace('_', '-');
+        }
 
-        public string Slugrize(string word) 
-            => Slugrize(word, "-");
+        public string Slugrize(string word)
+        {
+            return Slugrize(word, "-");
+        }
 
         public string Slugrize(string word, string separator)
         {

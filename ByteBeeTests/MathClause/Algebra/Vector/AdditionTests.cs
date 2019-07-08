@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace ByteBeeTests.MathClause.Algebra.Vector
 {
     [TestFixture]
-    public class AdditionTests : AbstractVectorTests
+    public sealed class AdditionTests : AbstractVectorTests
     {
         [Test]
         public void op_vector_and_vector()
@@ -32,13 +32,13 @@ namespace ByteBeeTests.MathClause.Algebra.Vector
 
             Vector3 v2 = 2 + v1;
             AssertVector(v2, 22, 32, 42);
-
         }
+
         [Test]
         public void fn_vector_and_scalar()
         {
             var v1 = new Vector3(20, 40, 60);
-            var v2 = v1.Add(3);
+            Vector3 v2 = v1.Add(3);
 
             AssertVector(v1, 20, 40, 60);
             AssertVector(v2, 23, 43, 63);

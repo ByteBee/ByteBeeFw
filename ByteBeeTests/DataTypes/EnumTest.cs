@@ -6,9 +6,9 @@ using NUnit.Framework;
 
 namespace ByteBeeTests.DataTypes
 {
-    class FooEnum : BeeEnum<FooEnum, int>
+    sealed class FooEnum : BeeEnum<FooEnum, int>
     {
-        protected FooEnum(int value, string name) : base(value, name)
+        private FooEnum(int value, string name) : base(value, name)
         {
         }
 
@@ -16,15 +16,11 @@ namespace ByteBeeTests.DataTypes
         public static FooEnum Two { get; } = new FooEnum(2, nameof(Two));
         public static FooEnum Three { get; } = new FooEnum(3, nameof(Three));
     }
-    class FooClass
-    {
-        public FooEnum Foo { get; set; }
-    }
 
-    enum BarEnum { One = 1, Two = 2, Three = 3 }
+    enum BarEnum { One = 1 }
 
     [TestFixture]
-    public class EnumTest
+    public sealed class EnumTest
     {
         [Test]
         public void ReturnsAllDefinedEnums()
@@ -50,7 +46,7 @@ namespace ByteBeeTests.DataTypes
         [Test]
         public void ReturnsEnumFromGivenValue()
         {
-            FooEnum result = (FooEnum)1;
+            var result = (FooEnum)1;
 
             Assert.That(FooEnum.One, Is.EqualTo(result));
         }
@@ -58,8 +54,8 @@ namespace ByteBeeTests.DataTypes
         [Test]
         public void ReturnsEnumGivenNoExplicitPriorUse()
         {
-            string expected = "One";
-            Assert.AreEqual(expected, FooEnum.ByName(expected).Name);
+            const string Expected = "One";
+            Assert.AreEqual(Expected, FooEnum.ByName(Expected).Name);
         }
 
         [Test]
@@ -96,13 +92,13 @@ namespace ByteBeeTests.DataTypes
         [Test]
         public void ThrowsWithExpectedMessageGivenNonMatchingString()
         {
-            string name = "Doesn't Exist";
-            string expected = $"No FooEnum with name \"{name}\" found.";
+            const string Name = "Doesn't Exist";
+            string expected = $"No FooEnum with name \"{Name}\" found.";
             string actual = "";
 
             try
             {
-                var fooEnum = FooEnum.ByName(name);
+                FooEnum.ByName(Name);
             }
             catch (EnumNotFoundException ex)
             {
@@ -127,19 +123,19 @@ namespace ByteBeeTests.DataTypes
         [Test]
         public void ThrowsWithExpectedMessageGivenNonMatchingValue()
         {
-            string expected = $"No FooEnum with value -1 found.";
+            const string Expected = "No FooEnum with value -1 found.";
             string actual = "";
 
             try
             {
-                var fooEnum = FooEnum.ByValue(-1);
+                FooEnum.ByValue(-1);
             }
             catch (EnumNotFoundException ex)
             {
                 actual = ex.Message;
             }
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(Expected, actual);
         }
 
         [Test]
@@ -169,7 +165,7 @@ namespace ByteBeeTests.DataTypes
         [Test]
         public void CompareEnumWithPimped()
         {
-            FooEnum one = (FooEnum)(int)BarEnum.One;
+            var one = (FooEnum)(int)BarEnum.One;
 
             Assert.AreEqual("One (1)", one.ToString());
         }

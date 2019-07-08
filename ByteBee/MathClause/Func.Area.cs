@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-// ReSharper disable IdentifierTypo
+﻿// ReSharper disable IdentifierTypo
 // ReSharper disable CommentTypo
 namespace ByteBee.MathClause
 {
