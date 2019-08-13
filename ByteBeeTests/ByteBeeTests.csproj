@@ -64,10 +64,8 @@
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />
-    <Compile Include="MathClause\Func\TestArcusFunc.cs" />
     <Compile Include="MathClause\Func\TestLogarithmFunc.cs" />
     <Compile Include="MathClause\Func\TestPowerFunc.cs" />
-    <Compile Include="MathClause\Func\TestTrigonometricFunc.cs" />
     <Compile Include="Mathematics\BoundaryTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\AbstractVectorTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\AdditionTests.cs" />
@@ -77,6 +75,10 @@
     <Compile Include="MathClause\Algebra\Vector\MiscVectorTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\MultiplyTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\SubtractionTests.cs" />
+    <Compile Include="Numerics\TrigTests\TestArcusFunc.cs" />
+    <Compile Include="Numerics\TrigTests\TestAreaFunc.cs" />
+    <Compile Include="Numerics\TrigTests\TestHyperbolicFunc.cs" />
+    <Compile Include="Numerics\TrigTests\TestTrigFunc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Cryptography\TestByteBeeAlgorithm.cs" />
     <Compile Include="Security\Cryptography\TestMd5Hash.cs" />

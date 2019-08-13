@@ -5,29 +5,84 @@ namespace ByteBee.Enums.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
-    [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
     public abstract class AngleUnit : BeeEnum<AngleUnit, int>
     {
-        public static AngleUnit Rad { get; } = new RadiantUnit(1, "radiant");
+        public static AngleUnit Rad { get; } = new RadianUnit(1, "radian");
         public static AngleUnit Deg { get; } = new DegreeUnit(2, "degree");
+        public static AngleUnit Grad { get; } = new GradUnit(3, "grad");
 
-        protected AngleUnit(int value, string name) : base(value, name) { }
+        private AngleUnit(int value, string name) : base(value, name)
+        {
+        }
 
         public abstract double ToRad();
         public abstract double ToDeg();
+        public abstract double ToGrad();
 
-        private class RadiantUnit : AngleUnit
+        private sealed class RadianUnit : AngleUnit
         {
-            public RadiantUnit(int value, string name) : base(value, name) { }
-            public override double ToRad() => 1;
-            public override double ToDeg() => 180 / Math.PI;
+            public RadianUnit(int value, string name) : base(value, name)
+            {
+            }
+
+            public override double ToRad()
+            {
+                return 1;
+            }
+
+            public override double ToDeg()
+            {
+                return 180 / Math.PI;
+            }
+
+            public override double ToGrad()
+            {
+                return 200 / Math.PI;
+            }
         }
 
-        private class DegreeUnit : AngleUnit
+        private sealed class DegreeUnit : AngleUnit
         {
-            public DegreeUnit(int value, string name) : base(value, name) { }
-            public override double ToRad() => Math.PI / 180;
-            public override double ToDeg() => 1;
+            public DegreeUnit(int value, string name) : base(value, name)
+            {
+            }
+
+            public override double ToRad()
+            {
+                return Math.PI / 180;
+            }
+
+            public override double ToDeg()
+            {
+                return 1;
+            }
+
+            public override double ToGrad()
+            {
+                return 10d / 9d;
+            }
+        }
+
+        private sealed class GradUnit : AngleUnit
+        {
+            public GradUnit(int value, string name) : base(value, name)
+            {
+            }
+
+            public override double ToRad()
+            {
+                return Math.PI / 200;
+            }
+
+            public override double ToDeg()
+            {
+                return 0.9;
+            }
+
+            public override double ToGrad()
+            {
+                return 1;
+            }
         }
     }
 }
