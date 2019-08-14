@@ -19,7 +19,7 @@ namespace ByteBee.Core.MessageBus.Impl
             HashSet<WeakReference> allSubscribers = GetSubscribers(type);
             HashSet<WeakReference> deadSubscribers = GetDeathSubscribers(allSubscribers);
 
-            HashSet<WeakReference> subscribers = CleanDeadSubsriber(deadSubscribers, allSubscribers);
+            CleanDeadSubsriber(deadSubscribers, allSubscribers);
 
             InvokeMessagesOnSubscribers(message, allSubscribers);
         }
@@ -39,7 +39,7 @@ namespace ByteBee.Core.MessageBus.Impl
             return removable;
         }
 
-        private HashSet<WeakReference> CleanDeadSubsriber(HashSet<WeakReference> deadSubscribers, HashSet<WeakReference> allSubscribers)
+        private void CleanDeadSubsriber(HashSet<WeakReference> deadSubscribers, HashSet<WeakReference> allSubscribers)
         {
             if (deadSubscribers.Any())
             {
@@ -48,8 +48,6 @@ namespace ByteBee.Core.MessageBus.Impl
                     allSubscribers.Remove(toRemove);
                 }
             }
-
-            return allSubscribers;
         }
 
         private void InvokeMessagesOnSubscribers<TMessage>(TMessage message, HashSet<WeakReference> subscribers)
@@ -83,9 +81,12 @@ namespace ByteBee.Core.MessageBus.Impl
             }
         }
 
-        private IEnumerable<Type> GetSubscriberTypes(object subscriber) => subscriber
-            .GetType().GetInterfaces()
-            .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IHandle<>));
+        private IEnumerable<Type> GetSubscriberTypes(object subscriber)
+        {
+            return subscriber
+                .GetType().GetInterfaces()
+                .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IHandle<>));
+        }
 
         private HashSet<WeakReference> GetSubscribers(Type type)
         {

@@ -1,5 +1,4 @@
 ﻿using System;
-using ByteBee;
 using ByteBee.Core;
 using ByteBee.Core.Enums;
 using ByteBee.Core.Numerics;

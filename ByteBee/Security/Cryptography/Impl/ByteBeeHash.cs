@@ -2,7 +2,7 @@
 
 namespace ByteBee.Core.Security.Cryptography.Impl
 {
-    public class ByteBeeHash : IHashAlgorithm
+    public sealed class ByteBeeHash : IHashAlgorithm
     {
         public byte[] Compute(byte[] plain)
         {
@@ -16,13 +16,13 @@ namespace ByteBee.Core.Security.Cryptography.Impl
             }
         }
 
-        internal byte[] ComputeHash(byte[] a, byte[] b, byte[] c)
+        private byte[] ComputeHash(byte[] a, byte[] b, byte[] c)
         {
             var m = new byte[32];
 
             for (int i = 0; i < 32; i++)
             {
-                int f = 0, g = 0;
+                int f = 0, g;
 
                 if (0 <= i && i <= 7)
                 {
@@ -44,6 +44,7 @@ namespace ByteBee.Core.Security.Cryptography.Impl
                     g = (7 * i) % 31;
                     f = c[g] ^ (b[g] | (~a[g]));
                 }
+
                 m[i] = (byte)f;
             }
 

@@ -4,9 +4,8 @@ using System.Linq;
 
 namespace ByteBee.Core.Logging.Impl.Formatter
 {
-    public class StandardLogFormatter : ILogFormatter
+    public sealed class StandardLogFormatter : ILogFormatter
     {
-        /// <inheritdoc />
         public string Format(LogMessage message)
         {
             string preamble = $"[{message.TimeOfDay} $ {message.LogLevel.Value}] ";
@@ -28,12 +27,11 @@ namespace ByteBee.Core.Logging.Impl.Formatter
 
             if (ex != null)
             {
-                var lines = new List<string>();
-                lines.Add($"{ex.GetType().FullName}: {ex.Message}\r");
+                var lines = new List<string> {$"{ex.GetType().FullName}: {ex.Message}\r"};
                 lines.AddRange(ex.StackTrace.Split('\n'));
 
                 text = FormatException(preamble, ex.InnerException);
-                text = lines.Aggregate(text, (c, line) => c += preamble + "~> " + line + "\n");
+                text = lines.Aggregate(text, (c, line) => c + preamble + "~> " + line + "\n");
             }
 
             return text;
