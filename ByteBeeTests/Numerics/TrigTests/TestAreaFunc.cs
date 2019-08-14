@@ -1,143 +1,241 @@
-﻿using ByteBee.Core;
+﻿using System;
+using ByteBee.Core;
 using ByteBee.Core.Enums;
 using ByteBee.Core.Numerics;
 using FluentAssertions;
+using NUnit.Framework;
 
 namespace ByteBeeTests.Numerics.TrigTests
 {
-    public class TestAreaFunc
+    public sealed class TestAreaFunc
     {
-        #region hyperbolic area sine
-
-        public void TestHyperbolicAreaSine(double theta, double expected)
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaSine(double rad, double deg, double gon, double expected)
         {
-            Trig.Asinh(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Asinh(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:asinh({rad})={expected}\r\n");
+
+            Trig.Asinh(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:asinh({rad})={expected}\r\n");
+
+            Trig.Asinh(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:asinh({deg})={expected}\r\n");
+
+            Trig.Asinh(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:asinh({gon})={expected}\r\n");
         }
 
-        public void TestHyperbolicAreaSineRad(double theta, double expected)
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaCosine(double rad, double deg, double gon, double expected)
         {
-            Trig.Asinh(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Acosh(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acosh({rad})={expected}\r\n");
+
+            Trig.Acosh(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acosh({rad})={expected}\r\n");
+
+            Trig.Acosh(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acosh({deg})={expected}\r\n");
+
+            Trig.Acosh(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acosh({gon})={expected}\r\n");
         }
 
-        public void TestHyperbolicAreaSineDeg(double theta, double expected)
+
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaTangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Asinh(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Atanh(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:atanh({rad})={expected}\r\n");
+
+            Trig.Atanh(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:atanh({rad})={expected}\r\n");
+
+            Trig.Atanh(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:atanh({deg})={expected}\r\n");
+
+            Trig.Atanh(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:atanh({gon})={expected}\r\n");
         }
 
-        #endregion
-
-        #region hyperbolic area cosine
-
-        public void TestHyperbolicAreaCosine(double theta, double expected)
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaSecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Acosh(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Asech(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:asech({rad})={expected}\r\n");
+
+            Trig.Asech(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:asech({rad})={expected}\r\n");
+
+            Trig.Asech(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:asech({deg})={expected}\r\n");
+
+            Trig.Asech(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:asech({gon})={expected}\r\n");
         }
 
-        public void TestHyperbolicAreaCosineRad(double theta, double expected)
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaCosecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Acosh(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Acsch(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acsch({rad})={expected}\r\n");
+
+            Trig.Acsch(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acsch({rad})={expected}\r\n");
+
+            Trig.Acsch(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acsch({deg})={expected}\r\n");
+
+            Trig.Acsch(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acsch({gon})={expected}\r\n");
         }
 
-        public void TestHyperbolicAreaCosineDeg(double theta, double expected)
+        [TestCase(0, 0, 0, 0)]
+        // vielfache von 30°
+        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
+        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
+        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
+        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
+        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
+        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
+        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
+        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        // vielfache von 45°
+        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(4 * Math.PI / 4, 180, 200, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
+        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+        public void TestHyperbolicAreaCotangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Acosh(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
+            Trig.Acoth(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acoth({rad})={expected}\r\n");
+
+            Trig.Acoth(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acoth({rad})={expected}\r\n");
+
+            Trig.Acoth(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acoth({deg})={expected}\r\n");
+
+            Trig.Acoth(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acoth({gon})={expected}\r\n");
         }
-
-        #endregion
-
-        #region hyperbolic area tangent
-
-        public void TestHyperbolicAreaTangent(double theta, double expected)
-        {
-            Trig.Atanh(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaTangentRad(double theta, double expected)
-        {
-            Trig.Atanh(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaTangentDeg(double theta, double expected)
-        {
-            Trig.Atanh(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        #endregion
-
-        #region hyperbolic area secant
-
-        public void TestHyperbolicAreaSecant(double theta, double expected)
-        {
-            Trig.Asech(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaSecantRad(double theta, double expected)
-        {
-            Trig.Asech(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaSecantDeg(double theta, double expected)
-        {
-            Trig.Asech(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        #endregion
-
-        #region hyperbolic area cosecant
-
-        public void TestHyperbolicAreaCosecant(double theta, double expected)
-        {
-            Trig.Acsch(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaCosecantRad(double theta, double expected)
-        {
-            Trig.Acsch(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaCosecantDeg(double theta, double expected)
-        {
-            Trig.Acsch(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        #endregion
-
-        #region hyperbolic area cotangent
-
-        public void TestHyperbolicAreaCotangent(double theta, double expected)
-        {
-            Trig.Acoth(theta)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaCotangentRad(double theta, double expected)
-        {
-            Trig.Acoth(theta, AngleUnit.Rad)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        public void TestHyperbolicAreaCotangentDeg(double theta, double expected)
-        {
-            Trig.Acoth(theta, AngleUnit.Deg)
-                .Should().BeApproximately(expected, Bee.Math.Epsilon);
-        }
-
-        #endregion
-
     }
 }
