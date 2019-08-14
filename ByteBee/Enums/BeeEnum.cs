@@ -12,23 +12,26 @@ namespace ByteBee.Core.Enums
         private static readonly Lazy<TEnum[]> _allMembersLazy = new Lazy<TEnum[]>(() =>
         {
             Type t = typeof(TEnum);
-            BindingFlags publicStatic = BindingFlags.Public | BindingFlags.Static;
+            const BindingFlags PublicStatic = BindingFlags.Public | BindingFlags.Static;
 
-            IEnumerable<TEnum> ofProp = t.GetProperties(publicStatic)
+            IEnumerable<TEnum> ofProp = t.GetProperties(PublicStatic)
                 .Where(p => t.IsAssignableFrom(p.PropertyType))
                 .Select(i => (TEnum)i.GetValue(null));
 
-            IEnumerable<TEnum> ofField = t.GetFields(publicStatic)
+            IEnumerable<TEnum> ofField = t.GetFields(PublicStatic)
                 .Where(f => t.IsAssignableFrom(f.FieldType))
                 .Select(i => (TEnum)i.GetValue(null));
 
             return ofProp.Union(ofField).OrderBy(e => e.Value).ToArray();
         });
 
-        public static TEnum[] GetAll() => _allMembersLazy.Value;
+        public static TEnum[] GetAll()
+        {
+            return _allMembersLazy.Value;
+        }
 
-        public string Name { get; set; }
-        public TValue Value { get; set; }
+        public string Name { get; }
+        public TValue Value { get; }
 
         protected BeeEnum(TValue value, string name)
         {
@@ -45,6 +48,7 @@ namespace ByteBee.Core.Enums
             {
                 throw new EnumNotFoundException($"No {typeof(TEnum).Name} with name \"{name}\" found.");
             }
+
             return result;
         }
 
@@ -60,17 +64,24 @@ namespace ByteBee.Core.Enums
 
         public static TEnum ByValue(TValue value, TEnum defaultValue)
         {
-            TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value));
-            if (result == null)
-            {
-                result = defaultValue;
-            }
+            TEnum result = GetAll().SingleOrDefault(item => EqualityComparer<TValue>.Default.Equals(item.Value, value)) ??
+                           defaultValue;
             return result;
         }
 
-        public override string ToString() => $"{Name} ({Value})";
+        public override string ToString()
+        {
+            return $"{Name} ({Value})";
+        }
 
-        public static implicit operator TValue(BeeEnum<TEnum, TValue> @enum) => @enum.Value;
-        public static explicit operator BeeEnum<TEnum, TValue>(TValue value) => ByValue(value);
+        public static implicit operator TValue(BeeEnum<TEnum, TValue> @enum)
+        {
+            return @enum.Value;
+        }
+
+        public static explicit operator BeeEnum<TEnum, TValue>(TValue value)
+        {
+            return ByValue(value);
+        }
     }
 }
