@@ -8,7 +8,7 @@ namespace ByteBee.Core.Enums
     {
         public static AngleUnit Rad { get; } = new RadianUnit(1, "radian");
         public static AngleUnit Deg { get; } = new DegreeUnit(2, "degree");
-        public static AngleUnit Grad { get; } = new GradUnit(3, "grad");
+        public static AngleUnit Gon { get; } = new GonUnit(3, "grad");
 
         private AngleUnit(int value, string name) : base(value, name)
         {
@@ -16,7 +16,7 @@ namespace ByteBee.Core.Enums
 
         public abstract double ToRad();
         public abstract double ToDeg();
-        public abstract double ToGrad();
+        public abstract double ToGon();
 
         private sealed class RadianUnit : AngleUnit
         {
@@ -34,7 +34,7 @@ namespace ByteBee.Core.Enums
                 return 180 / Math.PI;
             }
 
-            public override double ToGrad()
+            public override double ToGon()
             {
                 return 200 / Math.PI;
             }
@@ -56,15 +56,15 @@ namespace ByteBee.Core.Enums
                 return 1;
             }
 
-            public override double ToGrad()
+            public override double ToGon()
             {
                 return 10d / 9d;
             }
         }
 
-        private sealed class GradUnit : AngleUnit
+        private sealed class GonUnit : AngleUnit
         {
-            public GradUnit(int value, string name) : base(value, name)
+            public GonUnit(int value, string name) : base(value, name)
             {
             }
 
@@ -78,7 +78,7 @@ namespace ByteBee.Core.Enums
                 return 0.9;
             }
 
-            public override double ToGrad()
+            public override double ToGon()
             {
                 return 1;
             }
