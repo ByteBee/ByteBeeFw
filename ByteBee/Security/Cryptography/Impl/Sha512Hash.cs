@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace ByteBee.Security.Cryptography.Impl
+namespace ByteBee.Core.Security.Cryptography.Impl
 {
     public class Sha512Hash : IHashAlgorithm
     {

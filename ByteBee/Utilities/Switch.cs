@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.Utilities
+namespace ByteBee.Core.Utilities
 {
     public interface ISwitch<TObject>
     {

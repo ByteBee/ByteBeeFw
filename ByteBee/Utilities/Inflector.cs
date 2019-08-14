@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace ByteBee.Utilities
+namespace ByteBee.Core.Utilities
 {
     public interface IInflector
     {

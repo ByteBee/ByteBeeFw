@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.DotNetWrapper
+namespace ByteBee.Core.DotNetWrapper
 {
     public interface IGuidWrapper
     {

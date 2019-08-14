@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Specifications
+﻿namespace ByteBee.Core.Specifications
 {
     class AndSpecification<TObj> : Specification<TObj>
     {

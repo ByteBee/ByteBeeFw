@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace ByteBee.DotNetWrapper.Impl
+namespace ByteBee.Core.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]

@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Validating
+﻿namespace ByteBee.Core.Validating
 {
     public interface IValidator<in TObject>
     {

@@ -1,4 +1,4 @@
-﻿namespace ByteBee.MathClause
+﻿namespace ByteBee.Core.MathClause
 {
     public static class ArithmeticFunctions
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.DotNetWrapper
+namespace ByteBee.Core.DotNetWrapper
 {
     public interface IFileWrapper
     {

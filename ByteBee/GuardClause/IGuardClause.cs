@@ -1,4 +1,4 @@
-﻿namespace ByteBee.GuardClause
+﻿namespace ByteBee.Core.GuardClause
 {
     public interface IGuardClause
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ByteBee.DotNetWrapper.Impl
+namespace ByteBee.Core.DotNetWrapper.Impl
 {
     public abstract class AbstractDateTimeWrapper : IDateTimeWrapper
     {

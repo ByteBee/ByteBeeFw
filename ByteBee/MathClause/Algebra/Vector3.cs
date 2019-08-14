@@ -1,7 +1,7 @@
 ﻿using System;
-using ByteBee.Exceptions;
+using ByteBee.Core.Exceptions;
 
-namespace ByteBee.MathClause.Algebra
+namespace ByteBee.Core.MathClause.Algebra
 {
     public sealed class Vector3 : IEquatable<Vector3>
     {

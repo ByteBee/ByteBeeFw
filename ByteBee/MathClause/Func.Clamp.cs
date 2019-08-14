@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ByteBee.MathClause
+namespace ByteBee.Core.MathClause
 {
     public static class FuncMathClamp
     {

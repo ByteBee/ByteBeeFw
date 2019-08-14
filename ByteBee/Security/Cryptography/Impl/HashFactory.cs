@@ -1,9 +1,8 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using ByteBee.GuardClause;
-using ByteBee.Utilities;
+using ByteBee.Core.GuardClause;
+using ByteBee.Core.Utilities;
 
-namespace ByteBee.Security.Cryptography.Impl
+namespace ByteBee.Core.Security.Cryptography.Impl
 {
     public class HashFactory : IHashFactory
     {

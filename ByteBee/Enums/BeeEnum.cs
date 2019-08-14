@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ByteBee.Exceptions;
-using ByteBee.GuardClause;
+using ByteBee.Core.Exceptions;
+using ByteBee.Core.GuardClause;
 
-namespace ByteBee.Enums
+namespace ByteBee.Core.Enums
 {
     public abstract class BeeEnum<TEnum, TValue> where TEnum : BeeEnum<TEnum, TValue>
     {

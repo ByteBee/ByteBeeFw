@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ByteBee.DotNetWrapper.Impl
+namespace ByteBee.Core.DotNetWrapper.Impl
 {
     public abstract class AbstractPathWrapper : IPathWrapper
     {

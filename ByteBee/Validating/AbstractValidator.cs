@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace ByteBee.Validating
+namespace ByteBee.Core.Validating
 {
     public abstract class AbstractValidator<TObject> : IValidator<TObject>, IValidatorExceptional<TObject>
     {

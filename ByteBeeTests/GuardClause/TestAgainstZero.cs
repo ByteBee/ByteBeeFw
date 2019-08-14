@@ -1,6 +1,7 @@
 ﻿using System;
 using ByteBee;
-using ByteBee.GuardClause;
+using ByteBee.Core;
+using ByteBee.Core.GuardClause;
 using NUnit.Framework;
 
 namespace ByteBeeTests.GuardClause

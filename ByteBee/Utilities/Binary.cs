@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace ByteBee.Utilities
+namespace ByteBee.Core.Utilities
 {
     public sealed class Binary
     {

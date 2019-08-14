@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
-using ByteBee.Enums.Impl;
+using ByteBee.Core.Enums;
 
-namespace ByteBee.Logging.Impl.Filter
+namespace ByteBee.Core.Logging.Impl.Filter
 {
     public class StringMatchFilter : ILogFilter
     {

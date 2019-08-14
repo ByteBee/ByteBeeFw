@@ -7,7 +7,7 @@ using System.Text;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.DotNetWrapper.Impl
+namespace ByteBee.Core.DotNetWrapper.Impl
 {
     public abstract class AbstractFileWrapper : IFileWrapper
     {

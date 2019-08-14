@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.GuardClause
+namespace ByteBee.Core.GuardClause
 {
     public static class GuardAgainstNull
     {

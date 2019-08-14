@@ -1,6 +1,7 @@
 ﻿using System;
 using ByteBee;
-using ByteBee.MathClause;
+using ByteBee.Core;
+using ByteBee.Core.MathClause;
 using FluentAssertions;
 using NUnit.Framework;
 

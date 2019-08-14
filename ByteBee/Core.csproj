@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <RootNamespace>ByteBee</RootNamespace>
+        <RootNamespace>ByteBee.Core</RootNamespace>
         <Authors>Sergej Kukshaus</Authors>
         <Company />
         <Product />
@@ -13,7 +13,7 @@
         <RepositoryUrl>https://github.com/ByteBee/ByteBeeFw</RepositoryUrl>
         <Copyright>Copyright 2018 by Sergej Kukshaus</Copyright>
         <PackageReleaseNotes></PackageReleaseNotes>
-        <AssemblyName>ByteBee</AssemblyName>
+        <AssemblyName>ByteBee.Core</AssemblyName>
         <PackageId>ByteBee</PackageId>
         <PackageTags>kukshaus switch eventaggregator messagebus logger extensions enum</PackageTags>
         <AssemblyVersion>1.0.1.0</AssemblyVersion>

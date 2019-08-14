@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ByteBee.DotNetWrapper
+namespace ByteBee.Core.DotNetWrapper
 {
     public interface IDateTimeWrapper
     {

@@ -1,8 +1,8 @@
-﻿using ByteBee.Enums.Impl;
-using ByteBee.Logging;
-using ByteBee.Logging.Impl;
-using ByteBee.Logging.Impl.Filter;
-using ByteBee.Logging.Impl.Propagator;
+﻿using ByteBee.Core.Enums;
+using ByteBee.Core.Logging;
+using ByteBee.Core.Logging.Impl;
+using ByteBee.Core.Logging.Impl.Filter;
+using ByteBee.Core.Logging.Impl.Propagator;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Logger

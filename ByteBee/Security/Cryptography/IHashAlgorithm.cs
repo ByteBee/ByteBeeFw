@@ -1,6 +1,4 @@
-﻿using ByteBee.Utilities;
-
-namespace ByteBee.Security.Cryptography
+﻿namespace ByteBee.Core.Security.Cryptography
 {
     public interface IHashAlgorithm
     {

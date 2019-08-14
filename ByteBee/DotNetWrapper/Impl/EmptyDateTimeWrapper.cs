@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using ByteBee.Logging;
+using ByteBee.Core.Logging;
 
-namespace ByteBee.DotNetWrapper.Impl
+namespace ByteBee.Core.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]

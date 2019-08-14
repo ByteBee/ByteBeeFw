@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Extensions
+﻿namespace ByteBee.Core.Extensions
 {
     public static class BoolEx
     {

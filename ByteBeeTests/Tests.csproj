@@ -90,17 +90,17 @@
     <Compile Include="Utilities\ClockTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ByteBee\ByteBee.csproj">
-      <Project>{a09995fb-1538-4c28-b805-e2a58d9b7872}</Project>
-      <Name>KukSoft.ToolKit.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByteBee\Core.csproj">
+      <Project>{a09995fb-1538-4c28-b805-e2a58d9b7872}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

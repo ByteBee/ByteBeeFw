@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using ByteBee.Enums.Impl;
+using ByteBee.Core.Enums;
 
-namespace ByteBee.Logging.Impl
+namespace ByteBee.Core.Logging.Impl
 {
     public class StandardLogger : ILogger
     {

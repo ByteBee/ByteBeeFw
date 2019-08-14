@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using ByteBee.DotNetWrapper.Impl;
+using ByteBee.Core.DotNetWrapper.Impl;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Utilities

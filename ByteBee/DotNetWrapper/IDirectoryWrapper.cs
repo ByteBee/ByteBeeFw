@@ -6,7 +6,7 @@ using System.IO;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.DotNetWrapper
+namespace ByteBee.Core.DotNetWrapper
 {
     public interface IDirectoryWrapper
     {

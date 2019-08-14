@@ -1,6 +1,6 @@
-﻿using ByteBee.Extensions;
+﻿using ByteBee.Core.Extensions;
 
-namespace ByteBee.Specifications
+namespace ByteBee.Core.Specifications
 {
     public sealed class StringConstraint : Specification<string>
     {

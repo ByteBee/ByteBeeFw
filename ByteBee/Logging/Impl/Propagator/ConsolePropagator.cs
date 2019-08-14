@@ -1,7 +1,7 @@
 ﻿using System;
-using ByteBee.Logging.Impl.Formatter;
+using ByteBee.Core.Logging.Impl.Formatter;
 
-namespace ByteBee.Logging.Impl.Propagator
+namespace ByteBee.Core.Logging.Impl.Propagator
 {
     public class ConsolePropagator : StreamPropagator
     {

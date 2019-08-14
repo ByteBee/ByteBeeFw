@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.Validating
+namespace ByteBee.Core.Validating
 {
     public interface IValidatingContext<TObject>
     {

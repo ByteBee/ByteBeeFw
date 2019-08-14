@@ -1,4 +1,4 @@
-﻿namespace ByteBee.DotNetWrapper.Impl
+﻿namespace ByteBee.Core.DotNetWrapper.Impl
 {
     public sealed class DateTimeWrapperImpl : AbstractDateTimeWrapper { }
 }

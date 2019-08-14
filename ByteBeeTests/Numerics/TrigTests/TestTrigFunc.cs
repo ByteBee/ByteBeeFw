@@ -1,7 +1,8 @@
 ﻿using System;
 using ByteBee;
-using ByteBee.Enums.Impl;
-using ByteBee.Numerics;
+using ByteBee.Core;
+using ByteBee.Core.Enums;
+using ByteBee.Core.Numerics;
 using FluentAssertions;
 using NUnit.Framework;
 

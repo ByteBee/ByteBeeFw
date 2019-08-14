@@ -1,5 +1,5 @@
-﻿using ByteBee.Security.Cryptography;
-using ByteBee.Security.Cryptography.Impl;
+﻿using ByteBee.Core.Security.Cryptography;
+using ByteBee.Core.Security.Cryptography.Impl;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Security.Cryptography

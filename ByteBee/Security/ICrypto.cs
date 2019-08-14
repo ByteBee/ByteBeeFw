@@ -1,6 +1,4 @@
-﻿using ByteBee.Utilities;
-
-namespace ByteBee.Security
+﻿namespace ByteBee.Core.Security
 {
     public interface ICryptoAlgorithm
     {

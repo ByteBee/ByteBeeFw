@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.GuardClause
+namespace ByteBee.Core.GuardClause
 {
     public static class GuardAgainstOutOfRange
     {

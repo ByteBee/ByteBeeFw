@@ -1,6 +1,6 @@
-﻿using ByteBee.Utilities;
+﻿using ByteBee.Core.Utilities;
 
-namespace ByteBee.Security.Cryptography
+namespace ByteBee.Core.Security.Cryptography
 {
     public interface IHashFactory
     {

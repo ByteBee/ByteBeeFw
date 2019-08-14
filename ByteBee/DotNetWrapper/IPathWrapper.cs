@@ -1,4 +1,4 @@
-﻿namespace ByteBee.DotNetWrapper
+﻿namespace ByteBee.Core.DotNetWrapper
 {
     public interface IPathWrapper
     {

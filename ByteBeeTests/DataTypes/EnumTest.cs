@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using ByteBee.Enums;
-using ByteBee.Exceptions;
+using ByteBee.Core.Enums;
+using ByteBee.Core.Exceptions;
 using NUnit.Framework;
 
 namespace ByteBeeTests.DataTypes

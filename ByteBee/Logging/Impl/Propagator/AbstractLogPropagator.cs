@@ -1,6 +1,6 @@
-﻿using ByteBee.Enums.Impl;
+﻿using ByteBee.Core.Enums;
 
-namespace ByteBee.Logging.Impl.Propagator
+namespace ByteBee.Core.Logging.Impl.Propagator
 {
     public abstract class AbstractLogPropagator : ILogPropagator
     {

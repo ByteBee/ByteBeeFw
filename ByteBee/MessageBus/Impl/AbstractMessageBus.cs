@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ByteBee.MessageBus.Impl
+namespace ByteBee.Core.MessageBus.Impl
 {
     public abstract class AbstractMessageBus : IMessageBus
     {

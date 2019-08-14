@@ -1,4 +1,4 @@
-﻿namespace ByteBee.MessageBus
+﻿namespace ByteBee.Core.MessageBus
 {
     public interface IMessageBus
     {

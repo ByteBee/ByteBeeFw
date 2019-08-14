@@ -1,8 +1,6 @@
-﻿using System;
-using System.Security.Cryptography;
-using ByteBee.Utilities;
+﻿using System.Security.Cryptography;
 
-namespace ByteBee.Security.Cryptography.Impl
+namespace ByteBee.Core.Security.Cryptography.Impl
 {
     public class Sha256Hash : IHashAlgorithm
     {

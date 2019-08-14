@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Validating
+﻿namespace ByteBee.Core.Validating
 {
     internal class StandardValidator<TObject> : AbstractValidator<TObject> { }
 }

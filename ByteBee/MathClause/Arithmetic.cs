@@ -1,7 +1,6 @@
-using System;
-using ByteBee.GuardClause;
+using ByteBee.Core.GuardClause;
 
-namespace ByteBee.MathClause
+namespace ByteBee.Core.MathClause
 {
     public static class MathFunctions1
     {

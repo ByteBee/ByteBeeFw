@@ -1,4 +1,4 @@
-﻿using ByteBee.Specifications;
+﻿using ByteBee.Core.Specifications;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Specs

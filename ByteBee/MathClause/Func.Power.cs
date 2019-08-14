@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.MathClause
+namespace ByteBee.Core.MathClause
 {
     public static class FuncMathPower
     {

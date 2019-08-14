@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ByteBee.Validating
+namespace ByteBee.Core.Validating
 {
     internal class ValidationFailure : IValidationFailure
     {

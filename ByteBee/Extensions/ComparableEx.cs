@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.Extensions
+namespace ByteBee.Core.Extensions
 {
     public static class ComparableEx
     {

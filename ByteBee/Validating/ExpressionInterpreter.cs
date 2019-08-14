@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace ByteBee.Validating
+namespace ByteBee.Core.Validating
 {
     class ExpressionInterpreter<TObject, TProperty>
     {

@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Specifications
+﻿namespace ByteBee.Core.Specifications
 {
     public sealed class IntConstraint : Specification<int>
     {

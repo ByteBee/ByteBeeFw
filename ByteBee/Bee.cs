@@ -1,7 +1,7 @@
-﻿using ByteBee.GuardClause;
-using ByteBee.MathClause;
+﻿using ByteBee.Core.GuardClause;
+using ByteBee.Core.MathClause;
 
-namespace ByteBee
+namespace ByteBee.Core
 {
     public static class Bee
     {

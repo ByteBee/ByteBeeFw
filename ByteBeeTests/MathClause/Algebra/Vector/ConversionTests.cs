@@ -1,6 +1,6 @@
 ﻿using System;
-using ByteBee.Exceptions;
-using ByteBee.MathClause.Algebra;
+using ByteBee.Core.Exceptions;
+using ByteBee.Core.MathClause.Algebra;
 using NUnit.Framework;
 
 namespace ByteBeeTests.MathClause.Algebra.Vector

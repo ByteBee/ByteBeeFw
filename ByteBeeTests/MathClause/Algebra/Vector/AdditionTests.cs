@@ -1,4 +1,4 @@
-﻿using ByteBee.MathClause.Algebra;
+﻿using ByteBee.Core.MathClause.Algebra;
 using NUnit.Framework;
 
 namespace ByteBeeTests.MathClause.Algebra.Vector

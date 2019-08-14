@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ByteBee.Enums.Impl;
+using ByteBee.Core.Enums;
 
-namespace ByteBee.Numerics
+namespace ByteBee.Core.Numerics
 {
     public static class Trig
     {
