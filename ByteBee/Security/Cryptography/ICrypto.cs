@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.Security
+﻿namespace ByteBee.Security.Cryptography
 {
     public interface ICryptoAlgorithm
     {

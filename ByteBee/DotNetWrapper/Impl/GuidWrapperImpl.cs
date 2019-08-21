@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.DotNetWrapper.Impl
+﻿namespace ByteBee.DotNetWrapper.Impl
 {
-    public sealed class GuidWrapperImpl : AbstractGuidWrapper { }
+    internal sealed class GuidWrapperImpl : AbstractGuidWrapper { }
 }

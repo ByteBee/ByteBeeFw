@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ByteBee.Core.Logging.Impl.Formatter
+namespace ByteBee.Logging.Impl.Formatter
 {
     public sealed class StandardLogFormatter : ILogFormatter
     {

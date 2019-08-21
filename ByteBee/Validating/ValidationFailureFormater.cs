@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace ByteBee.Core.Validating
+namespace ByteBee.Validating
 {
     class ValidationFailureFormater
     {

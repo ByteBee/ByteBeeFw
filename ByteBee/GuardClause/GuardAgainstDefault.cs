@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.Core.GuardClause
+// ReSharper disable once CheckNamespace
+namespace ByteBee
 {
-    public static class GuardAgainstDefault
+    public static partial class Guard
     {
         private static bool ThisIsNotOk<T>(T input)
         {
@@ -20,7 +21,7 @@ namespace ByteBee.Core.GuardClause
             return false;
         }
 
-        public static void Default<T>(this IGuardClause clause, T input, string message)
+        public static void AgainstDefault<T>(T input, string message)
         {
             if (ThisIsNotOk(input))
             {

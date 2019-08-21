@@ -1,6 +1,6 @@
-﻿using ByteBee.Core.Enums;
+﻿using ByteBee.Enums;
 
-namespace ByteBee.Core.Logging
+namespace ByteBee.Logging
 {
     public interface ILogFilter
     {

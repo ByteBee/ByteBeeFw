@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace ByteBee.Core.MessageBus.Impl
+namespace ByteBee.MessageBus.Impl
 {
     public sealed class MessageBusAsync : AbstractMessageBus
     {

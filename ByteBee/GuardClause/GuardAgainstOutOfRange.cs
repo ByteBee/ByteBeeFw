@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.Core.GuardClause
+// ReSharper disable once CheckNamespace
+namespace ByteBee
 {
-    public static class GuardAgainstOutOfRange
+    public static partial class Guard
     {
         private static bool ThisIsNotOkay<T>(T input, T from, T until)
         {
@@ -24,7 +25,7 @@ namespace ByteBee.Core.GuardClause
             return false;
         }
 
-        public static void OutOfRange<T>(this IGuardClause clause, T input, T from, T until, string message)
+        public static void AgainstOutOfRange<T>(T input, T from, T until, string message)
         {
             if (ThisIsNotOkay(input, from, until))
             {

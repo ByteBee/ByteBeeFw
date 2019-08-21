@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public abstract class AbstractDateTimeWrapper : IDateTimeWrapper
+    internal abstract class AbstractDateTimeWrapper : IDateTimeWrapper
     {
         /// <inheritdoc />
         public virtual DateTime Now { get; } = DateTime.Now;

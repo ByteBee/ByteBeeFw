@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ByteBee.Core.Validating
+namespace ByteBee.Validating
 {
     [Serializable]
     public class ObjectNotValidException : Exception

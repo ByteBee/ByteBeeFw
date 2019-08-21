@@ -2,23 +2,23 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <RootNamespace>ByteBee.Core</RootNamespace>
+        <RootNamespace>ByteBee</RootNamespace>
         <Authors>Sergej Kukshaus</Authors>
         <Company />
-        <Product />
-        <Description>Combine some fancy tools in a single ToolKit</Description>
+        <Product>ByteBee</Product>
+        <Description></Description>
         <PackageLicenseUrl>https://github.com/ByteBee/ByteBeeFw/blob/master/LICENSE.md</PackageLicenseUrl>
-        <PackageProjectUrl>https://kukshaus.com/toolkit</PackageProjectUrl>
+        <PackageProjectUrl></PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/ByteBee/ByteBeeFw</RepositoryUrl>
-        <Copyright>Copyright 2018 by Sergej Kukshaus</Copyright>
+        <Copyright>Copyright 2019 by Sergej Kukshaus</Copyright>
         <PackageReleaseNotes></PackageReleaseNotes>
         <AssemblyName>ByteBee.Core</AssemblyName>
-        <PackageId>ByteBee</PackageId>
-        <PackageTags>kukshaus switch eventaggregator messagebus logger extensions enum</PackageTags>
-        <AssemblyVersion>1.0.1.0</AssemblyVersion>
-        <FileVersion>1.0.1.0</FileVersion>
-        <Version>1.0.1</Version>
+        <PackageId>ByteBee.Core</PackageId>
+        <PackageTags></PackageTags>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
+        <Version>1.1.0</Version>
         <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -27,6 +27,8 @@
       <WarningsAsErrors />
     </PropertyGroup>
     <ItemGroup>
-      <Folder Include="MathClause\Functions\" />
+      <Compile Remove="MathClause\Functions\**" />
+      <EmbeddedResource Remove="MathClause\Functions\**" />
+      <None Remove="MathClause\Functions\**" />
     </ItemGroup>
 </Project>

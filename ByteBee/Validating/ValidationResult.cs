@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ByteBee.Core.Validating
+namespace ByteBee.Validating
 {
     public sealed class ValidationResult
     {

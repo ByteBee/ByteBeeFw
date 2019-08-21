@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.DotNetWrapper.Impl
+﻿namespace ByteBee.DotNetWrapper.Impl
 {
-    public sealed class FileWrapperImpl : AbstractFileWrapper { }
+    internal sealed class FileWrapperImpl : AbstractFileWrapper { }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 
-namespace ByteBee.Core.GuardClause
+// ReSharper disable once CheckNamespace
+namespace ByteBee
 {
-    public static class GuardAgainstWrongType
+    public static partial class Guard
     {
-        public static void WrongType<T>(this IGuardClause clause, object input, string message)
+        public static void AgainstWrongType<T>(object input, string message)
         {
             if (!(input is T))
             {

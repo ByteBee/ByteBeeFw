@@ -1,41 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteBee.Core.GuardClause
+// ReSharper disable once CheckNamespace
+namespace ByteBee
 {
-    public static class GuardAgainstZero
+    public static partial class Guard
     {
-        public static void Zero(this IGuardClause clause, int input, string message)
+        public static void AgainstZero(int input, string message)
         {
-            Zero<int>(clause, input, message);
+            AgainstZero<int>(input, message);
         }
 
-        public static void Zero(this IGuardClause clause, short input, string message)
+        public static void AgainstZero(short input, string message)
         {
-            Zero<short>(clause, input, message);
+            AgainstZero<short>(input, message);
         }
 
-        public static void Zero(this IGuardClause clause, long input, string message)
+        public static void AgainstZero(long input, string message)
         {
-            Zero<long>(clause, input, message);
+            AgainstZero<long>(input, message);
         }
 
-        public static void Zero(this IGuardClause clause, decimal input, string message)
+        public static void AgainstZero(decimal input, string message)
         {
-            Zero<decimal>(clause, input, message);
+            AgainstZero<decimal>(input, message);
         }
 
-        public static void Zero(this IGuardClause clause, float input, string message)
+        public static void AgainstZero(float input, string message)
         {
-            Zero<float>(clause, input, message);
+            AgainstZero<float>(input, message);
         }
 
-        public static void Zero(this IGuardClause clause, double input, string message)
+        public static void AgainstZero(double input, string message)
         {
-            Zero<double>(clause, input, message);
+            AgainstZero<double>(input, message);
         }
 
-        public static void Zero<T>(this IGuardClause clause, T input, string message)
+        public static void AgainstZero<T>(T input, string message)
         {
             if (EqualityComparer<T>.Default.Equals(input, default(T)))
             {

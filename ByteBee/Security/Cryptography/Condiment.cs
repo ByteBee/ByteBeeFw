@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.Security
+﻿namespace ByteBee.Security.Cryptography
 {
     internal class Condiment
     {

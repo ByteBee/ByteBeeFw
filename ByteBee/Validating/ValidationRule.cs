@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.Core.Validating
+namespace ByteBee.Validating
 {
     internal class ValidationRule<TObject>
     {

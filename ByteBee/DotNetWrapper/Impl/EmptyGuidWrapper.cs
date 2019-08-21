@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
-    public sealed class EmptyGuidWrapper : AbstractGuidWrapper
+    internal sealed class EmptyGuidWrapper : AbstractGuidWrapper
     {
         /// <inheritdoc />
         public override Guid Empty => base.Empty;

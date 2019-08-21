@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using ByteBee.Core.Logging;
+using ByteBee.Logging;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
-    public sealed class EmptyDateTimeWrapper : AbstractDateTimeWrapper
+    internal sealed class EmptyDateTimeWrapper : AbstractDateTimeWrapper
     {
         private readonly ILogger _logger;
         private readonly DateTime _nullObject = new DateTime();

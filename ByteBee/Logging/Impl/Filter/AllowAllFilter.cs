@@ -1,6 +1,6 @@
-﻿using ByteBee.Core.Enums;
+﻿using ByteBee.Enums;
 
-namespace ByteBee.Core.Logging.Impl.Filter
+namespace ByteBee.Logging.Impl.Filter
 {
     public class AllowAllFilter : ILogFilter
     {

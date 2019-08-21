@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ByteBee.Core.Extensions
+namespace ByteBee.Extensions
 {
     public static class StreamEx
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using ByteBee.Core.Exceptions;
+using ByteBee.Exceptions;
 
-namespace ByteBee.Core.MathClause.Algebra
+namespace ByteBee.Numerics.LinearAlgebra
 {
     public sealed class Vector3 : IEquatable<Vector3>
     {
@@ -235,18 +235,18 @@ namespace ByteBee.Core.MathClause.Algebra
         public Vector3 Round(int precision)
         {
             return new Vector3(
-                Bee.Math.Round(X, precision),
-                Bee.Math.Round(Y, precision),
-                Bee.Math.Round(Z, precision)
+                Math.Round(X, precision),
+                Math.Round(Y, precision),
+                Math.Round(Z, precision)
             );
         }
 
         public Vector3 Abs()
         {
             return new Vector3(
-                Bee.Math.Abs(X),
-                Bee.Math.Abs(Y),
-                Bee.Math.Abs(Z)
+                Math.Abs(X),
+                Math.Abs(Y),
+                Math.Abs(Z)
             );
         }
 
@@ -288,7 +288,7 @@ namespace ByteBee.Core.MathClause.Algebra
 
         public double GetLength()
         {
-            return Bee.Math.Sqrt(X * X + Y * Y + Z * Z);
+            return Math.Sqrt(X * X + Y * Y + Z * Z);
         }
 
         public Vector3 Normalize()
@@ -304,19 +304,19 @@ namespace ByteBee.Core.MathClause.Algebra
 
         public bool IsEqual(Vector3 v)
         {
-            return IsEqual(v, Bee.Math.ZeroTolerance);
+            return IsEqual(v, MathConstant.ZeroTolerance);
         }
 
         public bool IsZero()
         {
-            return IsEqual(this, Bee.Math.ZeroTolerance);
+            return IsEqual(this, MathConstant.ZeroTolerance);
         }
 
         public bool IsEqual(Vector3 v, double t)
         {
-            bool xAreEqual = Bee.Math.Abs(X - v.X) <= t;
-            bool yAreEqual = Bee.Math.Abs(Y - v.Y) <= t;
-            bool zAreEqual = Bee.Math.Abs(Z - v.Z) <= t;
+            bool xAreEqual = Math.Abs(X - v.X) <= t;
+            bool yAreEqual = Math.Abs(Y - v.Y) <= t;
+            bool zAreEqual = Math.Abs(Z - v.Z) <= t;
 
             return xAreEqual && yAreEqual && zAreEqual;
         }

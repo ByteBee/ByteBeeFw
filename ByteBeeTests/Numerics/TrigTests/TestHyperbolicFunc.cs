@@ -1,7 +1,6 @@
 ﻿using System;
-using ByteBee.Core;
-using ByteBee.Core.Enums;
-using ByteBee.Core.Numerics;
+using ByteBee.Enums;
+using ByteBee.Numerics;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -32,19 +31,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Sinh(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:sinh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:sinh({rad})={expected}\r\n");
 
             Trig.Sinh(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:sinh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:sinh({rad})={expected}\r\n");
 
             Trig.Sinh(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:sinh({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:sinh({deg})={expected}\r\n");
 
             Trig.Sinh(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:sinh({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:sinh({gon})={expected}\r\n");
         }
 
         [TestCase(0, 0, 0, 0)]
@@ -70,19 +69,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Cosh(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:cosh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:cosh({rad})={expected}\r\n");
 
             Trig.Cosh(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:cosh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:cosh({rad})={expected}\r\n");
 
             Trig.Cosh(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:cosh({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:cosh({deg})={expected}\r\n");
 
             Trig.Cosh(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:cosh({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:cosh({gon})={expected}\r\n");
         }
 
         [TestCase(0, 0, 0, 0)]
@@ -108,19 +107,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Tanh(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:tanh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:tanh({rad})={expected}\r\n");
 
             Trig.Tanh(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:tanh({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:tanh({rad})={expected}\r\n");
 
             Trig.Tanh(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:tanh({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:tanh({deg})={expected}\r\n");
 
             Trig.Tanh(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:tanh({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:tanh({gon})={expected}\r\n");
         }
 
 
@@ -147,19 +146,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Sech(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:sech({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:sech({rad})={expected}\r\n");
 
             Trig.Sech(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:sech({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:sech({rad})={expected}\r\n");
 
             Trig.Sech(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:sech({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:sech({deg})={expected}\r\n");
 
             Trig.Sech(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:sech({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:sech({gon})={expected}\r\n");
         }
 
         [TestCase(0, 0, 0, 0)]
@@ -185,19 +184,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Csch(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:csch({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:csch({rad})={expected}\r\n");
 
             Trig.Csch(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:csch({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:csch({rad})={expected}\r\n");
 
             Trig.Csch(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:csch({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:csch({deg})={expected}\r\n");
 
             Trig.Csch(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:csch({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:csch({gon})={expected}\r\n");
         }
 
         [TestCase(0, 0, 0, 0)]
@@ -223,19 +222,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Coth(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:coth({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:coth({rad})={expected}\r\n");
 
             Trig.Coth(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:coth({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:coth({rad})={expected}\r\n");
 
             Trig.Coth(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:coth({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:coth({deg})={expected}\r\n");
 
             Trig.Coth(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:coth({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:coth({gon})={expected}\r\n");
         }
     }
 }

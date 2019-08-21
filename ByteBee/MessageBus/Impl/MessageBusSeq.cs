@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.MessageBus.Impl
+﻿namespace ByteBee.MessageBus.Impl
 {
     public sealed class MessageBusSeq : AbstractMessageBus
     {

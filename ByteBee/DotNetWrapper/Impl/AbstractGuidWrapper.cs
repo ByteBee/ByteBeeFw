@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public abstract class AbstractGuidWrapper : IGuidWrapper
+    internal abstract class AbstractGuidWrapper : IGuidWrapper
     {
         /// <inheritdoc />
         public virtual Guid Empty => Guid.Empty;

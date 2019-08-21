@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ByteBee.Core.Extensions
+namespace ByteBee.Extensions
 {
     public static class EnumerableEx
     {

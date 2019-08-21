@@ -1,8 +1,7 @@
 ﻿using System;
 using ByteBee;
-using ByteBee.Core;
-using ByteBee.Core.Enums;
-using ByteBee.Core.Numerics;
+using ByteBee.Enums;
+using ByteBee.Numerics;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -34,19 +33,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Asin(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:asin({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:asin({rad})={expected}\r\n");
 
             Trig.Asin(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:asin({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:asin({rad})={expected}\r\n");
 
             Trig.Asin(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:asin({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:asin({deg})={expected}\r\n");
 
             Trig.Asin(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:asin({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:asin({gon})={expected}\r\n");
         }
 
 
@@ -125,19 +124,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Acos(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acos({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acos({rad})={expected}\r\n");
 
             Trig.Acos(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acos({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acos({rad})={expected}\r\n");
 
             Trig.Acos(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acos({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acos({deg})={expected}\r\n");
 
             Trig.Acos(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acos({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acos({gon})={expected}\r\n");
         }
 
 
@@ -215,19 +214,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Atan(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:atan({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:atan({rad})={expected}\r\n");
 
             Trig.Atan(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:atan({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:atan({rad})={expected}\r\n");
 
             Trig.Atan(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:atan({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:atan({deg})={expected}\r\n");
 
             Trig.Atan(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:atan({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:atan({gon})={expected}\r\n");
         }
 
 
@@ -298,19 +297,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Acsc(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acsc({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acsc({rad})={expected}\r\n");
 
             Trig.Acsc(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acsc({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acsc({rad})={expected}\r\n");
 
             Trig.Acsc(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acsc({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acsc({deg})={expected}\r\n");
 
             Trig.Acsc(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acsc({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acsc({gon})={expected}\r\n");
         }
 
 
@@ -381,19 +380,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Asec(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:asec({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:asec({rad})={expected}\r\n");
 
             Trig.Asec(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:asec({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:asec({rad})={expected}\r\n");
 
             Trig.Asec(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:asec({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:asec({deg})={expected}\r\n");
 
             Trig.Asec(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:asec({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:asec({gon})={expected}\r\n");
         }
 
         //#region arcus secant
@@ -456,19 +455,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         {
             Trig.Acot(rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:acot({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acot({rad})={expected}\r\n");
 
             Trig.Acot(rad, AngleUnit.Rad)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:acot({rad})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acot({rad})={expected}\r\n");
 
             Trig.Acot(deg, AngleUnit.Deg)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:acot({deg})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acot({deg})={expected}\r\n");
 
             Trig.Acot(gon, AngleUnit.Gon)
                 .Should()
-                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:acot({gon})={expected}\r\n");
+                .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acot({gon})={expected}\r\n");
         }
 
         //#region arcus cotangent

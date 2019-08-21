@@ -6,9 +6,9 @@ using System.IO;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.Core.DotNetWrapper
+namespace ByteBee.DotNetWrapper
 {
-    public interface IDirectoryWrapper
+    internal interface IDirectoryWrapper
     {
         DirectoryInfo GetParent(string path);
         DirectoryInfo Create(string path);

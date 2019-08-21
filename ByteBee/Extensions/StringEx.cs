@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.Core.Extensions
+namespace ByteBee.Extensions
 {
     public static class StringEx
     {

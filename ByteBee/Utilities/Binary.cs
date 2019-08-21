@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace ByteBee.Core.Utilities
+namespace ByteBee.Utilities
 {
     public sealed class Binary
     {
@@ -39,7 +39,5 @@ namespace ByteBee.Core.Utilities
         public static implicit operator string(Binary data) => data.ToString();
         public static implicit operator byte[](Binary data) => data.ToBytes();
         public static implicit operator Stream(Binary data) => data.ToStream();
-
-
     }
 }

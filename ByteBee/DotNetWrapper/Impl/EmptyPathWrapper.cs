@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
-    public sealed class EmptyPathWrapper : AbstractPathWrapper
+    internal sealed class EmptyPathWrapper : AbstractPathWrapper
     {
         /// <inheritdoc />
         public override string ChangeExtension(string path, string extension)

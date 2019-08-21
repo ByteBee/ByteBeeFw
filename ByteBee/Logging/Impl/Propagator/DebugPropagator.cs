@@ -1,6 +1,6 @@
-﻿using ByteBee.Core.Logging.Impl.Formatter;
+﻿using ByteBee.Logging.Impl.Formatter;
 
-namespace ByteBee.Core.Logging.Impl.Propagator
+namespace ByteBee.Logging.Impl.Propagator
 {
     public class DebugPropagator : AbstractLogPropagator
     {

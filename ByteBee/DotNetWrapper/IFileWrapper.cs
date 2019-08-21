@@ -7,9 +7,9 @@ using System.Text;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.Core.DotNetWrapper
+namespace ByteBee.DotNetWrapper
 {
-    public interface IFileWrapper
+    internal interface IFileWrapper
     {
         void AppendAllLines(string path, IEnumerable<string> contents);
         void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding);

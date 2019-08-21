@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
-    public sealed class EmptyDirectoryWrapper : AbstractDirectoryWrapper
+    internal sealed class EmptyDirectoryWrapper : AbstractDirectoryWrapper
     {
         /// <inheritdoc />
         public override DirectoryInfo GetParent(string path)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ByteBee.Core.Exceptions
+namespace ByteBee.Exceptions
 {
     [Serializable]
     public class InvalidVectorIndexException : Exception

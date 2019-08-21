@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.Specifications
+﻿namespace ByteBee.Specifications
 {
     class NotSpecification<TObj> : Specification<TObj>
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ByteBee.Core.DotNetWrapper
+namespace ByteBee.DotNetWrapper
 {
-    public interface IDateTimeWrapper
+    internal interface IDateTimeWrapper
     {
         DateTime Now { get; }
         DateTime NowUtc { get; }

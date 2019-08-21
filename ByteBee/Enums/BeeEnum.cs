@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ByteBee.Core.Exceptions;
-using ByteBee.Core.GuardClause;
+using ByteBee.Exceptions;
 
-namespace ByteBee.Core.Enums
+namespace ByteBee.Enums
 {
     public abstract class BeeEnum<TEnum, TValue> where TEnum : BeeEnum<TEnum, TValue>
     {
@@ -41,7 +40,7 @@ namespace ByteBee.Core.Enums
 
         public static TEnum ByName(string name)
         {
-            Bee.Guard.NullOrEmpty(name, nameof(name));
+            Guard.AgainstNullOrEmpty(name, nameof(name));
 
             TEnum result = GetAll().SingleOrDefault(item => string.Equals(item.Name, name, StringComparison.OrdinalIgnoreCase));
             if (result == null)

@@ -1,6 +1,6 @@
-﻿namespace ByteBee.Core.DotNetWrapper
+﻿namespace ByteBee.DotNetWrapper
 {
-    public interface IPathWrapper
+    internal interface IPathWrapper
     {
         string ChangeExtension(string path, string extension);
         string Combine(string path1, string path2);

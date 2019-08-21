@@ -1,7 +1,7 @@
 ﻿using System;
-using ByteBee.Core.Exceptions;
+using ByteBee.Exceptions;
 
-namespace ByteBee.Core.MathClause.Algebra
+namespace ByteBee.Numerics.LinearAlgebra
 {
     public sealed class Vector2 : IEquatable<Vector2>
     {
@@ -227,16 +227,16 @@ namespace ByteBee.Core.MathClause.Algebra
         public Vector2 Round(int precision)
         {
             return new Vector2(
-                Bee.Math.Round(X, precision),
-                Bee.Math.Round(Y, precision)
+                Math.Round(X, precision),
+                Math.Round(Y, precision)
             );
         }
 
         public Vector2 Abs()
         {
             return new Vector2(
-                Bee.Math.Abs(X),
-                Bee.Math.Abs(Y)
+                Math.Abs(X),
+                Math.Abs(Y)
             );
         }
 
@@ -278,7 +278,7 @@ namespace ByteBee.Core.MathClause.Algebra
 
         public double GetLength()
         {
-            return Bee.Math.Sqrt(X * X + Y * Y);
+            return Math.Sqrt(X * X + Y * Y);
         }
 
         public Vector2 Normalize()
@@ -294,18 +294,18 @@ namespace ByteBee.Core.MathClause.Algebra
 
         public bool IsEqual(Vector2 v)
         {
-            return IsEqual(v, Bee.Math.ZeroTolerance);
+            return IsEqual(v, MathConstant.ZeroTolerance);
         }
 
         public bool IsZero()
         {
-            return IsEqual(this, Bee.Math.ZeroTolerance);
+            return IsEqual(this, MathConstant.ZeroTolerance);
         }
 
         public bool IsEqual(Vector2 v, double t)
         {
-            bool xAreEqual = Bee.Math.Abs(X - v.X) <= t;
-            bool yAreEqual = Bee.Math.Abs(Y - v.Y) <= t;
+            bool xAreEqual = Math.Abs(X - v.X) <= t;
+            bool yAreEqual = Math.Abs(Y - v.Y) <= t;
 
             return xAreEqual && yAreEqual;
         }

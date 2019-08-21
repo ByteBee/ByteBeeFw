@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.Logging
+﻿namespace ByteBee.Logging
 {
     public interface ILogPropagator
     {

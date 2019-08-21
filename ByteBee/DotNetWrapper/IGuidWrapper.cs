@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Core.DotNetWrapper
+namespace ByteBee.DotNetWrapper
 {
-    public interface IGuidWrapper
+    internal interface IGuidWrapper
     {
         Guid Empty { get; }
         Guid NewGuid { get; }

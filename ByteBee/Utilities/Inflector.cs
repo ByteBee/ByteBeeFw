@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace ByteBee.Core.Utilities
+namespace ByteBee.Utilities
 {
     public interface IInflector
     {
@@ -202,11 +202,28 @@ namespace ByteBee.Core.Utilities
         {
             int.TryParse(number, out int n);
 
-            new Switch<int>(n % 10)
-                .When(i => i % 10 >= 11 && i % 10 <= 13, _ => number += "th")
-                .When(1, _ => number += "st")
-                .When(2, _ => number += "nd")
-                .When(3, _ => number += "rd");
+            int remainder = n % 10;
+
+            if (remainder % 10 >= 11 && remainder % 10 <= 13)
+                number += "th";
+            else if (remainder == 1)
+            {
+                number += "st";
+            }
+            else if (remainder == 2)
+            {
+                number += "nd";
+            }
+            else if (remainder == 3)
+            {
+                number += "rd";
+            }
+
+            //new Switch<int>()
+            //    .When(i => i % 10 >= 11 && i % 10 <= 13, _ => number += "th")
+            //    .When(1, _ => number += "st")
+            //    .When(2, _ => number += "nd")
+            //    .When(3, _ => number += "rd");
 
             return number;
         }

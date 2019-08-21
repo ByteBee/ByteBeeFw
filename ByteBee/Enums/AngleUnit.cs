@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace ByteBee.Core.Enums
+namespace ByteBee.Enums
 {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public abstract class AngleUnit : BeeEnum<AngleUnit, int>

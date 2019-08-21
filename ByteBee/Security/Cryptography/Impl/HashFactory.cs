@@ -1,8 +1,7 @@
 ﻿using System;
-using ByteBee.Core.GuardClause;
-using ByteBee.Core.Utilities;
+using ByteBee.Utilities;
 
-namespace ByteBee.Core.Security.Cryptography.Impl
+namespace ByteBee.Security.Cryptography.Impl
 {
     public class HashFactory : IHashFactory
     {
@@ -23,7 +22,7 @@ namespace ByteBee.Core.Security.Cryptography.Impl
 
         public Binary ComputeWithSalt(Binary plain, string salt)
         {
-            Bee.Guard.NullOrEmpty(salt, "salt");
+            Guard.AgainstNullOrEmpty(salt, "salt");
             return Compute(plain + salt);
         }
         public Binary ComputeWithSaltAndPepper(Binary plain)
@@ -34,8 +33,8 @@ namespace ByteBee.Core.Security.Cryptography.Impl
 
         public Binary ComputeWithSaltAndPepper(Binary plain, string salt, string pepper)
         {
-            Bee.Guard.NullOrEmpty(salt, "salt");
-            Bee.Guard.NullOrEmpty(pepper, "pepper");
+            Guard.AgainstNullOrEmpty(salt, "salt");
+            Guard.AgainstNullOrEmpty(pepper, "pepper");
 
             return Compute(plain + salt + pepper);
         }

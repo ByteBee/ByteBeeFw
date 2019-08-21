@@ -4,12 +4,12 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
     [ExcludeFromCodeCoverage]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "RedundantOverriddenMember")]
-    public sealed class EmptyFileWrapper : AbstractFileWrapper
+    internal sealed class EmptyFileWrapper : AbstractFileWrapper
     {
         /// <inheritdoc />
         public override void AppendAllLines(string path, IEnumerable<string> contents)

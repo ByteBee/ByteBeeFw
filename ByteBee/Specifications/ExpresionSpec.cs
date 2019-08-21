@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteBee.Core.Specifications
+namespace ByteBee.Specifications
 {
     public sealed class ExpresionSpec<TObj> : Specification<TObj>
     {

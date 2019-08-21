@@ -6,9 +6,9 @@ using System.IO;
 using System.Security.AccessControl;
 #endif
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public abstract class AbstractDirectoryWrapper : IDirectoryWrapper
+    internal abstract class AbstractDirectoryWrapper : IDirectoryWrapper
     {
         /// <inheritdoc />
         public virtual DirectoryInfo GetParent(string path) => Directory.GetParent(path);

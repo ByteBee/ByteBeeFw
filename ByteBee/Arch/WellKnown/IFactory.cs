@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace ByteBee.Core.Arch.DesignPattern
+namespace ByteBee.Arch.WellKnown
 {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public interface IFactory<out TProduct, in TParam>

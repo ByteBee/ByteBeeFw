@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.Specifications
+﻿namespace ByteBee.Specifications
 {
     public abstract class Specification<TObj>
     {

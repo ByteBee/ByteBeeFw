@@ -1,6 +1,6 @@
 using System;
 
-namespace ByteBee.Core.Specifications
+namespace ByteBee.Specifications
 {
     public sealed class DoubleConstraint : Specification<double>
     {

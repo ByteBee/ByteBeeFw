@@ -1,4 +1,4 @@
-﻿namespace ByteBee.Core.DotNetWrapper.Impl
+﻿namespace ByteBee.DotNetWrapper.Impl
 {
-    public sealed class DirectoryWrapperImpl : AbstractDirectoryWrapper { }
+    internal sealed class DirectoryWrapperImpl : AbstractDirectoryWrapper { }
 }

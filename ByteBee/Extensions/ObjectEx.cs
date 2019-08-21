@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace ByteBee.Core.Extensions
+namespace ByteBee.Extensions
 {
     public static class ObjectEx
     {

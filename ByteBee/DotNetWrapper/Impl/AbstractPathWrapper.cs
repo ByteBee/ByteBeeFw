@@ -1,8 +1,8 @@
 ﻿using System.IO;
 
-namespace ByteBee.Core.DotNetWrapper.Impl
+namespace ByteBee.DotNetWrapper.Impl
 {
-    public abstract class AbstractPathWrapper : IPathWrapper
+    internal abstract class AbstractPathWrapper : IPathWrapper
     {
         /// <inheritdoc />
         public virtual string ChangeExtension(string path, string extension) => Path.ChangeExtension(path, extension);
