@@ -8,6 +8,7 @@ namespace ByteBeeTests.Numerics.TrigTests
 {
     public sealed class TestAreaFunc
     {
+        /*
         [TestCase(0, 0, 0, 0)]
         // vielfache von 30°
         [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
@@ -236,5 +237,6 @@ namespace ByteBeeTests.Numerics.TrigTests
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acoth({gon})={expected}\r\n");
         }
+        /**/
     }
 }

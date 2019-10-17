@@ -9,45 +9,45 @@ namespace ByteBeeTests.Numerics.TrigTests
 {
     public sealed class TestArcusFunc
     {
-
+        /*
         [TestCase(0, 0, 0, 0)]
         // vielfache von 30°
-        [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
-        [TestCase(2 * Math.PI / 6, 60, 66.66666667, 0)]
-        [TestCase(4 * Math.PI / 6, 120, 133.33333333, 0)]
-        [TestCase(5 * Math.PI / 6, 150, 166.666666667, 0)]
-        [TestCase(7 * Math.PI / 6, 210, 233.33333333, 0)]
-        [TestCase(8 * Math.PI / 6, 240, 266.66666667, 0)]
-        [TestCase(10 * Math.PI / 6, 300, 333.33333333, 0)]
-        [TestCase(11 * Math.PI / 6, 330, 366.66666667, 0)]
+        [TestCase(1 * Math.PI / 6, 30, 33.3333333, 0.5)]
+        [TestCase(2 * Math.PI / 6, 60, 66.6666667, 0.8660254037844)]
+        [TestCase(4 * Math.PI / 6, 120, 133.3333333, 0.8660254037844)]
+        [TestCase(5 * Math.PI / 6, 150, 166.6666667, 0.5)]
+        [TestCase(7 * Math.PI / 6, 210, 233.3333333, -0.5)]
+        [TestCase(8 * Math.PI / 6, 240, 266.6666667, -0.8660254037844)]
+        [TestCase(10 * Math.PI / 6, 300, 333.3333333, -0.8660254037844)]
+        [TestCase(11 * Math.PI / 6, 330, 366.6666667, -0.5)]
         // vielfache von 45°
-        [TestCase(1 * Math.PI / 4, 45, 50, 0)]
-        [TestCase(2 * Math.PI / 4, 90, 100, 0)]
-        [TestCase(3 * Math.PI / 4, 135, 150, 0)]
+        [TestCase(1 * Math.PI / 4, 45, 50, 0.7071067811865)]
+        [TestCase(2 * Math.PI / 4, 90, 100, 1)]
+        [TestCase(3 * Math.PI / 4, 135, 150, 0.7071067811865)]
         [TestCase(4 * Math.PI / 4, 180, 200, 0)]
-        [TestCase(5 * Math.PI / 4, 225, 250, 0)]
-        [TestCase(6 * Math.PI / 4, 270, 300, 0)]
-        [TestCase(7 * Math.PI / 4, 315, 350, 0)]
+        [TestCase(5 * Math.PI / 4, 225, 250, -0.7071067811865)]
+        [TestCase(6 * Math.PI / 4, 270, 300, -1)]
+        [TestCase(7 * Math.PI / 4, 315, 350, -0.7071067811865)]
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusSine(double rad, double deg, double gon, double expected)
         {
-            Trig.Asin(rad)
+            Trig.Asin(expected)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:asin({rad})={expected}\r\n");
 
-            Trig.Asin(rad, AngleUnit.Rad)
+            Trig.Asin(expected, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:asin({rad})={expected}\r\n");
 
-            Trig.Asin(deg, AngleUnit.Deg)
+            Trig.Asin(expected, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:asin({deg})={expected}\r\n");
 
-            Trig.Asin(gon, AngleUnit.Gon)
+            Trig.Asin(expected, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:asin({gon})={expected}\r\n");
         }
-
+        
 
 
 
@@ -503,6 +503,6 @@ namespace ByteBeeTests.Numerics.TrigTests
         //}
 
         //#endregion
-
+        /**/
     }
 }

@@ -122,6 +122,27 @@ namespace ByteBeeTests.Numerics.TrigTests
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:tan({gon})={expected}\r\n");
         }
 
+        [TestCase(2 * Math.PI / 4, 90, 100, 0)] // ?
+        [TestCase(6 * Math.PI / 4, 270, 300, 0)] // ?
+        public void TestTangentInfinity(double rad, double deg, double gon, double expected)
+        {
+            Trig.Tan(rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nStd:tan({rad})={expected}\r\n");
+
+            Trig.Tan(rad, AngleUnit.Rad)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nRad:tan({rad})={expected}\r\n");
+
+            Trig.Tan(deg, AngleUnit.Deg)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nDeg:tan({deg})={expected}\r\n");
+
+            Trig.Tan(gon, AngleUnit.Gon)
+                .Should()
+                .BeApproximately(expected, Bee.Math.Epsilon, $"\r\nGon:tan({gon})={expected}\r\n");
+        }
+
         [TestCase(0, 0, 0, 1)]
         // vielfache von 30°
         [TestCase(1 * Math.PI / 6, 30, 33.33333333, 1.1547005383793)]

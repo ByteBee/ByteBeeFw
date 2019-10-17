@@ -8,6 +8,7 @@ namespace ByteBeeTests.Numerics.TrigTests
 {
     public sealed class TestHyperbolicFunc
     {
+        /*
         [TestCase(0, 0, 0, 0)]
         // vielfache von 30°
         [TestCase(1 * Math.PI / 6, 30, 33.33333333, 0)]
@@ -27,6 +28,8 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(6 * Math.PI / 4, 270, 300, 0)]
         [TestCase(7 * Math.PI / 4, 315, 350, 0)]
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
+
+        
         public void TestHyperbolicSine(double rad, double deg, double gon, double expected)
         {
             Trig.Sinh(rad)
@@ -236,5 +239,6 @@ namespace ByteBeeTests.Numerics.TrigTests
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:coth({gon})={expected}\r\n");
         }
+        /**/
     }
 }

@@ -106,8 +106,7 @@ namespace ByteBee.Numerics
             theta *= angle.ToRad();
             return Cot(theta);
         }
-
-
+        /*
         /// <summary>
         /// arcus sine (rad)
         /// </summary>
@@ -393,6 +392,6 @@ namespace ByteBee.Numerics
         public static double Acsch(double theta, AngleUnit angle)
         {
             return Math.Log((Math.Sign(theta) * Math.Sqrt(theta * theta + 1) + 1) / theta);
-        }
+        }/**/
     }
 }
