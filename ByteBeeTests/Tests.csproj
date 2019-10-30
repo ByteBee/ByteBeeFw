@@ -53,13 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audit\AuditorTest.cs" />
     <Compile Include="DataTypes\EnumTest.cs" />
     <Compile Include="DataTypes\Vector2Test.cs" />
-    <Compile Include="GuardClause\TestAgainstNull.cs" />
-    <Compile Include="GuardClause\TestAgainstNullOrEmpty.cs" />
-    <Compile Include="GuardClause\TestAgainstOutOfRange.cs" />
-    <Compile Include="GuardClause\TestAgainstZero.cs" />
+    <Compile Include="Protection\TestAgainstNull.cs" />
+    <Compile Include="Protection\TestAgainstNullOrEmpty.cs" />
+    <Compile Include="Protection\TestAgainstOutOfRange.cs" />
+    <Compile Include="Protection\TestAgainstZero.cs" />
+    <Compile Include="Protection\TestStringOperations.cs" />
     <Compile Include="Logger\FakeManager.cs" />
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="GuardTests\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ByteBee\Core.csproj">

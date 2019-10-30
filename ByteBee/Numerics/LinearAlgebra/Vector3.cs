@@ -29,7 +29,8 @@ namespace ByteBee.Numerics.LinearAlgebra
                     case 2:
                         return Z;
                     default:
-                        throw new InvalidVectorIndexException();
+                        throw new InvalidVectorIndexException(
+                            $"An 3D vector has exact 3 values. There are no definitions at position '{index}'.");
                 }
             }
         }

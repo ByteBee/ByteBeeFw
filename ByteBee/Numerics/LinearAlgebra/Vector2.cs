@@ -25,7 +25,8 @@ namespace ByteBee.Numerics.LinearAlgebra
                     case 1:
                         return Y;
                     default:
-                        throw new InvalidVectorIndexException();
+                        throw new InvalidVectorIndexException(
+                            $"An 2D vector has exact 2 values. There are no definitions at position '{index}'.");
                 }
             }
         }
