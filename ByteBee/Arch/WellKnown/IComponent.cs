@@ -1,8 +1,7 @@
 ﻿// ReSharper disable UnusedMember.Global
 namespace ByteBee.Arch.WellKnown
 {
-    public interface IVisitor<in TEntity>
+    public interface IComponent
     {
-        void Visit(TEntity source);
     }
 }

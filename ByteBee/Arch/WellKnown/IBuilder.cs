@@ -1,8 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
+﻿// ReSharper disable UnusedMember.Global
 namespace ByteBee.Arch.WellKnown
 {
-    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public interface IBuilder<out TProduct>
     {
         void Reset();
