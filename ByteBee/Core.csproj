@@ -26,9 +26,4 @@
       <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
       <WarningsAsErrors />
     </PropertyGroup>
-    <ItemGroup>
-      <Compile Remove="MathClause\Functions\**" />
-      <EmbeddedResource Remove="MathClause\Functions\**" />
-      <None Remove="MathClause\Functions\**" />
-    </ItemGroup>
 </Project>

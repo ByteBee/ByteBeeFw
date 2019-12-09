@@ -304,7 +304,7 @@ namespace ByteBee.Numerics.LinearAlgebra
         }
 
         public bool IsEqual(Vector3 v)
-        {
+        { 
             return IsEqual(v, MathConstant.ZeroTolerance);
         }
 

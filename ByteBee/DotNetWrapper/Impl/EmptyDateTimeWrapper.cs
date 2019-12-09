@@ -13,9 +13,9 @@ namespace ByteBee.DotNetWrapper.Impl
         private readonly ILogger _logger;
         private readonly DateTime _nullObject = new DateTime();
 
-        public EmptyDateTimeWrapper(ILogger logger)
+        public EmptyDateTimeWrapper()
         {
-            _logger = logger;
+            _logger = BeeKernel.GetExisting<ILogger>();
         }
 
         public override DateTime Now

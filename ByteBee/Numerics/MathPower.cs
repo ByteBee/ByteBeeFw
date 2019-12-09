@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Numerics.Analytic
+namespace ByteBee.Numerics
 {
-    public static class Power
+    public static class MathPower
     {
         public static double BaseE(double x)
         {

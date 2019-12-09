@@ -32,19 +32,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         
         public void TestHyperbolicSine(double rad, double deg, double gon, double expected)
         {
-            Trig.Sinh(rad)
+            MathTrigonometry.Sinh(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:sinh({rad})={expected}\r\n");
 
-            Trig.Sinh(rad, AngleUnit.Rad)
+            MathTrigonometry.Sinh(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:sinh({rad})={expected}\r\n");
 
-            Trig.Sinh(deg, AngleUnit.Deg)
+            MathTrigonometry.Sinh(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:sinh({deg})={expected}\r\n");
 
-            Trig.Sinh(gon, AngleUnit.Gon)
+            MathTrigonometry.Sinh(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:sinh({gon})={expected}\r\n");
         }
@@ -70,19 +70,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestHyperbolicCosine(double rad, double deg, double gon, double expected)
         {
-            Trig.Cosh(rad)
+            MathTrigonometry.Cosh(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:cosh({rad})={expected}\r\n");
 
-            Trig.Cosh(rad, AngleUnit.Rad)
+            MathTrigonometry.Cosh(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:cosh({rad})={expected}\r\n");
 
-            Trig.Cosh(deg, AngleUnit.Deg)
+            MathTrigonometry.Cosh(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:cosh({deg})={expected}\r\n");
 
-            Trig.Cosh(gon, AngleUnit.Gon)
+            MathTrigonometry.Cosh(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:cosh({gon})={expected}\r\n");
         }
@@ -108,19 +108,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestHyperbolicTangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Tanh(rad)
+            MathTrigonometry.Tanh(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:tanh({rad})={expected}\r\n");
 
-            Trig.Tanh(rad, AngleUnit.Rad)
+            MathTrigonometry.Tanh(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:tanh({rad})={expected}\r\n");
 
-            Trig.Tanh(deg, AngleUnit.Deg)
+            MathTrigonometry.Tanh(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:tanh({deg})={expected}\r\n");
 
-            Trig.Tanh(gon, AngleUnit.Gon)
+            MathTrigonometry.Tanh(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:tanh({gon})={expected}\r\n");
         }
@@ -147,19 +147,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestHyperbolicSecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Sech(rad)
+            MathTrigonometry.Sech(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:sech({rad})={expected}\r\n");
 
-            Trig.Sech(rad, AngleUnit.Rad)
+            MathTrigonometry.Sech(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:sech({rad})={expected}\r\n");
 
-            Trig.Sech(deg, AngleUnit.Deg)
+            MathTrigonometry.Sech(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:sech({deg})={expected}\r\n");
 
-            Trig.Sech(gon, AngleUnit.Gon)
+            MathTrigonometry.Sech(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:sech({gon})={expected}\r\n");
         }
@@ -185,19 +185,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestHyperbolicCosecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Csch(rad)
+            MathTrigonometry.Csch(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:csch({rad})={expected}\r\n");
 
-            Trig.Csch(rad, AngleUnit.Rad)
+            MathTrigonometry.Csch(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:csch({rad})={expected}\r\n");
 
-            Trig.Csch(deg, AngleUnit.Deg)
+            MathTrigonometry.Csch(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:csch({deg})={expected}\r\n");
 
-            Trig.Csch(gon, AngleUnit.Gon)
+            MathTrigonometry.Csch(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:csch({gon})={expected}\r\n");
         }
@@ -223,19 +223,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestHyperbolicCotangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Coth(rad)
+            MathTrigonometry.Coth(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:coth({rad})={expected}\r\n");
 
-            Trig.Coth(rad, AngleUnit.Rad)
+            MathTrigonometry.Coth(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:coth({rad})={expected}\r\n");
 
-            Trig.Coth(deg, AngleUnit.Deg)
+            MathTrigonometry.Coth(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:coth({deg})={expected}\r\n");
 
-            Trig.Coth(gon, AngleUnit.Gon)
+            MathTrigonometry.Coth(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:coth({gon})={expected}\r\n");
         }

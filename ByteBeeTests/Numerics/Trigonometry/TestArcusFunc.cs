@@ -31,19 +31,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusSine(double rad, double deg, double gon, double expected)
         {
-            Trig.Asin(expected)
+            MathTrigonometry.Asin(expected)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:asin({rad})={expected}\r\n");
 
-            Trig.Asin(expected, AngleUnit.Rad)
+            MathTrigonometry.Asin(expected, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:asin({rad})={expected}\r\n");
 
-            Trig.Asin(expected, AngleUnit.Deg)
+            MathTrigonometry.Asin(expected, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:asin({deg})={expected}\r\n");
 
-            Trig.Asin(expected, AngleUnit.Gon)
+            MathTrigonometry.Asin(expected, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:asin({gon})={expected}\r\n");
         }
@@ -65,7 +65,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 1)]                  // 90°
         //public void TestArcusSine(double expected, double theta)
         //{
-        //    Trig.Asin(theta)
+        //    MathTrigonometry.Asin(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -80,7 +80,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 1)]                  // 90°
         //public void TestArcusSineRad(double expected, double theta)
         //{
-        //    Trig.Asin(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Asin(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -95,7 +95,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1, 90)]
         //public void TestArcusSineDeg(double theta, double expected)
         //{
-        //    Trig.Asin(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Asin(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -122,19 +122,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusCosine(double rad, double deg, double gon, double expected)
         {
-            Trig.Acos(rad)
+            MathTrigonometry.Acos(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acos({rad})={expected}\r\n");
 
-            Trig.Acos(rad, AngleUnit.Rad)
+            MathTrigonometry.Acos(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acos({rad})={expected}\r\n");
 
-            Trig.Acos(deg, AngleUnit.Deg)
+            MathTrigonometry.Acos(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acos({deg})={expected}\r\n");
 
-            Trig.Acos(gon, AngleUnit.Gon)
+            MathTrigonometry.Acos(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acos({gon})={expected}\r\n");
         }
@@ -154,7 +154,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1, 0)]
         //public void TestArcusCosine(double theta, double expected)
         //{
-        //    Trig.Acos(theta)
+        //    MathTrigonometry.Acos(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -170,7 +170,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1, 0)]
         //public void TestArcusCosineRad(double theta, double expected)
         //{
-        //    Trig.Acos(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Acos(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -185,7 +185,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1, 0)]
         //public void TestArcusCosineDeg(double theta, double expected)
         //{
-        //    Trig.Acos(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Acos(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -212,19 +212,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusTangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Atan(rad)
+            MathTrigonometry.Atan(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:atan({rad})={expected}\r\n");
 
-            Trig.Atan(rad, AngleUnit.Rad)
+            MathTrigonometry.Atan(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:atan({rad})={expected}\r\n");
 
-            Trig.Atan(deg, AngleUnit.Deg)
+            MathTrigonometry.Atan(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:atan({deg})={expected}\r\n");
 
-            Trig.Atan(gon, AngleUnit.Gon)
+            MathTrigonometry.Atan(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:atan({gon})={expected}\r\n");
         }
@@ -242,7 +242,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1.732050808, Math.PI / 3)]
         //public void TestArcusTangent(double theta, double expected)
         //{
-        //    Trig.Atan(theta)
+        //    MathTrigonometry.Atan(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -255,7 +255,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1.732050808, Math.PI / 3)]
         //public void TestArcusTangentRad(double theta, double expected)
         //{
-        //    Trig.Atan(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Atan(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -268,7 +268,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(1.732050808, 60)]
         //public void TestArcusTangentDeg(double theta, double expected)
         //{
-        //    Trig.Atan(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Atan(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -295,19 +295,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusCosecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Acsc(rad)
+            MathTrigonometry.Acsc(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acsc({rad})={expected}\r\n");
 
-            Trig.Acsc(rad, AngleUnit.Rad)
+            MathTrigonometry.Acsc(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acsc({rad})={expected}\r\n");
 
-            Trig.Acsc(deg, AngleUnit.Deg)
+            MathTrigonometry.Acsc(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acsc({deg})={expected}\r\n");
 
-            Trig.Acsc(gon, AngleUnit.Gon)
+            MathTrigonometry.Acsc(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acsc({gon})={expected}\r\n");
         }
@@ -326,7 +326,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 1)]
         //public void TestArcusCosecant(double expected, double theta)
         //{
-        //    Trig.Acsc(theta)
+        //    MathTrigonometry.Acsc(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -341,7 +341,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 1)]
         //public void TestArcusCosecantRad(double expected, double theta)
         //{
-        //    Trig.Acsc(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Acsc(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -351,7 +351,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(90, 1)]
         //public void TestArcusCosecantDeg(double expected, double theta)
         //{
-        //    Trig.Acsc(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Acsc(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -378,19 +378,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusSecant(double rad, double deg, double gon, double expected)
         {
-            Trig.Asec(rad)
+            MathTrigonometry.Asec(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:asec({rad})={expected}\r\n");
 
-            Trig.Asec(rad, AngleUnit.Rad)
+            MathTrigonometry.Asec(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:asec({rad})={expected}\r\n");
 
-            Trig.Asec(deg, AngleUnit.Deg)
+            MathTrigonometry.Asec(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:asec({deg})={expected}\r\n");
 
-            Trig.Asec(gon, AngleUnit.Gon)
+            MathTrigonometry.Asec(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:asec({gon})={expected}\r\n");
         }
@@ -403,7 +403,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 3, 2)]
         //public void TestArcusSecant(double expected, double theta)
         //{
-        //    Trig.Asec(theta)
+        //    MathTrigonometry.Asec(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -413,7 +413,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 3, 2)]
         //public void TestArcusSecantRad(double expected, double theta)
         //{
-        //    Trig.Asec(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Asec(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -426,7 +426,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(60, 2)]
         //public void TestArcusSecantDeg(double expected, double theta)
         //{
-        //    Trig.Asec(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Asec(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -453,19 +453,19 @@ namespace ByteBeeTests.Numerics.TrigTests
         [TestCase(8 * Math.PI / 4, 360, 400, 0)]
         public void TestArcusCotangent(double rad, double deg, double gon, double expected)
         {
-            Trig.Acot(rad)
+            MathTrigonometry.Acot(rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nStd:acot({rad})={expected}\r\n");
 
-            Trig.Acot(rad, AngleUnit.Rad)
+            MathTrigonometry.Acot(rad, AngleUnit.Rad)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nRad:acot({rad})={expected}\r\n");
 
-            Trig.Acot(deg, AngleUnit.Deg)
+            MathTrigonometry.Acot(deg, AngleUnit.Deg)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nDeg:acot({deg})={expected}\r\n");
 
-            Trig.Acot(gon, AngleUnit.Gon)
+            MathTrigonometry.Acot(gon, AngleUnit.Gon)
                 .Should()
                 .BeApproximately(expected, MathConstant.Epsilon, $"\r\nGon:acot({gon})={expected}\r\n");
         }
@@ -478,7 +478,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 0)]
         //public void TestArcusCotangent(double expected, double theta)
         //{
-        //    Trig.Acot(theta)
+        //    MathTrigonometry.Acot(theta)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -488,7 +488,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(Math.PI / 2, 0)]
         //public void TestArcusCotangentRad(double expected, double theta)
         //{
-        //    Trig.Acot(theta, AngleUnit.Rad)
+        //    MathTrigonometry.Acot(theta, AngleUnit.Rad)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 
@@ -498,7 +498,7 @@ namespace ByteBeeTests.Numerics.TrigTests
         //[TestCase(135, -1)]
         //public void TestArcusCotangentDeg(double expected, double theta)
         //{
-        //    Trig.Acot(theta, AngleUnit.Deg)
+        //    MathTrigonometry.Acot(theta, AngleUnit.Deg)
         //        .Should().BeApproximately(expected, Bee.Math.ZeroTolerance);
         //}
 

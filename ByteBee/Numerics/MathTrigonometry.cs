@@ -3,7 +3,7 @@ using ByteBee.Enums;
 
 namespace ByteBee.Numerics
 {
-    public static class Trig
+    public static class MathTrigonometry
     {
         /// <summary>
         /// sine (rad)

@@ -55,6 +55,9 @@
   <ItemGroup>
     <Compile Include="DataTypes\EnumTest.cs" />
     <Compile Include="DataTypes\Vector2Test.cs" />
+    <Compile Include="Numerics\Range\TestClamp.cs" />
+    <Compile Include="Numerics\Range\TestMax.cs" />
+    <Compile Include="Numerics\Range\TestMin.cs" />
     <Compile Include="Protection\TestAgainstNull.cs" />
     <Compile Include="Protection\TestAgainstNullOrEmpty.cs" />
     <Compile Include="Protection\TestAgainstOutOfRange.cs" />
@@ -75,10 +78,10 @@
     <Compile Include="MathClause\Algebra\Vector\MiscVectorTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\MultiplyTests.cs" />
     <Compile Include="MathClause\Algebra\Vector\SubtractionTests.cs" />
-    <Compile Include="Numerics\TrigTests\TestArcusFunc.cs" />
-    <Compile Include="Numerics\TrigTests\TestAreaFunc.cs" />
-    <Compile Include="Numerics\TrigTests\TestHyperbolicFunc.cs" />
-    <Compile Include="Numerics\TrigTests\TestTrigFunc.cs" />
+    <Compile Include="Numerics\Trigonometry\TestArcusFunc.cs" />
+    <Compile Include="Numerics\Trigonometry\TestAreaFunc.cs" />
+    <Compile Include="Numerics\Trigonometry\TestHyperbolicFunc.cs" />
+    <Compile Include="Numerics\Trigonometry\TestTrigFunc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Cryptography\TestByteBeeAlgorithm.cs" />
     <Compile Include="Security\Cryptography\TestMd5Hash.cs" />

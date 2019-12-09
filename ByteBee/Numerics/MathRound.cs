@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Numerics.Arithmetic
+namespace ByteBee.Numerics
 {
-    public static class Round
+    public static class MathRound
     {
         public static double SigDigN(double value, int digits)
         {

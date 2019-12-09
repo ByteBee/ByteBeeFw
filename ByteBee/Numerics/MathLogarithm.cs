@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ByteBee.Numerics.Analytic
+namespace ByteBee.Numerics
 {
-    public static class Logarithm
+    public static class MathLogarithm
     {
         public static double BaseE(double d)
         {

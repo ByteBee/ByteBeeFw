@@ -13,8 +13,7 @@ namespace ByteBee
         {
             return new GuardArgument<T>(argument, name);
         }
-
-
+        
         private static bool ThisIsNotOk<T>(T input)
         {
             if (default(T) == null)
