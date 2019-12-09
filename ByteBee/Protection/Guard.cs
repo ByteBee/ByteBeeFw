@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using ByteBee.Protection;
 
 // ReSharper disable once CheckNamespace
 namespace ByteBee
 {
-    public static class Guard
+    internal static class Guard
     {
         public static GuardArgument<T> Ensure<T>(T argument, string name = null)
         {

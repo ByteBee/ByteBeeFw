@@ -19,8 +19,6 @@ namespace ByteBeeTests.Protection
 
             Assert.AreSame("Jonny", name);
             Assert.Throws<GuardArgumentIsEmptyException>(emptyName);
-
-            var x = Is.Not.Empty;
         }
 
         [Test]
