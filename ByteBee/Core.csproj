@@ -5,8 +5,8 @@
         <RootNamespace>ByteBee</RootNamespace>
         <Authors>Sergej Kukshaus</Authors>
         <Company />
-        <Product>ByteBee</Product>
-        <Description></Description>
+        <Product>ByteBee Framework</Product>
+        <Description>Combines some handy tools in one single dll.</Description>
         <PackageLicenseUrl>https://github.com/ByteBee/ByteBeeFw/blob/master/LICENSE.md</PackageLicenseUrl>
         <PackageProjectUrl></PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
