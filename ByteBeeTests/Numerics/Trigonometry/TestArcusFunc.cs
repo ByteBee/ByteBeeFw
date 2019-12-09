@@ -2,7 +2,6 @@
 using ByteBee;
 using ByteBee.Enums;
 using ByteBee.Numerics;
-using FluentAssertions;
 using NUnit.Framework;
 
 namespace ByteBeeTests.Numerics.TrigTests

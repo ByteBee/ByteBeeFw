@@ -34,17 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions, Version=5.6.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.5.6.0\lib\net45\FluentAssertions.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,7 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\EnumTest.cs" />
-    <Compile Include="DataTypes\Vector2Test.cs" />
+    <Compile Include="Numerics\Logarithm\TestBase10.cs" />
+    <Compile Include="Numerics\Logarithm\TestBase16.cs" />
+    <Compile Include="Numerics\Logarithm\TestBase2.cs" />
+    <Compile Include="Numerics\Logarithm\TestBase8.cs" />
+    <Compile Include="Numerics\Logarithm\TestCustomBase.cs" />
     <Compile Include="Numerics\Range\TestClamp.cs" />
     <Compile Include="Numerics\Range\TestMax.cs" />
     <Compile Include="Numerics\Range\TestMin.cs" />
@@ -67,17 +65,16 @@
     <Compile Include="Logger\LogFilterTest.cs" />
     <Compile Include="Logger\StandardLoggerTest.cs" />
     <Compile Include="Logger\TestWithNinject.cs" />
-    <Compile Include="MathClause\Func\TestLogarithmFunc.cs" />
-    <Compile Include="MathClause\Func\TestPowerFunc.cs" />
-    <Compile Include="Mathematics\BoundaryTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\AbstractVectorTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\AdditionTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\ComparisonTest.cs" />
-    <Compile Include="MathClause\Algebra\Vector\ConversionTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\DivisionTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\MiscVectorTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\MultiplyTests.cs" />
-    <Compile Include="MathClause\Algebra\Vector\SubtractionTests.cs" />
+    <Compile Include="Numerics\Logarithm\TestBaseEuler.cs" />
+    <Compile Include="Numerics\Power\TestPowerFunc.cs" />
+    <Compile Include="Numerics\Vector\AbstractVectorTests.cs" />
+    <Compile Include="Numerics\Vector\AdditionTests.cs" />
+    <Compile Include="Numerics\Vector\ComparisonTest.cs" />
+    <Compile Include="Numerics\Vector\ConversionTests.cs" />
+    <Compile Include="Numerics\Vector\DivisionTests.cs" />
+    <Compile Include="Numerics\Vector\MiscVectorTests.cs" />
+    <Compile Include="Numerics\Vector\MultiplyTests.cs" />
+    <Compile Include="Numerics\Vector\SubtractionTests.cs" />
     <Compile Include="Numerics\Trigonometry\TestArcusFunc.cs" />
     <Compile Include="Numerics\Trigonometry\TestAreaFunc.cs" />
     <Compile Include="Numerics\Trigonometry\TestHyperbolicFunc.cs" />
@@ -96,10 +93,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="GuardTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ByteBee\Core.csproj">
       <Project>{a09995fb-1538-4c28-b805-e2a58d9b7872}</Project>

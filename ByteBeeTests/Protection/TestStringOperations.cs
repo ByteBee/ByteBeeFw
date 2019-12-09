@@ -2,7 +2,6 @@
 using ByteBee;
 using ByteBee.Exceptions;
 using ByteBee.Protection;
-using FluentAssertions;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
