@@ -5,7 +5,7 @@ using ByteBee.Protection;
 // ReSharper disable once CheckNamespace
 namespace ByteBee
 {
-    internal static class Guard
+    public static class Guard
     {
         public static GuardArgument<T> Ensure<T>(T argument, string name = null)
         {

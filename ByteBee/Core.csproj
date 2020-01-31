@@ -20,10 +20,18 @@
         <FileVersion>1.1.2.0</FileVersion>
         <Version>1.1.2</Version>
         <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+        <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+        <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
       <DocumentationFile></DocumentationFile>
       <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
       <WarningsAsErrors />
     </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Configuration\DataClasses\" />
+    </ItemGroup>
 </Project>

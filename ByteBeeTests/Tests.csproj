@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\MyConfig.cs" />
+    <Compile Include="Configuration\TestInMemoryConfigurator.cs" />
     <Compile Include="DataTypes\EnumTest.cs" />
     <Compile Include="Numerics\Logarithm\TestBase10.cs" />
     <Compile Include="Numerics\Logarithm\TestBase16.cs" />
